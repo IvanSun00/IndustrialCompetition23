@@ -67,7 +67,7 @@
 <meta name="msapplication-TileImage" content="../assets/favico/ms-icon-144x144.png">
 <meta name="theme-color" content="#ffffff">
 
-<title>Industrial Competition 2022</title>
+<title>Industrial Competition 2023</title>
 
 </head>
 <style>
@@ -1112,12 +1112,12 @@ button.centered-button {
 }
 
 .submitText {
-  font-family: 'Press Start 2P', cursive;
-  font-size: 10px;
+  /* font-family: 'Press Start 2P', cursive;
+  font-size: 10px; */
   /* padding: 5px 15px; */
 }
 </style>
-    <title>Form Pendaftaran IC 2022</title>
+    <title>Form Pendaftaran IC 2023</title>
   </head>
   <body>
         <section class="wrapper">
@@ -1125,7 +1125,7 @@ button.centered-button {
             <div id="stars2"></div>
             <div id="stars3"></div>
         </section>
-        <nav id="main-nav" class="navbar navbar-dark fixed-top navbar-expand-lg ">
+        <!-- <nav id="main-nav" class="navbar navbar-dark fixed-top navbar-expand-lg ">
             <div class="container-fluid">
             <a class="navbar-brand ml-xs-2 p-xs-3" href="../home.php#home"><img src="../assets/logo ic.png" style="width:50px;border-radius:100px;"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -1139,7 +1139,7 @@ button.centered-button {
                 </ul>
             </div>
             </div>
-        </nav>
+        </nav> -->
         
         <div class="container-fluid container-main px-2 px-md-0 pt-5 pt-sm-4 pt-lg-0">
         <h1 class="jdl-2 text-center" style="margin-top:3%;">FORM PENDAFTARAN</h1>
@@ -1227,8 +1227,8 @@ button.centered-button {
                         </div>
                         <div class="row mt-5" style="justify-content: center;">
                             <button type="submit" class="btn fill submit" id="masok">
-                                <p data-text="It's loading.." class="loading">Loading...</p>
-                                <p class='defaultSub' >Submit</p>
+                                <!-- <p data-text="It's loading.." class="loading">Loading...</p> -->
+                                <span class='submitText' >SUBMIT</span>
                             </button>
                         </div>
                     </form>
@@ -1286,7 +1286,7 @@ button.centered-button {
                     
                         }
 
-                        $("#masok").text("Submit");
+                        $("#masok").text("SUBMIT");
                     },
                     error: function(err)
                     {
