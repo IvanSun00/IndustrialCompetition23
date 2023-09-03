@@ -644,8 +644,8 @@
 }
 
 body {
-  /* background: rgb(0, 0, 0);
-  background: linear-gradient(150deg, rgba(0, 0, 0, 1) 3%, rgba(54, 9, 121, 1) 30%, rgba(78, 1, 126, 1) 63%, rgba(109, 0, 113, 1) 90%); */
+  background: rgb(0, 0, 0);
+  background: linear-gradient(150deg, rgba(0, 0, 0, 1) 3%, rgba(54, 9, 121, 1) 30%, rgba(78, 1, 126, 1) 63%, rgba(109, 0, 113, 1) 90%);
   background-image: url("assets/bgRegist.png");
   color: white;
   font-family: 'Black Ops One', cursive;
