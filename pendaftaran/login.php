@@ -1,5 +1,5 @@
 <?php
-include 'connect.php';
+include '../connect.php';
 $error_mess = false;
 
 if ( isset($_POST["login"]) ) {
@@ -48,6 +48,9 @@ if ( isset($_POST["login"]) ) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,400;1,600&display=swap" rel="stylesheet">
+    
+    <!--FAVICON -->
+    <link rel="icon" type="image/png" href="../assets/logo%20ic.png">
 
     <!-- Icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
@@ -81,13 +84,14 @@ if ( isset($_POST["login"]) ) {
             </div>
 
             <button  class="btn btn-primary" type="submit" name="login">Login</button>
-            <a class="btn btn-secondary" href="../IC23/index.php" role="button">Back</a>
+            <!-- ubah ke landing -->
+            <a class="btn btn-secondary" href="index.php" role="button">Back</a>
         </form>
     </div>
 
     <style>
         body {
-            background-image: url('../IC23/img/Artboard_6.png');
+            background-image: url('../assets/Artboard_6.png');
         }
 
         .container-login {
