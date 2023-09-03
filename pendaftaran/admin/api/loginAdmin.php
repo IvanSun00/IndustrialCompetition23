@@ -6,27 +6,22 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     if(isset($_POST['nrp']) && isset($_POST['password'])){
 
-        $nrp = strtolower($_POST['nrp']);
-        $password = $_POST['password'];
-        $imap =false;
+        $user = strtolower($_POST['nrp']);
+        $pass = $_POST['password'];
+        $imap = false;
         $timeout = 30;
-        if($nrp == "c14220210admin"){
-            $imap = true;
-        }else{
-            $fp = fsockopen ($host ='john.petra.ac.id',$port = 110,$errno,$errstr,$timeout);
-            $errstr = fgets ($fp);
-            if (substr($errstr,0,1) == '+'){
-                fputs ($fp,"USER ".$nrp."\n");
-                $errstr = fgets ($fp);
-                if (substr ($errstr,0,1) == '+'){
-                    fputs ($fp,"PASS ".$pass."\n");
-                    $errstr = fgets ($fp);
-                    if (substr ($errstr,0,1) == '+'){
-                        $imap = true;
-                    }
+        $fp = fsockopen($host = 'john.petra.ac.id', $port = 110, $errno, $errstr, $timeout);
+        $errstr = fgets($fp);
+        if (substr($errstr, 0, 1) == '+') {
+            fputs($fp, "USER " . $user . "\n");
+            $errstr = fgets($fp);
+            if (substr($errstr, 0, 1) == '+') {
+                fputs($fp, "PASS " . $pass . "\n");
+                $errstr = fgets($fp);
+                if (substr($errstr, 0, 1) == '+') {
+                    $imap = true;
                 }
             }
-
         }
 
 
