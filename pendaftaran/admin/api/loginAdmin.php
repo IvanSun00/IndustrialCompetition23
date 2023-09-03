@@ -16,7 +16,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $fp = fsockopen ($host ='john.petra.ac.id',$port = 110,$errno,$errstr,$timeout);
             $errstr = fgets ($fp);
             if (substr($errstr,0,1) == '+'){
-                fputs ($fp,"USER ".$user."\n");
+                fputs ($fp,"USER ".$nrp."\n");
                 $errstr = fgets ($fp);
                 if (substr ($errstr,0,1) == '+'){
                     fputs ($fp,"PASS ".$pass."\n");
