@@ -9,7 +9,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $nrp = strtolower($_POST['nrp']);
         $password = $_POST['password'];
         $imap =false;
-
+        $timeout = 30;
         if($nrp == "c14220210admin"){
             $imap = true;
         }else{
