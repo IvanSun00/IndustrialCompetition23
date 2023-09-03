@@ -81,13 +81,13 @@ if ( isset($_POST["login"]) ) {
             </div>
 
             <button  class="btn btn-primary" type="submit" name="login">Login</button>
-            <a class="btn btn-secondary" href="http://webic23/index.php" role="button">Back</a>
+            <a class="btn btn-secondary" href="../IC23/index.php" role="button">Back</a>
         </form>
     </div>
 
     <style>
         body {
-            background-image: url('https://freevector-images.s3.amazonaws.com/uploads/vector/preview/40654/FreevectorSpace-BackgroundAS0621_generated.jpg');
+            background-image: url('../IC23/img/Artboard_6.png');
         }
 
         .container-login {
@@ -104,7 +104,7 @@ if ( isset($_POST["login"]) ) {
         }
 
         .labells {
-            color: black;
+            color: white;
         }
 
 
