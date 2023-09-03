@@ -644,22 +644,23 @@
 }
 
 body {
-  background: rgb(0, 0, 0);
-  background: linear-gradient(150deg, rgba(0, 0, 0, 1) 3%, rgba(54, 9, 121, 1) 30%, rgba(78, 1, 126, 1) 63%, rgba(109, 0, 113, 1) 90%);
+  /* background: rgb(0, 0, 0);
+  background: linear-gradient(150deg, rgba(0, 0, 0, 1) 3%, rgba(54, 9, 121, 1) 30%, rgba(78, 1, 126, 1) 63%, rgba(109, 0, 113, 1) 90%); */
+  background-image: url("assets/bgRegist.png");
   color: white;
   font-family: 'Black Ops One', cursive;
   background-size: cover;
   left: 0;
   top: 0;
-  background-repeat: repeat;
+  background-repeat: no-repeat;
   width: 100%;
   height: 100%;
   height: auto;
+  margin-top: 25vh;
+  margin-bottom: 25vh;
 }
 
-h3,
-h2,
-h1 {
+h3,h2,h1 {
   /* font-family: 'JetBrains Mono', monospace; */
 
   font-family: 'Press Start 2P', cursive;
@@ -668,8 +669,6 @@ h1 {
   text-decoration: double;
   color: coral;
   text-shadow: 5px 2px 5px #a96f44;
-  background-color: rgb(34, 32, 33, 0.4);
-
 }
 
 h5 {
@@ -761,6 +760,11 @@ p {
   .jdl-us {
     font-size: 15vw;
   }
+
+  body{
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+  }
 }
 
 .navbar-toggler:focus,
@@ -774,17 +778,29 @@ p {
   .navbar-brand {
     width: 79%;
   }
+  body{
+    margin-top: 5vh;
+    marginbottomp: 5vh;
+  }
 }
 
 @media (max-width:374px) {
   .navbar-brand {
     width: 69%;
   }
+  body{
+    margin-top: 2vh;
+    marginbottomp: 2vh;
+  }
 }
 
 @media (max-width:264px) {
   .navbar-brand {
     width: 59%;
+  }
+  body{
+    margin-top: 10vh;
+    margin-bottom: 10vh;
   }
 }
 
@@ -1142,8 +1158,8 @@ button.centered-button {
         </nav> -->
         
         <div class="container-fluid container-main px-2 px-md-0 pt-5 pt-sm-4 pt-lg-0">
-        <h1 class="jdl-2 text-center" style="margin-top:3%;">FORM PENDAFTARAN</h1>
-            <div class="container content pb-5 pt-2 mb-3 center">
+          <div class="container content pb-5 pt-2 mb-3 center">
+              <h1 class="jdl-2 text-center" style="margin-top:3%;">FORM PENDAFTARAN</h1>
                 <div class="col-12 col-md-7 mx-auto form-detail">
                     <form method="post" id="form-regist">
                         <div class="d-flex bagian mt-4 mb-4 jdl2">DATA TIM <hr> </div> 
