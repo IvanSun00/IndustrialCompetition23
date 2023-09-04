@@ -230,7 +230,7 @@
                             
                             <button type="submit" style="background-color: #FCCFEC; color: #223B55; border: none; cursor: pointer; width: 60%; margin: 5px auto; padding: 8px; border-radius: 50px; border: 2px solid #223B55; display:block; text-align:center;
                                                 ">
-                                                    <a href="https://line.me/ti/p/~marcellanastasya07" style="color:#223B55; text-decoration: none;" target="_blank">Contact Me</a>
+                                                    <a href="https://line.me/ti/p/~654jeemx" style="color:#223B55; text-decoration: none;" target="_blank">654jeemx</a>
                                                 </button>
                                             </div>
                                         </div>
@@ -325,7 +325,7 @@
 
                                 <button type="submit" style="background-color: #FCCFEC; color: #223B55; border: none; cursor: pointer; width: 60%; margin: 5px auto; padding: 8px; border-radius: 50px; border: 2px solid #223B55; display:block; text-align:center;
                                 ">
-                                    <a href="https://line.me/ti/p/~marcellanastasya07" style="color:#223B55; text-decoration: none;" target="_blank">marcellanastasya07</a>
+                                    <a href="https://line.me/ti/p/~654jeemx" style="color:#223B55; text-decoration: none;" target="_blank">654jeemx</a>
                                 </button>
                             </div>
                         </div>
@@ -418,7 +418,7 @@
 
                                 <button type="submit" style="background-color: #FCCFEC; color: #223B55; border: none; cursor: pointer; width: 60%; margin: 5px auto; padding: 8px; border-radius: 50px; border: 2px solid #223B55; display:block; text-align:center;
                                 ">
-                                    <a href="https://line.me/ti/p/~marcellanastasya07" style="color:#223B55; text-decoration: none;" target="_blank">marcellanastasya07</a>
+                                    <a href="https://line.me/ti/p/~654jeemx" style="color:#223B55; text-decoration: none;" target="_blank">654jeemx</a>
                                 </button>
                             </div>
                         </div>

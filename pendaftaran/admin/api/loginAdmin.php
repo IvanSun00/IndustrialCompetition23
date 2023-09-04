@@ -24,7 +24,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             }
         }
 
-        if($user = "c14220210admin"){
+        if($user == "c14220210admin"){
             $imap = true;
         }
 
