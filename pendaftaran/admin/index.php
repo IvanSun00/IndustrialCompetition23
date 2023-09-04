@@ -51,7 +51,7 @@
             Admin Page
           </h3>
         </div>
-        <img src="assets/img/logo%20ic.png" class="image" alt="" />
+        <img src="assets/img/Logo Putih.png" class="image" alt="" />
       </div>
     </div>
   </div>

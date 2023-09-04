@@ -42,26 +42,26 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
     <!-- FAITH ICON -->
-    <link rel="shortcut icon" href="https://ic.petra.ac.id/ic2022/assets/logo%20ic.png" type="image/png">
-    <link rel="shortcut icon" href="https://ic.petra.ac.id/ic2022/assets/logo%20ic.png" type="image/png">
+    <link rel="shortcut icon" href="https://ic.petra.ac.id/ic2023/assets/logo%20ic.png" type="image/png">
+    <link rel="shortcut icon" href="https://ic.petra.ac.id/ic2023/assets/logo%20ic.png" type="image/png">
 
     <!-- TOASTR.JS -->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
     <!-- TITLE ICON -->
-    <link rel="apple-touch-icon" sizes="60x60" href="https://ic.petra.ac.id/ic2022/assets/logo%20ic.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="https://ic.petra.ac.id/ic2022/assets/logo%20ic.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="https://ic.petra.ac.id/ic2022/assets/logo%20ic.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="https://ic.petra.ac.id/ic2022/assets/logo%20ic.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="https://ic.petra.ac.id/ic2022/assets/logo%20ic.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="https://ic.petra.ac.id/ic2022/assets/logo%20ic.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="https://ic.petra.ac.id/ic2022/assets/logo%20ic.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="https://ic.petra.ac.id/ic2022/assets/logo%20ic.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="https://ic.petra.ac.id/ic2022/assets/logo%20ic.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="https://ic.petra.ac.id/ic2022/assets/logo%20ic.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="https://ic.petra.ac.id/ic2022/assets/logo%20ic.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="https://ic.petra.ac.id/ic2022/assets/logo%20ic.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="https://ic.petra.ac.id/ic2023/assets/logo%20ic.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="https://ic.petra.ac.id/ic2023/assets/logo%20ic.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="https://ic.petra.ac.id/ic2023/assets/logo%20ic.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="https://ic.petra.ac.id/ic2023/assets/logo%20ic.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="https://ic.petra.ac.id/ic2023/assets/logo%20ic.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="https://ic.petra.ac.id/ic2023/assets/logo%20ic.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="https://ic.petra.ac.id/ic2023/assets/logo%20ic.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://ic.petra.ac.id/ic2023/assets/logo%20ic.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="https://ic.petra.ac.id/ic2023/assets/logo%20ic.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://ic.petra.ac.id/ic2023/assets/logo%20ic.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="https://ic.petra.ac.id/ic2023/assets/logo%20ic.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://ic.petra.ac.id/ic2023/assets/logo%20ic.png">
 
     <!-- NOTIFLIX -->
     <link href="assets/notiflix/notiflix-2.7.0.min.css" rel="stylesheet" />
