@@ -310,7 +310,7 @@
                     '<body style="background-image: linear-gradient(to bottom, #622097, #741d94, #841a91, #93188e, #a0178a); overflow:hidden;  color: #223B55; padding: 25px 20px 25px 20px;">
                         
                     <div class="wrapper" style=" width:fit-content; padding: 20px; height:fit-content; margin:0 auto; margin-top: 2%; min-width: 200px; width: 350px; background-color: #c096eb; border: 2px solid #223B55; border-radius: 10px;">
-                        <img src="https://ic.petra.ac.id/ic2022/assets/logo%20ic.png" style="height: 70px;  border-radius:100px; display: block;margin: auto;">
+                        <img src="https://ic.petra.ac.id/ic2023/assets/logo%20ic.png" style="height: 70px;  border-radius:100px; display: block;margin: auto;">
                     
                             <h2 style="text-align: center; font-weight: 300; color: #2c1a47;">Hello, '.$namaKelompok.'!</h2>
 
@@ -403,7 +403,7 @@
                     ' <body style="background-image: linear-gradient(to bottom, #622097, #741d94, #841a91, #93188e, #a0178a); overflow:hidden; color: #223B55; padding: 25px 20px 25px 20px;">
                         
                     <div class="wrapper" style=" width:fit-content; padding: 20px; height:fit-content; margin:0 auto; margin-top: 2%; min-width: 200px; width: 350px; background-color: #c096eb; border: 2px solid #223B55; border-radius: 10px;">
-                        <img src="https://ic.petra.ac.id/ic2022/assets/logo%20ic.png" style="height: 70px;border-radius:100px; display: block;margin: auto;">
+                        <img src="https://ic.petra.ac.id/ic2023/assets/logo%20ic.png" style="height: 70px;border-radius:100px; display: block;margin: auto;">
                     
                             <h2 style="text-align: center; font-weight: 300; color: #223B55;">Hello, '.$namaKelompok.'!</h2>
 
