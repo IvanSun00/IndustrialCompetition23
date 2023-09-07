@@ -1163,7 +1163,7 @@ button.centered-button {
             <div id="stars2"></div>
             <div id="stars3"></div>
         </section>
-        <!-- <nav id="main-nav" class="navbar navbar-dark fixed-top navbar-expand-lg ">
+        <nav id="main-nav" class="navbar navbar-dark fixed-top navbar-expand-lg ">
             <div class="container-fluid">
             <a class="navbar-brand ml-xs-2 p-xs-3" href="../index.php"><img src="../assets/Logo Putih.png" style="width:50px;border-radius:100px;"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -1177,7 +1177,7 @@ button.centered-button {
                 </ul>
             </div>
             </div>
-        </nav> -->
+        </nav>
         
         <div class="container-fluid container-main px-2 px-md-0 pt-5 pt-sm-4 pt-lg-0">
           <div class="container content pb-5 pt-2 mb-3 center">

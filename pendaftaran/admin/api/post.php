@@ -95,7 +95,7 @@
                                 <td>'.$getDataRow['id_line_ketua'].'</td>
                                 <td><button type="button" class="btn btn-primary detail">View</button></td>
                                 <td>'.$newDate.'</td>
-                                <td><button type="button" data-val="'.$getDataRow['buktitrf'].'" class="btn btn-warning bukti">View</button></td>';
+                                <td><button type="button" data-val="'.$getDataRow['buktitrf'].'?'.time().'" class="btn btn-warning bukti">View</button></td>';
                                
                 
 
@@ -149,17 +149,17 @@
             $getDataAction = $conn->prepare($getDataSql);
             $getDataAction->execute([$idKelompok]);
             $getDataRow = $getDataAction->fetch();
-            $satu .= '<div class="row justify-content-center mb-4"><div class="col-9"><label for="exampleFormControlInput'.$getDataRow['id'].'" class="form-label tebal" style="text-align: center;">Nama Lengkap</label><input type="text" class="form-control" id="exampleFormControlInput'.$getDataRow['id'].'" value="'.$getDataRow['nama_ketua'].'" disabled></div></div><div class="row justify-content-center"><div class="col-12 text-center mb-2 tebal">Pas Foto</div><div class="col-12"><img class="img-custom" src="../uploads/foto3x4/'.$getDataRow['foto_diri_ketua'].'" alt=""></div></div><span class="row justify-content-center mt-1 mb-4">Click to enlarge image</span><div class="row justify-content-center"><div class="col-12 text-center mb-2 tebal">Kartu Pelajar</div><div class="col-12"><img class="img-custom" src="../uploads/fotokartupelajar/'.$getDataRow['foto_pelajar_ketua'].'" alt=""></div></div><span class="row justify-content-center mt-1">Click to enlarge image</span>';
+            $satu .= '<div class="row justify-content-center mb-4"><div class="col-9"><label for="exampleFormControlInput'.$getDataRow['id'].'" class="form-label tebal" style="text-align: center;">Nama Lengkap</label><input type="text" class="form-control" id="exampleFormControlInput'.$getDataRow['id'].'" value="'.$getDataRow['nama_ketua'].'" disabled></div></div><div class="row justify-content-center"><div class="col-12 text-center mb-2 tebal">Pas Foto</div><div class="col-12"><img class="img-custom" src="../uploads/foto3x4/'.$getDataRow['foto_diri_ketua'].'?'.time().'" alt=""></div></div><span class="row justify-content-center mt-1 mb-4">Click to enlarge image</span><div class="row justify-content-center"><div class="col-12 text-center mb-2 tebal">Kartu Pelajar</div><div class="col-12"><img class="img-custom" src="../uploads/fotokartupelajar/'.$getDataRow['foto_pelajar_ketua'].'?'.time().'" alt=""></div></div><span class="row justify-content-center mt-1">Click to enlarge image</span>';
             $dua .= '<div class="row justify-content-center mb-4">
             <div class="col-9"><label for="exampleFormControlInput'.$getDataRow['id'].'" class="form-label tebal" style="text-align: center;">Nama Lengkap</label><input type="text" class="form-control" id="exampleFormControlInput'.$getDataRow['id'].'" value="'.$getDataRow['nama_peserta2'].'" disabled></div></div>
             <div class="row justify-content-center"><div class="col-12 text-center mb-2 tebal">Pas Foto</div>
-            <div class="col-12"><img class="img-custom" src="../uploads/foto3x4/'.$getDataRow['foto_diri_peserta2'].'" alt=""></div></div><span class="row justify-content-center mt-1 mb-4">Click to enlarge image</span>
-            <div class="row justify-content-center"><div class="col-12 text-center mb-2 tebal">Kartu Pelajar</div><div class="col-12"><img class="img-custom" src="../uploads/fotokartupelajar/'.$getDataRow['foto_pelajar2'].'" alt=""></div></div><span class="row justify-content-center mt-1">Click to enlarge image</span>';
+            <div class="col-12"><img class="img-custom" src="../uploads/foto3x4/'.$getDataRow['foto_diri_peserta2'].'?'.time().'" alt=""></div></div><span class="row justify-content-center mt-1 mb-4">Click to enlarge image</span>
+            <div class="row justify-content-center"><div class="col-12 text-center mb-2 tebal">Kartu Pelajar</div><div class="col-12"><img class="img-custom" src="../uploads/fotokartupelajar/'.$getDataRow['foto_pelajar2'].'?'.time().'" alt=""></div></div><span class="row justify-content-center mt-1">Click to enlarge image</span>';
             $tiga .= '<div class="row justify-content-center mb-4">
             <div class="col-9"><label for="exampleFormControlInput'.$getDataRow['id'].'" class="form-label tebal" style="text-align: center;">Nama Lengkap</label><input type="text" class="form-control" id="exampleFormControlInput'.$getDataRow['id'].'" value="'.$getDataRow['nama_peserta3'].'" disabled></div></div>
             <div class="row justify-content-center"><div class="col-12 text-center mb-2 tebal">Pas Foto</div>
-            <div class="col-12"><img class="img-custom" src="../uploads/foto3x4/'.$getDataRow['foto_diri_peserta3'].'" alt=""></div></div><span class="row justify-content-center mt-1 mb-4">Click to enlarge image</span>
-            <div class="row justify-content-center"><div class="col-12 text-center mb-2 tebal">Kartu Pelajar</div><div class="col-12"><img class="img-custom" src="../uploads/fotokartupelajar/'.$getDataRow['foto_pelajar3'].'" alt=""></div></div><span class="row justify-content-center mt-1">Click to enlarge image</span>';
+            <div class="col-12"><img class="img-custom" src="../uploads/foto3x4/'.$getDataRow['foto_diri_peserta3'].'?'.time().'" alt=""></div></div><span class="row justify-content-center mt-1 mb-4">Click to enlarge image</span>
+            <div class="row justify-content-center"><div class="col-12 text-center mb-2 tebal">Kartu Pelajar</div><div class="col-12"><img class="img-custom" src="../uploads/fotokartupelajar/'.$getDataRow['foto_pelajar3'].'?'.time().'" alt=""></div></div><span class="row justify-content-center mt-1">Click to enlarge image</span>';
             $output .= $satu.'//'.$dua.'//'.$tiga;
         }
         
