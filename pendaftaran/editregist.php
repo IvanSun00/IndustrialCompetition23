@@ -1346,6 +1346,8 @@ button.centered-button {
                                 text: "Data berhasil diubah, Tidak Ada File yang diubah",
                                 icon: "success",
                                 button: "OK"
+                            }).then(function() {
+                              window.location = "./editregist.php"+'?eraseCache=true';
                             });
                             $('.loading').css("display","none");
                             $('.defaultSub').css('display','block');
@@ -1355,6 +1357,8 @@ button.centered-button {
                                 text: e.message,
                                 icon: "error",
                                 button: "OK"
+                            }).then(function() {
+                              window.location = "./editregist.php"+'?eraseCache=true';
                             });
                             $('.loading').css("display","none");
                             $('.defaultSub').css('display','block');
@@ -1365,8 +1369,8 @@ button.centered-button {
                                 icon: "success",
                                 button: "OK"
                             }).then(function() {
-                              window.location = window.location.href+'?eraseCache=true';
-                            });;
+                              window.location = "./editregist.php"+'?eraseCache=true';
+                            });
                             $('.loading').css("display","block");
                             $('.defaultSub').css('display','none');
                             $('.loading').text('Done');
