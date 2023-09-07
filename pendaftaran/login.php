@@ -13,7 +13,7 @@ if ( isset($_POST["login"]) ) {
         if(password_verify($pass, $data['password'])){
             $msg = 'success';
             $_SESSION['nama_kelompok'] = $username;
-            header("Location: index.php");
+            header("Location: editregist.php");
         }else{
             $msg =  'wrong';
             $error_mess = true;
