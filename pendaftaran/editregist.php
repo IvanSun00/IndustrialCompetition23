@@ -1279,7 +1279,7 @@ button.centered-button {
                             <input class="form-control" type="file" name="fotodiri3" id="fotodiri3" accept="image/*">
                         </div>
                         <div class="col-12 mt-3">
-                        <img src="uploads/fotokartupelajar/<?=$data['foto_pelajar3'] ?>" alt="" style="max-width:60%;height:auto;max-height:400px;">
+                        <img src="uploads/fotokartupelajar/<?=$data['foto_pelajar3']?>?<?=time()?>" alt="" style="max-width:60%;height:auto;max-height:400px;">
                         <br>
                             <span>Foto Kartu Pelajar</span>
                             <input class="form-control" type="file" name="fotopelajar3" id="fotopelajar3" accept="image/*">
@@ -1364,7 +1364,9 @@ button.centered-button {
                                 text: e.message,
                                 icon: "success",
                                 button: "OK"
-                            });
+                            }).then(function() {
+                              window.location = window.location.href+'?eraseCache=true';
+                            });;
                             $('.loading').css("display","block");
                             $('.defaultSub').css('display','none');
                             $('.loading').text('Done');
