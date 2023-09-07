@@ -1231,13 +1231,13 @@ button.centered-button {
                             <input type="text" class="form-control" name="idline1" id="idline1" value="<?=$data['id_line_ketua']?>">
                         </div>
                         <div class="col-12 mt-3">
-                           <img src="uploads/foto3x4/<?=$data['foto_diri_ketua'] ?>" alt="" style="max-width:60%;height:auto;max-height:400px;">
+                           <img src="uploads/foto3x4/<?=$data['foto_diri_ketua']?>?<?=time()?>" alt="" style="max-width:60%;height:auto;max-height:400px;">
                            <br>
                             <span>Pas Foto 3x4</span>
                             <input class="form-control" type="file" name="fotodiri1" id="fotodiri1" accept="image/*">
                         </div>
                         <div class="col-12 mt-3">
-                        <img src="uploads/fotokartupelajar/<?=$data['foto_pelajar_ketua'] ?>" alt="" style="max-width:60%;height:auto;max-height:400px;">
+                        <img src="uploads/fotokartupelajar/<?=$data['foto_pelajar_ketua']?>?<?=time()?>" alt="" style="max-width:60%;height:auto;max-height:400px;">
                         <br>
                             <span>Foto Kartu Pelajar</span>
                             <input class="form-control" type="file" name="fotopelajar1" id="fotopelajar1" accept="image/*">
@@ -1252,13 +1252,13 @@ button.centered-button {
                             <input type="text" class="form-control" name="idline2" id="idline2" value="<?=$data['id_line2']?>">
                         </div>
                         <div class="col-12 mt-3">
-                        <img src="uploads/foto3x4/<?=$data['foto_diri_peserta2'] ?>" alt="" style="max-width:60%;height:auto;max-height:400px;">
+                        <img src="uploads/foto3x4/<?=$data['foto_diri_peserta2']?>?<?=time()?>" alt="" style="max-width:60%;height:auto;max-height:400px;">
                         <br>
                             <span>Pas Foto 3x4</span>
                             <input class="form-control" type="file" name="fotodiri2" id="fotodiri2" accept="image/*">
                         </div>
                         <div class="col-12 mt-3">
-                        <img src="uploads/fotokartupelajar/<?=$data['foto_pelajar2'] ?>" alt="" style="max-width:60%;height:auto; max-height:400px;">
+                        <img src="uploads/fotokartupelajar/<?=$data['foto_pelajar2']?>?<?=time()?>" alt="" style="max-width:60%;height:auto; max-height:400px;">
                         <br>
                             <span>Foto Kartu Pelajar</span>
                             <input class="form-control" type="file" name="fotopelajar2" id="fotopelajar2" accept="image/*">
@@ -1273,7 +1273,7 @@ button.centered-button {
                             <input type="text" class="form-control" name="idline3" id="idline3" value="<?=$data['id_line3']?>">
                         </div>
                         <div class="col-12 mt-3">
-                          <img src="uploads/foto3x4/<?=$data['foto_diri_peserta3'] ?>" alt="" style="max-width:60%;height:auto;max-height:400px;">
+                          <img src="uploads/foto3x4/<?=$data['foto_diri_peserta3'] ?>?<?=time()?>" alt="" style="max-width:60%;height:auto;max-height:400px;">
                           <br>
                             <span>Pas Foto 3x4</span>
                             <input class="form-control" type="file" name="fotodiri3" id="fotodiri3" accept="image/*">
@@ -1286,7 +1286,7 @@ button.centered-button {
                         </div>
                         <div class="d-flex bagian mb-1 jdl2">BUKTI TRANSFER</div>
                         <div class="col-12 mt-5">
-                            <img class="gbrtrf" src="uploads/buktitransfer/<?=$data['buktitrf']?>" alt="Bukti transfer" style="max-width:60%;height:auto;max-height:400px;"> <br>
+                            <img class="gbrtrf" src="uploads/buktitransfer/<?=$data['buktitrf']?>?<?=time()?>" alt="Bukti transfer" style="max-width:60%;height:auto;max-height:400px;"> <br>
                             <span>Bukti Transfer</span>
                             <input class="form-control" type="file" name="buktitrf" id="buktitrf" accept="image/*">
                         </div>
@@ -1347,7 +1347,7 @@ button.centered-button {
                                 icon: "success",
                                 button: "OK"
                             }).then(function() {
-                              window.location = "./editregist.php"+'?eraseCache=true';
+                                location.reload();
                             });
                             $('.loading').css("display","none");
                             $('.defaultSub').css('display','block');
@@ -1358,7 +1358,7 @@ button.centered-button {
                                 icon: "error",
                                 button: "OK"
                             }).then(function() {
-                              window.location = "./editregist.php"+'?eraseCache=true';
+                                location.reload();
                             });
                             $('.loading').css("display","none");
                             $('.defaultSub').css('display','block');
@@ -1369,7 +1369,7 @@ button.centered-button {
                                 icon: "success",
                                 button: "OK"
                             }).then(function() {
-                              window.location = "./editregist.php"+'?eraseCache=true';
+                                location.reload();
                             });
                             $('.loading').css("display","block");
                             $('.defaultSub').css('display','none');
