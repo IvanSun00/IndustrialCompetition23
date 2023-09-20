@@ -1121,7 +1121,7 @@
         let i = 0;
         function type() {
             if (i < text.length) {
-                typewriterElement.innerText += text.charAt(i);
+                typewriterElement.innerText = text.substring(0,i+1) ;
                 i++;
                 setTimeout(type, 50); // Adjust the typing speed (in milliseconds)
             }
