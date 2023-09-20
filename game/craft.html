@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crafting Site</title>
 
@@ -10,6 +11,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Handjet:wght@100;200;300;400;500;600;700;800;900&family=League+Spartan:wght@800&family=Press+Start+2P&family=Staatliches&display=swap" rel="stylesheet">
+
+    <!-- INVENTORY -->
+    <!--=============== UNICONS ===============-->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="inventory.css">
+    
     <style>
                 /* http://meyerweb.com/eric/tools/css/reset/ 
         v2.0 | 20110126
@@ -26,7 +34,7 @@
         fieldset, form, label, legend,
         table, caption, tbody, tfoot, thead, tr, th, td,
         article, aside, canvas, details, embed, 
-        figure, figcaption, footer, header, hgroup, 
+        figure, figcaption, footer, hgroup, 
         menu, nav, output, ruby, section, summary,
         time, mark, audio, video {
             margin: 0;
@@ -38,7 +46,7 @@
         }
         /* HTML5 display-role reset for older browsers */
         article, aside, details, figcaption, figure, 
-        footer, header, hgroup, menu, nav, section {
+        footer, hgroup, menu, nav, section {
             display: block;
         }
         body {
@@ -179,10 +187,10 @@
         }
 
 
-        .header {
+        /* .header {
             z-index: 4;
             top: 10px;
-        }
+        } */
 
 
         .bom {
@@ -669,8 +677,6 @@
                     <span>bill of material</span> 
                 </p>
 
-                
-
             </div>
             <div class="section clearfix">
                 <div class="nav">
@@ -678,8 +684,6 @@
                     <a href="">Inventory</a>
                     <a href="">Logout</a>
                 </div>
-
-
                 
                 <div class="bom clearfix">
                     
@@ -724,7 +728,7 @@
                                 </td>
                             </tr>
                         </table>
-                     
+                    
                         
                     </div>
                     <div class="bom2 bom-box">
@@ -916,6 +920,93 @@
         </div>
     </div>
     
+    <header class="header" id="header">
+        <nav class="navbar container">
+            <a href="#" class="nav__logo">Inventory</a>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="#" class="nav__link">
+                            <i class="uil uil-estate nav__icon"><span id="jumlah">x2</span></i> Ferumi 
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#" class="nav__link">
+                            <i class="uil uil-user nav__icon"><span id="jumlah">x2</span></i> Lateks
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#" class="nav__link">
+                            <i class="uil uil-file-alt nav__icon"><span id="jumlah">x2</span></i> Timbal
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#" class="nav__link">
+                            <i class="uil uil-briefcase-alt nav__icon"><span id="jumlah">x2</span></i> Cuprite
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#" class="nav__link">
+                            <i class="uil uil-scenery nav__icon"><span id="jumlah">x2</span></i> Karbon
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#" class="nav__link">
+                            <i class="uil uil-message nav__icon"><span id="jumlah">x2</span></i> Uvavorite 
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#" class="nav__link">
+                            <i class="uil uil-estate nav__icon"><span id="jumlah">x2</span></i> Titanium
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#" class="nav__link">
+                            <i class="uil uil-user nav__icon"><span id="jumlah">x2</span></i> Sylvite
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#" class="nav__link">
+                            <i class="uil uil-file-alt nav__icon"><span id="jumlah">x2</span></i> Silikon
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#" class="nav__link">
+                            <i class="uil uil-briefcase-alt nav__icon"><span id="jumlah">x2</span></i> Copper
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#" class="nav__link">
+                            <i class="uil uil-scenery nav__icon"><span id="jumlah">x2</span></i> Nitrogen
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#" class="nav__link">
+                            <i class="uil uil-message nav__icon"><span id="jumlah">x2</span></i> Poliisoprena 
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#" class="nav__link">
+                            <i class="uil uil-estate nav__icon"><span id="jumlah">x2</span></i> Fluorit
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#" class="nav__link">
+                            <i class="uil uil-user nav__icon"><span id="jumlah">x2</span></i> Hematit
+                        </a>
+                </ul>
+                <i class="uil uil-times nav__close" id="nav-close"></i>
+            </div>
+
+            <div class="nav__btns">
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class="uil uil-apps"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
 <script>
     var load = document.getElementsByClassName("loading");
     var confirm = document.getElementsByClassName("confirm");
@@ -979,9 +1070,7 @@
         load[index].style.opacity=0;
         load[index].style.visibility="hidden";
         
-    }
-
-    
+    }    
 
     function showConfirm () {
         for (var i=0; i<5; i++) {
@@ -997,9 +1086,6 @@
         }
         
     }
-
-   
-
 
     function resetConfirm (confirmMessage, text) {
         confirmMessage.style.opacity=0;
@@ -1024,10 +1110,9 @@
         type();
         
     }
-
-    
-
 </script>
+<!--=============== JS ===============-->
+<script src="inventory.js"></script>
 
     
 </body>

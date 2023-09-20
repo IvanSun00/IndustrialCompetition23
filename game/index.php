@@ -153,10 +153,6 @@ foreach($dataCrafting as $craft){
         }
     }
 }
-
-
-
-
 ?>
 
 
