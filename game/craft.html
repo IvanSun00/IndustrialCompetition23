@@ -594,7 +594,7 @@
             height: 100px;
             width: 100px;
             bottom: 25%;
-            transition: 0.4s;
+            transition: 1s;
             position: absolute;
             border: 18px dashed #2f07d194; 
             border-radius: 50%; 
@@ -602,7 +602,7 @@
             /* border: 18px; */
             z-index: 8;
             animation: spin-1 1.8s alternate-reverse infinite ease-in-out, colorChanges 0.7s alternate-reverse infinite;
-            /* visibility: hidden; */
+            visibility: hidden; 
         }
 
         @keyframes colorChanges {
@@ -1123,7 +1123,7 @@
             if (i < text.length) {
                 typewriterElement.innerText = text.substring(0,i+1) ;
                 i++;
-                setTimeout(type, 50); // Adjust the typing speed (in milliseconds)
+                setTimeout(type, 100); // Adjust the typing speed (in milliseconds)
             }
             
     
