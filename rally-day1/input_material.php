@@ -170,9 +170,9 @@ $listKelompok = $query->fetchAll();
                 <br></br>
 
                 <?php
-                if (isset($_SESSION['kelompok'])) {
+                if (isset($_SESSION['kelompokseri'])) {
                     echo ' <div class="alert alert-success" role="alert"> 
-                            berhasil input data kelompok ' . $_SESSION['kelompok'] .
+                            berhasil input data kelompok ' . $_SESSION['kelompokseri'] .
                         '</div>';
                 } ?>
 
@@ -201,9 +201,9 @@ $listKelompok = $query->fetchAll();
                 <br></br>
 
                 <?php
-                if (isset($_SESSION['kelompok'])) {
+                if (isset($_SESSION['kelompokkalah'])) {
                     echo ' <div class="alert alert-success" role="alert"> 
-                            berhasil input data kelompok ' . $_SESSION['kelompok'] .
+                            berhasil input data kelompok ' . $_SESSION['kelompokkalah'] .
                         '</div>';
                 } ?>
 

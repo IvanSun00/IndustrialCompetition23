@@ -4,7 +4,7 @@ include '../connect.php';
 //POS MENANG
 if (isset($_POST["submitseri"])) {
     $nama_kelompok = $_POST["fruitselectseri"];
-    $_SESSION["kelompok"] = $nama_kelompok;
+    $_SESSION["kelompokseri"] = $nama_kelompok;
 
 
 
@@ -35,8 +35,17 @@ if (isset($_POST["submitseri"])) {
             $stmt3 = $conn->prepare("UPDATE game_kelompok SET qty_Timbal='$rewardtimbal', qty_Karbon='$rewardkarbon' WHERE nama='$nama_kelompok'");
             $stmt3->execute();
 
+            //INSERT HISTORY
+            $queryKelompok = $conn->prepare("SELECT id FROM `game_kelompok` WHERE nama='$nama_kelompok'");
+            $queryKelompok->execute();
+            $take_id = $queryKelompok->fetch();
+            $get_id = $take_id['id'];
+
+            $stmt4 = $conn->prepare("INSERT INTO `game_historykelompok`(`id_post`, `id_kelompok`, `status`) VALUES ('1','$get_id','seri')");
+            $stmt4->execute();
+
             if ($stmt3->rowCount() > 0) {
-                $_SESSION['msg_success'] = true;
+                $_SESSION['msg_successseri'] = true;
             }
         }
     }
@@ -69,8 +78,17 @@ if (isset($_POST["submitseri"])) {
             $stmt3 = $conn->prepare("UPDATE game_kelompok SET qty_Nitrogen='$rewardnitrogen', qty_Poliisoprena='$rewardpoliisoprena' WHERE nama='$nama_kelompok'");
             $stmt3->execute();
 
+            //INSERT HISTORY
+            $queryKelompok = $conn->prepare("SELECT id FROM `game_kelompok` WHERE nama='$nama_kelompok'");
+            $queryKelompok->execute();
+            $take_id = $queryKelompok->fetch();
+            $get_id = $take_id['id'];
+
+            $stmt4 = $conn->prepare("INSERT INTO `game_historykelompok`(`id_post`, `id_kelompok`, `status`) VALUES ('2','$get_id','seri')");
+            $stmt4->execute();
+
             if ($stmt3->rowCount() > 0) {
-                $_SESSION['msg_success'] = true;
+                $_SESSION['msg_successseri'] = true;
             }
         }
     }
@@ -100,12 +118,21 @@ if (isset($_POST["submitseri"])) {
             $rewardCuprite = $Cuprite +  $quan_Cuprite;
             $rewardPoliisoprena = $Poliisoprena + $quan_Poliisoprena;
 
-
             $stmt3 = $conn->prepare("UPDATE game_kelompok SET qty_Cuprite='$rewardCuprite', qty_Poliisoprena='$rewardPoliisoprena' WHERE nama='$nama_kelompok'");
             $stmt3->execute();
 
+
+            //INSERT HISTORY
+            $queryKelompok = $conn->prepare("SELECT id FROM `game_kelompok` WHERE nama='$nama_kelompok'");
+            $queryKelompok->execute();
+            $take_id = $queryKelompok->fetch();
+            $get_id = $take_id['id'];
+
+            $stmt4 = $conn->prepare("INSERT INTO `game_historykelompok`(`id_post`, `id_kelompok`, `status`) VALUES ('3','$get_id','seri')");
+            $stmt4->execute();
+
             if ($stmt3->rowCount() > 0) {
-                $_SESSION['msg_success'] = true;
+                $_SESSION['msg_successseri'] = true;
             }
         }
     }
@@ -139,8 +166,17 @@ if (isset($_POST["submitseri"])) {
             $stmt3 = $conn->prepare("UPDATE game_kelompok SET qty_Sylvite='$rewardSylvite', qty_Silikon='$rewardSilikon' WHERE nama='$nama_kelompok'");
             $stmt3->execute();
 
+            //INSERT HISTORY
+            $queryKelompok = $conn->prepare("SELECT id FROM `game_kelompok` WHERE nama='$nama_kelompok'");
+            $queryKelompok->execute();
+            $take_id = $queryKelompok->fetch();
+            $get_id = $take_id['id'];
+
+            $stmt4 = $conn->prepare("INSERT INTO `game_historykelompok`(`id_post`, `id_kelompok`, `status`) VALUES ('4','$get_id','seri')");
+            $stmt4->execute();
+
             if ($stmt3->rowCount() > 0) {
-                $_SESSION['msg_success'] = true;
+                $_SESSION['msg_successseri'] = true;
             }
         }
     }
@@ -167,6 +203,7 @@ if (isset($_POST["submitseri"])) {
             $insertdatakelompok = $stmt2->fetch();
             $quan_Lateks = $insertdatakelompok['qty_Lateks'];
             $quan_Timbal = $insertdatakelompok['qty_Timbal'];
+            $get_id = $insertdatakelompok['id'];
 
             $rewardLateks = $Lateks +  $quan_Lateks;
             $rewardTimbal = $Timbal + $quan_Timbal;
@@ -175,8 +212,12 @@ if (isset($_POST["submitseri"])) {
             $stmt3 = $conn->prepare("UPDATE game_kelompok SET qty_Lateks='$rewardLateks', qty_Timbal='$rewardTimbal' WHERE nama='$nama_kelompok'");
             $stmt3->execute();
 
+            //INSERT HISTORY
+            $stmt4 = $conn->prepare("INSERT INTO `game_historykelompok`(`id_post`, `id_kelompok`, `status`) VALUES ('5','$get_id','seri')");
+            $stmt4->execute();
+
             if ($stmt3->rowCount() > 0) {
-                $_SESSION['msg_success'] = true;
+                $_SESSION['msg_successseri'] = true;
             }
         }
     }
@@ -202,6 +243,7 @@ if (isset($_POST["submitseri"])) {
             $insertdatakelompok = $stmt2->fetch();
             $quan_Uvarovite = $insertdatakelompok['qty_Uvarovite'];
             $quan_Nitrogen = $insertdatakelompok['qty_Nitrogen'];
+            $get_id = $insertdatakelompok['id'];
 
             $rewardUvarovite = $Uvarovite +  $quan_Uvarovite;
             $rewardNitrogen = $Nitrogen + $quan_Nitrogen;
@@ -210,8 +252,12 @@ if (isset($_POST["submitseri"])) {
             $stmt3 = $conn->prepare("UPDATE game_kelompok SET qty_Uvarovite='$rewardUvarovite', qty_Nitrogen='$rewardNitrogen' WHERE nama='$nama_kelompok'");
             $stmt3->execute();
 
+            //INSERT HISTORY
+            $stmt4 = $conn->prepare("INSERT INTO `game_historykelompok`(`id_post`, `id_kelompok`, `status`) VALUES ('6','$get_id','seri')");
+            $stmt4->execute();
+
             if ($stmt3->rowCount() > 0) {
-                $_SESSION['msg_success'] = true;
+                $_SESSION['msg_successseri'] = true;
             }
         }
     }
@@ -240,12 +286,20 @@ if (isset($_POST["submitseri"])) {
             $rewardFluorit = $Fluorit +  $quan_Fluorit;
             $rewardFerumi = $Ferumi + $quan_Ferumi;
 
-
             $stmt3 = $conn->prepare("UPDATE game_kelompok SET qty_Fluorit='$rewardFluorit', qty_Ferumi='$rewardFerumi' WHERE nama='$nama_kelompok'");
             $stmt3->execute();
 
+            //INSERT HISTORY
+            $queryKelompok = $conn->prepare("SELECT id FROM `game_kelompok` WHERE nama='$nama_kelompok'");
+            $queryKelompok->execute();
+            $take_id = $queryKelompok->fetch();
+            $get_id = $take_id['id'];
+
+            $stmt4 = $conn->prepare("INSERT INTO `game_historykelompok`(`id_post`, `id_kelompok`, `status`) VALUES ('7','$get_id','seri')");
+            $stmt4->execute();
+
             if ($stmt3->rowCount() > 0) {
-                $_SESSION['msg_success'] = true;
+                $_SESSION['msg_successseri'] = true;
             }
         }
     }
@@ -279,8 +333,17 @@ if (isset($_POST["submitseri"])) {
             $stmt3 = $conn->prepare("UPDATE game_kelompok SET qty_Titanium='$rewardTitanium', qty_Lateks='$rewardLateks' WHERE nama='$nama_kelompok'");
             $stmt3->execute();
 
+            //INSERT HISTORY
+            $queryKelompok = $conn->prepare("SELECT id FROM `game_kelompok` WHERE nama='$nama_kelompok'");
+            $queryKelompok->execute();
+            $take_id = $queryKelompok->fetch();
+            $get_id = $take_id['id'];
+
+            $stmt4 = $conn->prepare("INSERT INTO `game_historykelompok`(`id_post`, `id_kelompok`, `status`) VALUES ('8','$get_id','seri')");
+            $stmt4->execute();
+
             if ($stmt3->rowCount() > 0) {
-                $_SESSION['msg_success'] = true;
+                $_SESSION['msg_successseri'] = true;
             }
         }
     }
@@ -314,8 +377,17 @@ if (isset($_POST["submitseri"])) {
             $stmt3 = $conn->prepare("UPDATE game_kelompok SET qty_Sylvite='$rewardSylvite', qty_Cuprite='$rewardCuprite' WHERE nama='$nama_kelompok'");
             $stmt3->execute();
 
+            //INSERT HISTORY
+            $queryKelompok = $conn->prepare("SELECT id FROM `game_kelompok` WHERE nama='$nama_kelompok'");
+            $queryKelompok->execute();
+            $take_id = $queryKelompok->fetch();
+            $get_id = $take_id['id'];
+
+            $stmt4 = $conn->prepare("INSERT INTO `game_historykelompok`(`id_post`, `id_kelompok`, `status`) VALUES ('9','$get_id','seri')");
+            $stmt4->execute();
+
             if ($stmt3->rowCount() > 0) {
-                $_SESSION['msg_success'] = true;
+                $_SESSION['msg_successseri'] = true;
             }
         }
     }
@@ -348,8 +420,17 @@ if (isset($_POST["submitseri"])) {
             $stmt3 = $conn->prepare("UPDATE game_kelompok SET qty_Karbon='$rewardKarbon', qty_Sylvite='$rewardSylvite' WHERE nama='$nama_kelompok'");
             $stmt3->execute();
 
+            //INSERT HISTORY
+            $queryKelompok = $conn->prepare("SELECT id FROM `game_kelompok` WHERE nama='$nama_kelompok'");
+            $queryKelompok->execute();
+            $take_id = $queryKelompok->fetch();
+            $get_id = $take_id['id'];
+
+            $stmt4 = $conn->prepare("INSERT INTO `game_historykelompok`(`id_post`, `id_kelompok`, `status`) VALUES ('10','$get_id','seri')");
+            $stmt4->execute();
+
             if ($stmt3->rowCount() > 0) {
-                $_SESSION['msg_success'] = true;
+                $_SESSION['msg_successseri'] = true;
             }
         }
     }
@@ -382,8 +463,17 @@ if (isset($_POST["submitseri"])) {
             $stmt3 = $conn->prepare("UPDATE game_kelompok SET qty_Silikon='$rewardSilikon', qty_Uvarovite='$rewardUvarovite' WHERE nama='$nama_kelompok'");
             $stmt3->execute();
 
+            //INSERT HISTORY
+            $queryKelompok = $conn->prepare("SELECT id FROM `game_kelompok` WHERE nama='$nama_kelompok'");
+            $queryKelompok->execute();
+            $take_id = $queryKelompok->fetch();
+            $get_id = $take_id['id'];
+
+            $stmt4 = $conn->prepare("INSERT INTO `game_historykelompok`(`id_post`, `id_kelompok`, `status`) VALUES ('11','$get_id','seri')");
+            $stmt4->execute();
+
             if ($stmt3->rowCount() > 0) {
-                $_SESSION['msg_success'] = true;
+                $_SESSION['msg_successseri'] = true;
             }
         }
     }
@@ -416,8 +506,17 @@ if (isset($_POST["submitseri"])) {
             $stmt3 = $conn->prepare("UPDATE game_kelompok SET qty_Nitrogen='$rewardNitrogen', qty_Poliisoprena='$rewardPoliisoprena' WHERE nama='$nama_kelompok'");
             $stmt3->execute();
 
+            //INSERT HISTORY
+            $queryKelompok = $conn->prepare("SELECT id FROM `game_kelompok` WHERE nama='$nama_kelompok'");
+            $queryKelompok->execute();
+            $take_id = $queryKelompok->fetch();
+            $get_id = $take_id['id'];
+
+            $stmt4 = $conn->prepare("INSERT INTO `game_historykelompok`(`id_post`, `id_kelompok`, `status`) VALUES ('12','$get_id','seri')");
+            $stmt4->execute();
+
             if ($stmt3->rowCount() > 0) {
-                $_SESSION['msg_success'] = true;
+                $_SESSION['msg_successseri'] = true;
             }
         }
     }
@@ -450,16 +549,25 @@ if (isset($_POST["submitseri"])) {
             $stmt3 = $conn->prepare("UPDATE game_kelompok SET qty_Hematit='$rewardHematit', qty_Sylvite='$rewardSylvite' WHERE nama='$nama_kelompok'");
             $stmt3->execute();
 
+            //INSERT HISTORY
+            $queryKelompok = $conn->prepare("SELECT id FROM `game_kelompok` WHERE nama='$nama_kelompok'");
+            $queryKelompok->execute();
+            $take_id = $queryKelompok->fetch();
+            $get_id = $take_id['id'];
+
+            $stmt4 = $conn->prepare("INSERT INTO `game_historykelompok`(`id_post`, `id_kelompok`, `status`) VALUES ('13','$get_id','seri')");
+            $stmt4->execute();
+
             if ($stmt3->rowCount() > 0) {
-                $_SESSION['msg_success'] = true;
+                $_SESSION['msg_successseri'] = true;
             }
         }
     }
 
 
 
-       //POS 14
-       if ($_SESSION["nama_poss"] == "Rubber Bond") {
+    //POS 14
+    if ($_SESSION["nama_poss"] == "Rubber Bond") {
 
         $stmt = $conn->prepare('SELECT * FROM game_hadiahseri WHERE id_post=14');
         $stmt->execute();
@@ -485,8 +593,17 @@ if (isset($_POST["submitseri"])) {
             $stmt3 = $conn->prepare("UPDATE game_kelompok SET qty_Hematit='$rewardHematit', qty_Timbal='$rewardTimbal' WHERE nama='$nama_kelompok'");
             $stmt3->execute();
 
+            //INSERT HISTORY
+            $queryKelompok = $conn->prepare("SELECT id FROM `game_kelompok` WHERE nama='$nama_kelompok'");
+            $queryKelompok->execute();
+            $take_id = $queryKelompok->fetch();
+            $get_id = $take_id['id'];
+
+            $stmt4 = $conn->prepare("INSERT INTO `game_historykelompok`(`id_post`, `id_kelompok`, `status`) VALUES ('14','$get_id','seri')");
+            $stmt4->execute();
+
             if ($stmt3->rowCount() > 0) {
-                $_SESSION['msg_success'] = true;
+                $_SESSION['msg_successseri'] = true;
             }
         }
     }
@@ -519,8 +636,17 @@ if (isset($_POST["submitseri"])) {
             $stmt3 = $conn->prepare("UPDATE game_kelompok SET qty_Copper='$rewardCopper', qty_Ferumi='$rewardFerumi' WHERE nama='$nama_kelompok'");
             $stmt3->execute();
 
+            //INSERT HISTORY
+            $queryKelompok = $conn->prepare("SELECT id FROM `game_kelompok` WHERE nama='$nama_kelompok'");
+            $queryKelompok->execute();
+            $take_id = $queryKelompok->fetch();
+            $get_id = $take_id['id'];
+
+            $stmt4 = $conn->prepare("INSERT INTO `game_historykelompok`(`id_post`, `id_kelompok`, `status`) VALUES ('15','$get_id','seri')");
+            $stmt4->execute();
+
             if ($stmt3->rowCount() > 0) {
-                $_SESSION['msg_success'] = true;
+                $_SESSION['msg_successseri'] = true;
             }
         }
     }
@@ -554,8 +680,17 @@ if (isset($_POST["submitseri"])) {
             $stmt3 = $conn->prepare("UPDATE game_kelompok SET qty_Hematit='$rewardHematit', qty_Fluorit='$rewardFluorit' WHERE nama='$nama_kelompok'");
             $stmt3->execute();
 
+            //INSERT HISTORY
+            $queryKelompok = $conn->prepare("SELECT id FROM `game_kelompok` WHERE nama='$nama_kelompok'");
+            $queryKelompok->execute();
+            $take_id = $queryKelompok->fetch();
+            $get_id = $take_id['id'];
+
+            $stmt4 = $conn->prepare("INSERT INTO `game_historykelompok`(`id_post`, `id_kelompok`, `status`) VALUES ('16','$get_id','seri')");
+            $stmt4->execute();
+
             if ($stmt3->rowCount() > 0) {
-                $_SESSION['msg_success'] = true;
+                $_SESSION['msg_successseri'] = true;
             }
         }
     }
