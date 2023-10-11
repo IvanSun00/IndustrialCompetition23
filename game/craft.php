@@ -1,3 +1,11 @@
+<?php
+session_start();
+if(!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == ""){
+        header('Location: login.php');
+        exit;
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -540,6 +548,12 @@
             opacity: 0.5;
         }
 
+        .finish-craft{
+            background: rgb(109, 1, 48);
+            color: antiquewhite;
+            opacity: 0.5;
+        }
+
 
         .section-title {
             font-size: 30px;
@@ -703,23 +717,23 @@
                             </tr>
                             <tr>
                                 <td class="a-col-1">Ferumi</td>
-                                <td class="a-ferumi element"></td>
+                                <td class="ferumi element"></td>
                             </tr>
                             <tr>
                                 <td class="a-col-1">Lateks</td>
-                                <td class="a-lateks element"></td>
+                                <td class="lateks element"></td>
                             </tr>
                             <tr>
                                 <td class="a-col-1">Timbal</td>
-                                <td class="a-timbal element"></td>
+                                <td class="timbal element"></td>
                             </tr>
                             <tr>
                                 <td class="a-col-1">Cuprite</td>
-                                <td class="a-culprite element"></td>
+                                <td class="cuprite element"></td>
                             </tr>
                             <tr>
                                 <td class="a-col-1">Carbon</td>
-                                <td class="a-carbon element"></td>
+                                <td class="carbon element"></td>
                             </tr>
                             <tr>
                                 <td colspan="2">
@@ -750,23 +764,23 @@
                             </tr>
                             <tr>
                                 <td>Uvarovite</td>
-                                <td class="ferumi element"></td>
+                                <td class="uvarovite element"></td>
                             </tr>
                             <tr>
                                 <td>Fluorit</td>
-                                <td class="lateks element"></td>
+                                <td class="fluorit element"></td>
                             </tr>
                             <tr>
                                 <td>Titanium</td>
-                                <td class="timbal element"></td>
+                                <td class="titanium element"></td>
                             </tr>
                             <tr>
                                 <td>Sylvite</td>
-                                <td class="culprite element"></td>
+                                <td class="sylvite element"></td>
                             </tr>
                             <tr>
                                 <td>Silikon</td>
-                                <td class="carbon element"></td>
+                                <td class="silikon element"></td>
                             </tr>
                             <tr>
                                 <td colspan="2">
@@ -794,23 +808,23 @@
                             </tr>
                             <tr>
                                 <td>Copper</td>
-                                <td class="ferumi element"></td>
+                                <td class="copper element"></td>
                             </tr>
                             <tr>
                                 <td>Carbon</td>
-                                <td class="lateks element"></td>
+                                <td class="carbon element"></td>
                             </tr>
                             <tr>
                                 <td>Ferumi</td>
-                                <td class="timbal element"></td>
+                                <td class="ferumi element"></td>
                             </tr>
                             <tr>
                                 <td>Titanium</td>
-                                <td class="culprite element"></td>
+                                <td class="titanium element"></td>
                             </tr>
                             <tr>
                                 <td>-</td>
-                                <td class="carbon element"></td>
+                                <td class="element"></td>
                             </tr>
                             <tr>
                                 <td colspan="2">
@@ -837,23 +851,23 @@
                             </tr>
                             <tr>
                                 <td>Nitrogen</td>
-                                <td class="ferumi element"></td>
+                                <td class="nitrogen element"></td>
                             </tr>
                             <tr>
                                 <td>Cuprite</td>
-                                <td class="lateks element"></td>
+                                <td class="cuprite element"></td>
                             </tr>
                             <tr>
                                 <td>Copper</td>
-                                <td class="timbal element"></td>
+                                <td class="copper element"></td>
                             </tr>
                             <tr>
                                 <td>Uvarovite</td>
-                                <td class="culprite element"></td>
+                                <td class="uvarovite element"></td>
                             </tr>
                             <tr>
                                 <td>Timbal</td>
-                                <td class="carbon element"></td>
+                                <td class="timbal element"></td>
                             </tr>
                             <tr>
                                 <td colspan="2">
@@ -881,23 +895,23 @@
                             </tr>
                             <tr>
                                 <td>Lateks</td>
-                                <td class="ferumi element"></td>
-                            </tr>
-                            <tr>
-                                <td>Silikon</td>
                                 <td class="lateks element"></td>
                             </tr>
                             <tr>
+                                <td>Silikon</td>
+                                <td class="silikon element"></td>
+                            </tr>
+                            <tr>
                                 <td>Polisoprena</td>
-                                <td class="timbal element"></td>
+                                <td class="poliisoprena element"></td>
                             </tr>
                             <tr>
                                 <td>Fluorit</td>
-                                <td class="culprite element"></td>
+                                <td class="fluorit element"></td>
                             </tr>
                             <tr>
                                 <td>Hematit</td>
-                                <td class="carbon element"></td>
+                                <td class="hematit element"></td>
                             </tr>
                             <tr>
                                 <td colspan="2">
@@ -926,75 +940,75 @@
             <a href="#" class="nav__logo">Inventory</a>
 
             <div class="nav__menu" id="nav-menu">
-                <ul class="nav__list">
+                <ul class="nav__list material_list">
                     <li class="nav__item">
                         <a href="#" class="nav__link">
-                            <i class="uil uil-estate nav__icon"><span id="jumlah">x2</span></i> Ferumi 
+                            <i class="uil uil-estate nav__icon"><span id="jumlah_ferumi">x2</span></i> Ferumi 
                         </a>
                     </li>
                     <li class="nav__item">
                         <a href="#" class="nav__link">
-                            <i class="uil uil-user nav__icon"><span id="jumlah">x2</span></i> Lateks
+                            <i class="uil uil-user nav__icon"><span id="jumlah_lateks">x2</span></i> Lateks
                         </a>
                     </li>
                     <li class="nav__item">
                         <a href="#" class="nav__link">
-                            <i class="uil uil-file-alt nav__icon"><span id="jumlah">x2</span></i> Timbal
+                            <i class="uil uil-file-alt nav__icon"><span id="jumlah_timbal">x2</span></i> Timbal
                         </a>
                     </li>
                     <li class="nav__item">
                         <a href="#" class="nav__link">
-                            <i class="uil uil-briefcase-alt nav__icon"><span id="jumlah">x2</span></i> Cuprite
+                            <i class="uil uil-briefcase-alt nav__icon"><span id="jumlah_cuprite">x2</span></i> Cuprite
                         </a>
                     </li>
                     <li class="nav__item">
                         <a href="#" class="nav__link">
-                            <i class="uil uil-scenery nav__icon"><span id="jumlah">x2</span></i> Karbon
+                            <i class="uil uil-scenery nav__icon"><span id="jumlah_carbon">x2</span></i> Carbon
                         </a>
                     </li>
                     <li class="nav__item">
                         <a href="#" class="nav__link">
-                            <i class="uil uil-message nav__icon"><span id="jumlah">x2</span></i> Uvavorite 
+                            <i class="uil uil-message nav__icon"><span id="jumlah_uvarovite">x2</span></i> Uvavorite 
                         </a>
                     </li>
                     <li class="nav__item">
                         <a href="#" class="nav__link">
-                            <i class="uil uil-estate nav__icon"><span id="jumlah">x2</span></i> Titanium
+                            <i class="uil uil-estate nav__icon"><span id="jumlah_titanium">x2</span></i> Titanium
                         </a>
                     </li>
                     <li class="nav__item">
                         <a href="#" class="nav__link">
-                            <i class="uil uil-user nav__icon"><span id="jumlah">x2</span></i> Sylvite
+                            <i class="uil uil-user nav__icon"><span id="jumlah_sylvite">x2</span></i> Sylvite
                         </a>
                     </li>
                     <li class="nav__item">
                         <a href="#" class="nav__link">
-                            <i class="uil uil-file-alt nav__icon"><span id="jumlah">x2</span></i> Silikon
+                            <i class="uil uil-file-alt nav__icon"><span id="jumlah_silikon">x2</span></i> Silikon
                         </a>
                     </li>
                     <li class="nav__item">
                         <a href="#" class="nav__link">
-                            <i class="uil uil-briefcase-alt nav__icon"><span id="jumlah">x2</span></i> Copper
+                            <i class="uil uil-briefcase-alt nav__icon"><span id="jumlah_copper">x2</span></i> Copper
                         </a>
                     </li>
                     <li class="nav__item">
                         <a href="#" class="nav__link">
-                            <i class="uil uil-scenery nav__icon"><span id="jumlah">x2</span></i> Nitrogen
+                            <i class="uil uil-scenery nav__icon"><span id="jumlah_nitrogen">x2</span></i> Nitrogen
                         </a>
                     </li>
                     <li class="nav__item">
                         <a href="#" class="nav__link">
-                            <i class="uil uil-message nav__icon"><span id="jumlah">x2</span></i> Poliisoprena 
+                            <i class="uil uil-message nav__icon"><span id="jumlah_poliisoprena">x2</span></i> Poliisoprena 
                         </a>
                     </li>
                     <li class="nav__item">
                         <a href="#" class="nav__link">
-                            <i class="uil uil-estate nav__icon"><span id="jumlah">x2</span></i> Fluorit
+                            <i class="uil uil-estate nav__icon"><span id="jumlah_fluorit">x2</span></i> Fluorit
                         </a>
                     </li>
                     <li class="nav__item">
                         <a href="#" class="nav__link">
-                            <i class="uil uil-user nav__icon"><span id="jumlah">x2</span></i> Hematit
+                            <i class="uil uil-user nav__icon"><span id="jumlah_hematit">x2</span></i> Hematit
                         </a>
                 </ul>
                 <i class="uil uil-times nav__close" id="nav-close"></i>
@@ -1011,7 +1025,7 @@
 <script>
     var load = document.getElementsByClassName("loading");
     var confirm = document.getElementsByClassName("confirm");
-    var text = ["SUCCESS", "SUCCESS", "SUCCESS","SUCCESS","SUCCESS"];
+    var text = ["", "", "","",""];
 
     for (const iterator of load) {
         iterator.style.visibility = "hidden";
@@ -1020,50 +1034,51 @@
 
 
 
-    document.getElementById("CraftA").addEventListener("click", function() {
-        loading(0);
-        document.getElementById("CraftA").disabled = true;
-        setTimeout(function(){
-            document.getElementById("CraftA").disabled = false;
-        }, 1100)
+
+    // document.getElementById("CraftA").addEventListener("click", function() {
+    //     loading(0);
+    //     document.getElementById("CraftA").disabled = true;
+    //     setTimeout(function(){
+    //         document.getElementById("CraftA").disabled = false;
+    //     }, 1100)
         
-    });
-    document.getElementById("CraftB").addEventListener("click", function() {
+    // });
+    // document.getElementById("CraftB").addEventListener("click", function() {
         
-        loading(1);
-        document.getElementById("CraftB").disabled = true;
-        setTimeout(function(){
-            document.getElementById("CraftB").disabled = false;
-        }, 1100)
+    //     loading(1);
+    //     document.getElementById("CraftB").disabled = true;
+    //     setTimeout(function(){
+    //         document.getElementById("CraftB").disabled = false;
+    //     }, 1100)
         
-    });
-    document.getElementById("CraftC").addEventListener("click", function() {
+    // });
+    // document.getElementById("CraftC").addEventListener("click", function() {
+    //     loading(2);
+    //     document.getElementById("CraftC").disabled = true;
+    //     setTimeout(function(){
+    //         document.getElementById("CraftC").disabled = false;
+    //     }, 1100)
+    // });
+    // document.getElementById("CraftD").addEventListener("click", function() {
         
-        loading(2);
-        document.getElementById("CraftC").disabled = true;
-        setTimeout(function(){
-            document.getElementById("CraftC").disabled = false;
-        }, 1100)
-    });
-    document.getElementById("CraftD").addEventListener("click", function() {
+    //     loading(3);
+    //     document.getElementById("CraftD").disabled = true;
+    //     setTimeout(function(){
+    //         document.getElementById("CraftD").disabled = false;
+    //     }, 1100)
+    // });
+    // document.getElementById("CraftE").addEventListener("click", function(){
         
-        loading(3);
-        document.getElementById("CraftD").disabled = true;
-        setTimeout(function(){
-            document.getElementById("CraftD").disabled = false;
-        }, 1100)
-    });
-    document.getElementById("CraftE").addEventListener("click", function(){
-        
-        loading(4);
-        document.getElementById("CraftE").disabled = true;
-        setTimeout(function(){
-            document.getElementById("CraftE").disabled = false;
-        }, 1100)
-    });
-    showConfirm();
+    //     loading(4);
+    //     document.getElementById("CraftE").disabled = true;
+    //     setTimeout(function(){
+    //         document.getElementById("CraftE").disabled = false;
+    //     }, 1100)
+    // });
+    // showConfirm();
     
     
+    //sekali tampil loading +show
     function loading(index) {
         resetConfirm(confirm[index], text[index]);
         
@@ -1086,13 +1101,14 @@
             
     }
 
-
+    //reset loading
     function reset (index) {
         load[index].style.opacity=0;
         load[index].style.visibility="hidden";
         
     }    
 
+    //menampilkan confirm jika success atau failed
     function showConfirm () {
         for (var i=0; i<5; i++) {
             if(text[i] == "SUCCESS"){
@@ -1102,17 +1118,18 @@
                 confirm[i].style.background="red";
             }
             else {
-                resetConfirm(confirm[i], text[i]);
+                // resetConfirm(confirm[i], text[i]);
+                confirm[i].style.background="red";
             }
         }
         
     }
 
+    //menghapus isi confirm
     function resetConfirm (confirmMessage, text) {
         confirmMessage.style.opacity=0;
         confirmMessage.style.visibility="hidden";
         confirmMessage.innerText="";
-        
     }
 
     
@@ -1134,8 +1151,164 @@
 </script>
 <!--=============== JS ===============-->
 <script src="inventory.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+<!-- Ajax semua api di craftProses -->
+<script>
+    $(document).ready(function(){
+        function ubahDataBom(Kelompok,Crafting){
+            //ubah kelas 1 1
+             //Bom-A ferumi,lateks,timbal,cuprite,karbon
+                    $(".Bom-A .ferumi").text(Kelompok.qty_Ferumi + "/" + Crafting[0].qty_Ferumi);
+                    $(".Bom-A .lateks").text(Kelompok.qty_Lateks + "/" + Crafting[0].qty_Lateks);
+                    $(".Bom-A .timbal").text(Kelompok.qty_Timbal + "/" + Crafting[0].qty_Timbal);
+                    $(".Bom-A .cuprite").text(Kelompok.qty_Cuprite + "/" + Crafting[0].qty_Cuprite);
+                    $(".Bom-A .carbon").text(Kelompok.qty_Karbon + "/" + Crafting[0].qty_Karbon);
+
+                    //Bom-B uvarovite,fluorit,titanium,sylvite,silikon
+                    $(".Bom-B .uvarovite").text(Kelompok.qty_Uvarovite + "/" + Crafting[1].qty_Uvarovite);
+                    $(".Bom-B .fluorit").text(Kelompok.qty_Fluorit + "/" + Crafting[1].qty_Fluorit);
+                    $(".Bom-B .titanium").text(Kelompok.qty_Titanium + "/" + Crafting[1].qty_Titanium);
+                    $(".Bom-B .sylvite").text(Kelompok.qty_Sylvite + "/" + Crafting[1].qty_Sylvite);
+                    $(".Bom-B .silikon").text(Kelompok.qty_Silikon + "/" + Crafting[1].qty_Silikon);
+
+                    //Bom-C copper,carbon,ferumi,titanium
+                    $(".Bom-C .copper").text(Kelompok.qty_Copper + "/" + Crafting[2].qty_Copper);
+                    $(".Bom-C .carbon").text(Kelompok.qty_Karbon + "/" + Crafting[2].qty_Karbon);
+                    $(".Bom-C .ferumi").text(Kelompok.qty_Ferumi + "/" + Crafting[2].qty_Ferumi);
+                    $(".Bom-C .titanium").text(Kelompok.qty_Titanium + "/" + Crafting[2].qty_Titanium);
+
+                    //Bom-D nitrogen,cuprite,copper,uvarovite,timbal
+                    $(".Bom-D .nitrogen").text(Kelompok.qty_Nitrogen + "/" + Crafting[3].qty_Nitrogen);
+                    $(".Bom-D .cuprite").text(Kelompok.qty_Cuprite + "/" + Crafting[3].qty_Cuprite);
+                    $(".Bom-D .copper").text(Kelompok.qty_Copper + "/" + Crafting[3].qty_Copper);
+                    $(".Bom-D .uvarovite").text(Kelompok.qty_Uvarovite + "/" + Crafting[3].qty_Uvarovite);
+                    $(".Bom-D .timbal").text(Kelompok.qty_Timbal + "/" + Crafting[3].qty_Timbal);
+
+                    //Bom-E lateks,silikon,poliisoprena,fluorit,hematit
+                    $(".Bom-E .lateks").text(Kelompok.qty_Lateks + "/" + Crafting[4].qty_Lateks);
+                    $(".Bom-E .silikon").text(Kelompok.qty_Silikon + "/" + Crafting[4].qty_Silikon);
+                    $(".Bom-E .poliisoprena").text(Kelompok.qty_Poliisoprena + "/" + Crafting[4].qty_Poliisoprena);
+                    $(".Bom-E .fluorit").text(Kelompok.qty_Fluorit + "/" + Crafting[4].qty_Fluorit);
+                    $(".Bom-E .hematit").text(Kelompok.qty_Hematit + "/" + Crafting[4].qty_Hematit);
+
+
+                    // ubah warna elemen jadi darkcyan jika sudah penuh
+                    $(".element").each(function(){
+                        if($(this).text().split("/")[0] >= $(this).text().split("/")[1]){
+                            $(this).css("background-color", "darkcyan");
+                        }
+                        else {
+                            $(this).css("background-color", "rgb(177, 173, 248, 0.5)");
+                        }
+                    });
+
+            
+        }
+
+        function ubahDataMaterial(kelompok){
+            $('.material_list #jumlah_ferumi').text(kelompok.qty_Ferumi+"x");
+            $('.material_list #jumlah_lateks').text(kelompok.qty_Lateks+"x");
+            $('.material_list #jumlah_timbal').text(kelompok.qty_Timbal+"x");
+            $('.material_list #jumlah_cuprite').text(kelompok.qty_Cuprite+"x");
+            $('.material_list #jumlah_carbon').text(kelompok.qty_Karbon+"x");
+            $('.material_list #jumlah_uvarovite').text(kelompok.qty_Uvarovite+"x");
+            $('.material_list #jumlah_titanium').text(kelompok.qty_Titanium+"x");
+            $('.material_list #jumlah_sylvite').text(kelompok.qty_Sylvite+"x");
+            $('.material_list #jumlah_silikon').text(kelompok.qty_Silikon+"x");
+            $('.material_list #jumlah_copper').text(kelompok.qty_Copper+"x");
+            $('.material_list #jumlah_nitrogen').text(kelompok.qty_Nitrogen+"x");
+            $('.material_list #jumlah_poliisoprena').text(kelompok.qty_Poliisoprena+"x");
+            $('.material_list #jumlah_fluorit').text(kelompok.qty_Fluorit+"x");
+            $('.material_list #jumlah_hematit').text(kelompok.qty_Hematit+"x");
+        }
+        
+        //animation =true -> menampilkan animasi success
+        function getData(animation =false){
+                $.ajax({
+                url: "api/craftProses.php",
+                method: "POST",
+                dataType: "json",
+                data: {for: "getData"}, //untuk ambil data session langsung di backend
+                success: function(res) {
+                    // console.log(res);
+                    // console.log(res.dataKelompok.qty_Ferumi)
+                
+                    //ubah data
+                    var Kelompok = res.dataKelompok;
+                    var Crafting = res.dataCrafting;
+                    ubahDataBom(Kelompok,Crafting);
+                    ubahDataMaterial(Kelompok);
+
+                    //Jika Sudah Crafting, tampilkan success
+                    if(animation){
+                        var counter = 0;
+                        Crafting.forEach(function(e){
+                            if(e.idCraft != null){
+                                text[counter] = "SUCCESS";
+                                loading(counter);
+                                var ch = String.fromCharCode(65+counter);
+                                $("#Craft"+ch).prop('disabled',true);
+                                $("#Craft"+ch).addClass("finish-craft");
+                            }
+                            counter++;
+                        })
+                    }
+
+                },
+                error: function(){
+                    alert("error");
+                }
+            });
+        }
+        getData(true);
+
+        //Crafting
+        $(".btn-craft").click(function(){
+            var id = $(this).attr("id");
+            var ch = id.charAt(id.length-1);
+            var intVal = ch.charCodeAt(0); //dapatkan ASCII
+            $("#Craft"+ch).prop('disabled',true);
+            console.log(ch);
+            console.log(intVal);
+            $.ajax({
+                url: "api/craftProses.php",
+                method: "POST",
+                dataType: "json",
+                data: {for: "craft", codeBom: ch}, //untuk ambil data session langsung di backend
+                success: function(res) {
+                    // console.log(res);
+                    if(res.status == "error"){
+                        text[intVal-65] = res.msg;
+                        setTimeout(() => {
+                            $("#Craft"+ch).prop('disabled',false);
+                        }, 3000);
+
+                    }else if(res.status == "success"){
+                        text[intVal-65] = "SUCCESS";
+                        $("#Craft"+ch).addClass("finish-craft");
+                    }
+
+                    showConfirm();
+                    loading(intVal-65);
+                    getData();
+                },
+                error: function(){
+                    alert("error");
+                    setTimeout(() => {
+                            $("#Craft"+ch).prop('disabled',false);
+                    }, 2000);
+                }
+            });
+        });
+
+
+
+    });
+
 
     
+</script>
 </body>
 </html>
 

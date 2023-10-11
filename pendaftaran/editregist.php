@@ -1196,7 +1196,7 @@ button.centered-button {
         
         <div class="container-fluid container-main px-2 px-md-0 pt-5 pt-sm-4 pt-lg-0">
           <div class="container content pb-5 pt-2 mb-3 center">
-              <h1 class="jdl-2 text-center glowing-text" style="margin-top:3%;">FORM PENDAFTARAN</h1>
+              <h1 class="jdl-2 text-center glowing-text" style="margin-top:3%;">Edit Pendaftaran</h1>
                 <div class="col-12 col-md-7 mx-auto form-detail">
                     <form method="post" id="form-regist">
                         <div class="d-flex bagian mt-4 mb-4 jdl2">DATA TIM <hr> </div> 
@@ -1290,12 +1290,16 @@ button.centered-button {
                             <span>Bukti Transfer</span>
                             <input class="form-control" type="file" name="buktitrf" id="buktitrf" accept="image/*">
                         </div>
+
+                        <?php if ($data['verify'] !=4): ?>
                         <div class="row mt-5" style="justify-content: center;">
                             <button type="submit" class="btn fill submit" id="masok">
                                 <!-- <p data-text="It's loading.." class="loading">Loading...</p> -->
                                 <span class='submitText' >SUBMIT</span>
                             </button>
                         </div>
+                        <?php endif; ?>
+
                     </form>
                 </div>
             </div>
