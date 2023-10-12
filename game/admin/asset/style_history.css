@@ -1,0 +1,102 @@
+.container-fluid{
+    
+    display: flex;
+    justify-content: center;
+}
+
+.nav-item {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+body{
+    background-color: gainsboro;
+
+}
+
+.container{
+    border-radius: 2px;
+    border-color: black;
+    border-style:outset;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-width: 25px;
+    height: 600px;
+    background-color: antiquewhite;
+    
+}
+
+#exit {
+    margin-left: 10px;
+    display:inline-flex;
+    position:absolute;
+    width: 35px;
+    height: 30px;
+
+    
+}
+
+.search_select_box {
+    text-align: center; /* Pusatkan elemen di dalam div */
+}
+
+/* .selectpicker {
+    width: 20%;
+}*/
+
+
+/* #fruitSelect{
+    width: 100%;
+    margin: 10px auto;
+    display: inline-block;
+} */
+
+.bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
+    width: 90%;
+    max-width: 500px;
+}
+
+.bootstrap-select .dropdown-menu li a {
+    text-align: left;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.full-container {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    size: 45%;
+}
+
+tbody, td, tfoot, th, tr {
+    /* border-color: inherit; */
+    border-color: black;
+    border-style: solid;
+    border-width: 3px;
+    padding:10px;
+    
+}
+
+
+
+thead {
+    font-size: large;
+    border-color: black;
+    border-style: solid;
+    border-width: 3px;
+    padding:10px;
+    
+}
+
+
+
+table.dataTable thead th, table.dataTable thead td, table.dataTable tfoot th, table.dataTable tfoot td {
+    text-align: center;
+}

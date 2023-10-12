@@ -238,9 +238,6 @@ if(!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == ""){
         }
 
 
-        
-
-
 
         h1 {
             background: rgb(32,6,57);
@@ -394,6 +391,9 @@ if(!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == ""){
             .bom {
                 
                 flex-direction: row;
+            }
+            .bom5 {
+                margin-bottom: 100px;
             }
             
         }
@@ -664,6 +664,9 @@ if(!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == ""){
             
         }
 
+       
+        
+
 
 
 
@@ -695,9 +698,9 @@ if(!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == ""){
             </div>
             <div class="section clearfix">
                 <div class="nav">
-                    <a href="">Home</a>
-                    <a href="">Inventory</a>
-                    <a href="">Logout</a>
+                    <a href="#">Home</a>
+                    <a href="#">Inventory</a>
+                    <a href="./logout.php">Logout</a>
                 </div>
                 
                 <div class="bom clearfix">
