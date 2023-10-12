@@ -31,8 +31,19 @@ if (isset($_POST["submitseri"])) {
             $rewardtimbal = $timbal + $quan_timbal;
             $rewardkarbon = $karbon + $quan_karbon;
 
+            //INSERT POIN
+            $quan_poin = $insertdatakelompok['poin'];
+            $stmtpoin = $conn->prepare("SELECT poin FROM game_hadiahseri WHERE id_post=1");
+            $stmtpoin->execute();
+            $poin = $stmtpoin->fetch();
+            $insertpoint = $poin['poin'];
 
-            $stmt3 = $conn->prepare("UPDATE game_kelompok SET qty_Timbal='$rewardtimbal', qty_Karbon='$rewardkarbon' WHERE nama='$nama_kelompok'");
+            $rewardpoint = $insertpoint + $quan_poin;
+
+            //poin='$rewardpoint',
+
+
+            $stmt3 = $conn->prepare("UPDATE game_kelompok SET poin='$rewardpoint', qty_Timbal='$rewardtimbal', qty_Karbon='$rewardkarbon' WHERE nama='$nama_kelompok'");
             $stmt3->execute();
 
             //INSERT HISTORY
@@ -74,8 +85,19 @@ if (isset($_POST["submitseri"])) {
             $rewardnitrogen = $nitrogen +  $quan_nitrogen;
             $rewardpoliisoprena = $poliisoprena + $quan_poliisoprena;
 
+            //INSERT POIN
+            $quan_poin = $insertdatakelompok['poin'];
+            $stmtpoin = $conn->prepare("SELECT poin FROM game_hadiahseri WHERE id_post=2");
+            $stmtpoin->execute();
+            $poin = $stmtpoin->fetch();
+            $insertpoint = $poin['poin'];
 
-            $stmt3 = $conn->prepare("UPDATE game_kelompok SET qty_Nitrogen='$rewardnitrogen', qty_Poliisoprena='$rewardpoliisoprena' WHERE nama='$nama_kelompok'");
+            $rewardpoint = $insertpoint + $quan_poin;
+
+            //poin='$rewardpoint',
+
+
+            $stmt3 = $conn->prepare("UPDATE game_kelompok SET poin='$rewardpoint', qty_Nitrogen='$rewardnitrogen', qty_Poliisoprena='$rewardpoliisoprena' WHERE nama='$nama_kelompok'");
             $stmt3->execute();
 
             //INSERT HISTORY
@@ -118,7 +140,18 @@ if (isset($_POST["submitseri"])) {
             $rewardCuprite = $Cuprite +  $quan_Cuprite;
             $rewardPoliisoprena = $Poliisoprena + $quan_Poliisoprena;
 
-            $stmt3 = $conn->prepare("UPDATE game_kelompok SET qty_Cuprite='$rewardCuprite', qty_Poliisoprena='$rewardPoliisoprena' WHERE nama='$nama_kelompok'");
+            //INSERT POIN
+            $quan_poin = $insertdatakelompok['poin'];
+            $stmtpoin = $conn->prepare("SELECT poin FROM game_hadiahseri WHERE id_post=3");
+            $stmtpoin->execute();
+            $poin = $stmtpoin->fetch();
+            $insertpoint = $poin['poin'];
+
+            $rewardpoint = $insertpoint + $quan_poin;
+
+            //poin='$rewardpoint',
+
+            $stmt3 = $conn->prepare("UPDATE game_kelompok SET poin='$rewardpoint', qty_Cuprite='$rewardCuprite', qty_Poliisoprena='$rewardPoliisoprena' WHERE nama='$nama_kelompok'");
             $stmt3->execute();
 
 
@@ -162,8 +195,19 @@ if (isset($_POST["submitseri"])) {
             $rewardSylvite = $Sylvite +  $quan_Sylvite;
             $rewardSilikon = $Silikon + $quan_Silikon;
 
+            //INSERT POIN
+            $quan_poin = $insertdatakelompok['poin'];
+            $stmtpoin = $conn->prepare("SELECT poin FROM game_hadiahseri WHERE id_post=4");
+            $stmtpoin->execute();
+            $poin = $stmtpoin->fetch();
+            $insertpoint = $poin['poin'];
 
-            $stmt3 = $conn->prepare("UPDATE game_kelompok SET qty_Sylvite='$rewardSylvite', qty_Silikon='$rewardSilikon' WHERE nama='$nama_kelompok'");
+            $rewardpoint = $insertpoint + $quan_poin;
+
+            //poin='$rewardpoint',
+
+
+            $stmt3 = $conn->prepare("UPDATE game_kelompok SET poin='$rewardpoint', qty_Sylvite='$rewardSylvite', qty_Silikon='$rewardSilikon' WHERE nama='$nama_kelompok'");
             $stmt3->execute();
 
             //INSERT HISTORY
@@ -208,8 +252,19 @@ if (isset($_POST["submitseri"])) {
             $rewardLateks = $Lateks +  $quan_Lateks;
             $rewardTimbal = $Timbal + $quan_Timbal;
 
+            //INSERT POIN
+            $quan_poin = $insertdatakelompok['poin'];
+            $stmtpoin = $conn->prepare("SELECT poin FROM game_hadiahseri WHERE id_post=5");
+            $stmtpoin->execute();
+            $poin = $stmtpoin->fetch();
+            $insertpoint = $poin['poin'];
 
-            $stmt3 = $conn->prepare("UPDATE game_kelompok SET qty_Lateks='$rewardLateks', qty_Timbal='$rewardTimbal' WHERE nama='$nama_kelompok'");
+            $rewardpoint = $insertpoint + $quan_poin;
+
+            //poin='$rewardpoint',
+
+
+            $stmt3 = $conn->prepare("UPDATE game_kelompok SET poin='$rewardpoint', qty_Lateks='$rewardLateks', qty_Timbal='$rewardTimbal' WHERE nama='$nama_kelompok'");
             $stmt3->execute();
 
             //INSERT HISTORY
@@ -248,8 +303,19 @@ if (isset($_POST["submitseri"])) {
             $rewardUvarovite = $Uvarovite +  $quan_Uvarovite;
             $rewardNitrogen = $Nitrogen + $quan_Nitrogen;
 
+            //INSERT POIN
+            $quan_poin = $insertdatakelompok['poin'];
+            $stmtpoin = $conn->prepare("SELECT poin FROM game_hadiahseri WHERE id_post=6");
+            $stmtpoin->execute();
+            $poin = $stmtpoin->fetch();
+            $insertpoint = $poin['poin'];
 
-            $stmt3 = $conn->prepare("UPDATE game_kelompok SET qty_Uvarovite='$rewardUvarovite', qty_Nitrogen='$rewardNitrogen' WHERE nama='$nama_kelompok'");
+            $rewardpoint = $insertpoint + $quan_poin;
+
+            //poin='$rewardpoint',
+
+
+            $stmt3 = $conn->prepare("UPDATE game_kelompok SET poin='$rewardpoint', qty_Uvarovite='$rewardUvarovite', qty_Nitrogen='$rewardNitrogen' WHERE nama='$nama_kelompok'");
             $stmt3->execute();
 
             //INSERT HISTORY
@@ -286,7 +352,18 @@ if (isset($_POST["submitseri"])) {
             $rewardFluorit = $Fluorit +  $quan_Fluorit;
             $rewardFerumi = $Ferumi + $quan_Ferumi;
 
-            $stmt3 = $conn->prepare("UPDATE game_kelompok SET qty_Fluorit='$rewardFluorit', qty_Ferumi='$rewardFerumi' WHERE nama='$nama_kelompok'");
+            //INSERT POIN
+            $quan_poin = $insertdatakelompok['poin'];
+            $stmtpoin = $conn->prepare("SELECT poin FROM game_hadiahseri WHERE id_post=7");
+            $stmtpoin->execute();
+            $poin = $stmtpoin->fetch();
+            $insertpoint = $poin['poin'];
+
+            $rewardpoint = $insertpoint + $quan_poin;
+
+            //poin='$rewardpoint',
+
+            $stmt3 = $conn->prepare("UPDATE game_kelompok SET poin='$rewardpoint', qty_Fluorit='$rewardFluorit', qty_Ferumi='$rewardFerumi' WHERE nama='$nama_kelompok'");
             $stmt3->execute();
 
             //INSERT HISTORY
@@ -329,8 +406,19 @@ if (isset($_POST["submitseri"])) {
             $rewardTitanium = $Titanium +  $quan_Titanium;
             $rewardLateks = $Lateks + $quan_Lateks;
 
+            //INSERT POIN
+            $quan_poin = $insertdatakelompok['poin'];
+            $stmtpoin = $conn->prepare("SELECT poin FROM game_hadiahseri WHERE id_post=8");
+            $stmtpoin->execute();
+            $poin = $stmtpoin->fetch();
+            $insertpoint = $poin['poin'];
 
-            $stmt3 = $conn->prepare("UPDATE game_kelompok SET qty_Titanium='$rewardTitanium', qty_Lateks='$rewardLateks' WHERE nama='$nama_kelompok'");
+            $rewardpoint = $insertpoint + $quan_poin;
+
+            //poin='$rewardpoint',
+
+
+            $stmt3 = $conn->prepare("UPDATE game_kelompok SET poin='$rewardpoint', qty_Titanium='$rewardTitanium', qty_Lateks='$rewardLateks' WHERE nama='$nama_kelompok'");
             $stmt3->execute();
 
             //INSERT HISTORY
@@ -373,8 +461,19 @@ if (isset($_POST["submitseri"])) {
             $rewardSylvite = $Sylvite + $quan_Sylvite;
             $rewardCuprite = $Cuprite + $quan_Cuprite;
 
+            //INSERT POIN
+            $quan_poin = $insertdatakelompok['poin'];
+            $stmtpoin = $conn->prepare("SELECT poin FROM game_hadiahseri WHERE id_post=9");
+            $stmtpoin->execute();
+            $poin = $stmtpoin->fetch();
+            $insertpoint = $poin['poin'];
 
-            $stmt3 = $conn->prepare("UPDATE game_kelompok SET qty_Sylvite='$rewardSylvite', qty_Cuprite='$rewardCuprite' WHERE nama='$nama_kelompok'");
+            $rewardpoint = $insertpoint + $quan_poin;
+
+            //poin='$rewardpoint',
+
+
+            $stmt3 = $conn->prepare("UPDATE game_kelompok SET poin='$rewardpoint', qty_Sylvite='$rewardSylvite', qty_Cuprite='$rewardCuprite' WHERE nama='$nama_kelompok'");
             $stmt3->execute();
 
             //INSERT HISTORY
@@ -416,8 +515,19 @@ if (isset($_POST["submitseri"])) {
             $rewardKarbon = $Karbon + $quan_Karbon;
             $rewardkarbon = $Sylvite + $quan_Sylvite;
 
+            //INSERT POIN
+            $quan_poin = $insertdatakelompok['poin'];
+            $stmtpoin = $conn->prepare("SELECT poin FROM game_hadiahseri WHERE id_post=10");
+            $stmtpoin->execute();
+            $poin = $stmtpoin->fetch();
+            $insertpoint = $poin['poin'];
 
-            $stmt3 = $conn->prepare("UPDATE game_kelompok SET qty_Karbon='$rewardKarbon', qty_Sylvite='$rewardSylvite' WHERE nama='$nama_kelompok'");
+            $rewardpoint = $insertpoint + $quan_poin;
+
+            //poin='$rewardpoint',
+
+
+            $stmt3 = $conn->prepare("UPDATE game_kelompok SET poin='$rewardpoint', qty_Karbon='$rewardKarbon', qty_Sylvite='$rewardSylvite' WHERE nama='$nama_kelompok'");
             $stmt3->execute();
 
             //INSERT HISTORY
@@ -459,8 +569,19 @@ if (isset($_POST["submitseri"])) {
             $rewardSilikon = $Silikon + $quan_Silikon;
             $rewardUvarovite = $Uvarovite + $quan_Uvarovite;
 
+            //INSERT POIN
+            $quan_poin = $insertdatakelompok['poin'];
+            $stmtpoin = $conn->prepare("SELECT poin FROM game_hadiahseri WHERE id_post=11");
+            $stmtpoin->execute();
+            $poin = $stmtpoin->fetch();
+            $insertpoint = $poin['poin'];
 
-            $stmt3 = $conn->prepare("UPDATE game_kelompok SET qty_Silikon='$rewardSilikon', qty_Uvarovite='$rewardUvarovite' WHERE nama='$nama_kelompok'");
+            $rewardpoint = $insertpoint + $quan_poin;
+
+            //poin='$rewardpoint',
+
+
+            $stmt3 = $conn->prepare("UPDATE game_kelompok SET poin='$rewardpoint', qty_Silikon='$rewardSilikon', qty_Uvarovite='$rewardUvarovite' WHERE nama='$nama_kelompok'");
             $stmt3->execute();
 
             //INSERT HISTORY
@@ -502,8 +623,19 @@ if (isset($_POST["submitseri"])) {
             $rewardNitrogen = $Nitrogen + $quan_Nitrogen;
             $rewardPoliisoprena = $Poliisoprena + $quan_Poliisoprena;
 
+            //INSERT POIN
+            $quan_poin = $insertdatakelompok['poin'];
+            $stmtpoin = $conn->prepare("SELECT poin FROM game_hadiahseri WHERE id_post=12");
+            $stmtpoin->execute();
+            $poin = $stmtpoin->fetch();
+            $insertpoint = $poin['poin'];
 
-            $stmt3 = $conn->prepare("UPDATE game_kelompok SET qty_Nitrogen='$rewardNitrogen', qty_Poliisoprena='$rewardPoliisoprena' WHERE nama='$nama_kelompok'");
+            $rewardpoint = $insertpoint + $quan_poin;
+
+            //poin='$rewardpoint',
+
+
+            $stmt3 = $conn->prepare("UPDATE game_kelompok SET poin='$rewardpoint', qty_Nitrogen='$rewardNitrogen', qty_Poliisoprena='$rewardPoliisoprena' WHERE nama='$nama_kelompok'");
             $stmt3->execute();
 
             //INSERT HISTORY
@@ -545,8 +677,19 @@ if (isset($_POST["submitseri"])) {
             $rewardHematit = $Hematit + $quan_Hematit;
             $rewardSylvite = $Sylvite + $quan_Sylvite;
 
+            //INSERT POIN
+            $quan_poin = $insertdatakelompok['poin'];
+            $stmtpoin = $conn->prepare("SELECT poin FROM game_hadiahseri WHERE id_post=13");
+            $stmtpoin->execute();
+            $poin = $stmtpoin->fetch();
+            $insertpoint = $poin['poin'];
 
-            $stmt3 = $conn->prepare("UPDATE game_kelompok SET qty_Hematit='$rewardHematit', qty_Sylvite='$rewardSylvite' WHERE nama='$nama_kelompok'");
+            $rewardpoint = $insertpoint + $quan_poin;
+
+            //poin='$rewardpoint',
+
+
+            $stmt3 = $conn->prepare("UPDATE game_kelompok SET poin='$rewardpoint', poin='$rewardpoint', qty_Hematit='$rewardHematit', qty_Sylvite='$rewardSylvite' WHERE nama='$nama_kelompok'");
             $stmt3->execute();
 
             //INSERT HISTORY
@@ -589,8 +732,19 @@ if (isset($_POST["submitseri"])) {
             $rewardHematit = $Hematit + $quan_Hematit;
             $rewardTimbal = $Timbal + $quan_Timbal;
 
+            //INSERT POIN
+            $quan_poin = $insertdatakelompok['poin'];
+            $stmtpoin = $conn->prepare("SELECT poin FROM game_hadiahseri WHERE id_post=14");
+            $stmtpoin->execute();
+            $poin = $stmtpoin->fetch();
+            $insertpoint = $poin['poin'];
 
-            $stmt3 = $conn->prepare("UPDATE game_kelompok SET qty_Hematit='$rewardHematit', qty_Timbal='$rewardTimbal' WHERE nama='$nama_kelompok'");
+            $rewardpoint = $insertpoint + $quan_poin;
+
+            //poin='$rewardpoint',
+
+
+            $stmt3 = $conn->prepare("UPDATE game_kelompok SET poin='$rewardpoint', qty_Hematit='$rewardHematit', qty_Timbal='$rewardTimbal' WHERE nama='$nama_kelompok'");
             $stmt3->execute();
 
             //INSERT HISTORY
@@ -632,8 +786,19 @@ if (isset($_POST["submitseri"])) {
             $rewardCopper = $Copper + $quan_Copper;
             $rewardFerumi = $Ferumi + $quan_Ferumi;
 
+            //INSERT POIN
+            $quan_poin = $insertdatakelompok['poin'];
+            $stmtpoin = $conn->prepare("SELECT poin FROM game_hadiahseri WHERE id_post=15");
+            $stmtpoin->execute();
+            $poin = $stmtpoin->fetch();
+            $insertpoint = $poin['poin'];
 
-            $stmt3 = $conn->prepare("UPDATE game_kelompok SET qty_Copper='$rewardCopper', qty_Ferumi='$rewardFerumi' WHERE nama='$nama_kelompok'");
+            $rewardpoint = $insertpoint + $quan_poin;
+
+            //poin='$rewardpoint',
+
+
+            $stmt3 = $conn->prepare("UPDATE game_kelompok SET poin='$rewardpoint', qty_Copper='$rewardCopper', qty_Ferumi='$rewardFerumi' WHERE nama='$nama_kelompok'");
             $stmt3->execute();
 
             //INSERT HISTORY
@@ -676,8 +841,19 @@ if (isset($_POST["submitseri"])) {
             $rewardHematit = $Hematit + $quan_Hematit;
             $rewardFluorit = $Fluorit + $quan_Fluorit;
 
+            //INSERT POIN
+            $quan_poin = $insertdatakelompok['poin'];
+            $stmtpoin = $conn->prepare("SELECT poin FROM game_hadiahseri WHERE id_post=16");
+            $stmtpoin->execute();
+            $poin = $stmtpoin->fetch();
+            $insertpoint = $poin['poin'];
 
-            $stmt3 = $conn->prepare("UPDATE game_kelompok SET qty_Hematit='$rewardHematit', qty_Fluorit='$rewardFluorit' WHERE nama='$nama_kelompok'");
+            $rewardpoint = $insertpoint + $quan_poin;
+
+            //poin='$rewardpoint',
+
+
+            $stmt3 = $conn->prepare("UPDATE game_kelompok SET poin='$rewardpoint', qty_Hematit='$rewardHematit', qty_Fluorit='$rewardFluorit' WHERE nama='$nama_kelompok'");
             $stmt3->execute();
 
             //INSERT HISTORY
