@@ -3,8 +3,10 @@ include '../connect.php';
 
 //POS MENANG
 if (isset($_POST["submitmenang"])) {
-    $nama_kelompok = $_POST["fruitselectmenang"];
-    $_SESSION["kelompok"] = $nama_kelompok;
+    if ($_SESSION['pickpos'] == true) {
+        $nama_kelompok = $_POST["fruitselectmenang"];
+        $_SESSION["kelompok"] = $nama_kelompok;
+    }
 
 
 

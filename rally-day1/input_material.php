@@ -83,7 +83,10 @@ $listKelompok = $query->fetchAll();
 
     <div>
         <?php if (isset($_SESSION['nama_poss'])) {
+            $_SESSION['pickpos'] = true;
             echo '<h1> Login di Pos ' . $_SESSION['nama_poss'] . '</h1>';
+        } else {
+            $_SESSION['pickpos'] = false;
         }
         ?>
     </div>
@@ -137,11 +140,18 @@ $listKelompok = $query->fetchAll();
                 <br></br>
 
                 <?php
-                if (isset($_SESSION['kelompok'])) {
-                    echo ' <div class="alert alert-success" role="alert"> 
+                if ($_SESSION['pickpos'] == true) {
+                    if (isset($_SESSION['kelompok'])) {
+                        echo ' <div class="alert alert-success" role="alert"> 
                             berhasil input data kelompok ' . $_SESSION['kelompok'] .
+                            '</div>';
+                    }
+                } else if ($_SESSION['pickpos'] == false) {
+                    echo ' <div class="alert alert-danger" role="alert">
+                            Pilih Pos Login' .
                         '</div>';
-                } ?>
+                }
+                ?>
 
 
                 <span class="btn">
@@ -170,9 +180,15 @@ $listKelompok = $query->fetchAll();
                 <br></br>
 
                 <?php
-                if (isset($_SESSION['kelompokseri'])) {
-                    echo ' <div class="alert alert-success" role="alert"> 
+                if ($_SESSION['pickpos'] == true) {
+                    if (isset($_SESSION['kelompokseri'])) {
+                        echo ' <div class="alert alert-success" role="alert"> 
                             berhasil input data kelompok ' . $_SESSION['kelompokseri'] .
+                            '</div>';
+                    }
+                } else if ($_SESSION['pickpos'] == false) {
+                    echo ' <div class="alert alert-danger" role="alert">
+                            Pilih Pos Login' .
                         '</div>';
                 } ?>
 
@@ -201,9 +217,15 @@ $listKelompok = $query->fetchAll();
                 <br></br>
 
                 <?php
-                if (isset($_SESSION['kelompokkalah'])) {
-                    echo ' <div class="alert alert-success" role="alert"> 
+                if ($_SESSION['pickpos'] == true) {
+                    if (isset($_SESSION['kelompokkalah'])) {
+                        echo ' <div class="alert alert-success" role="alert"> 
                             berhasil input data kelompok ' . $_SESSION['kelompokkalah'] .
+                            '</div>';
+                    }
+                } else if ($_SESSION['pickpos'] == false) {
+                    echo ' <div class="alert alert-danger" role="alert">
+                            Pilih Pos Login' .
                         '</div>';
                 } ?>
 
