@@ -33,10 +33,8 @@ if ( isset($_POST["login"]) ) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="../assets/login.css">
     <title>Industrial Competition 2023</title>
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&display=swap" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&display=swap" rel="stylesheet">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="keywords" content="ic, ic 2023, industrial competition, industrial, competition, industrial competition 2023, teknik industri, petra, ukp, petranesian, uk petra">
@@ -44,75 +42,78 @@ if ( isset($_POST["login"]) ) {
     <meta name="author" content="Universitas Kristen Petra">
 
     <!-- Bootstrap5 -->
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,400;1,600&display=swap" rel="stylesheet">
+    
     <!--FAVICON -->
     <link rel="icon" type="image/png" href="../assets/logo%20ic.png">
 
     <!-- Icon -->
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"> -->
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
     <!-- SWEET ALERT -->
     <!-- <script src="sweetalert2.min.js"></script>
     <link rel="stylesheet" href="sweetalert2.min.css">   -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script> -->
-    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </head>
 
 <body>
-    <section class="wrapper">
-        <div id="stars"></div>
-        <div id="stars2"></div>
-        <div id="stars3"></div>
-    </section>
-    
-    <div class="box">
-        <div class="form">
-            <h2>LOGIN</h2>
-            <div class="inputBox">
-                <input type="text" required="required" name="username" id="username" class="input">
-                <span>Username</span>
-                <i></i>
+
+
+    <div class="container container-login mb-3" style="width: 50%;">
+
+        <?php if ($error_mess == true) { ?>
+            <div class="error-mess alert alert-danger" role="alert">
+                nama kelompok atau password salah!
             </div>
-            <div class="inputBox">
-                <input type="password" required="required" name="pass" id="pass" class="input ">
-                <span>Password</span>
-                <i></i>
+        <?php } ?>
+
+        <form action="" method="post">
+            <div class="container-form">
+                <div class="mt-3">
+                    <label class="labells form-label" for="username">Nama kelompok</label>
+                    <input class="form-control" type="text"  name="username" id="username">
+                </div>
+                <div class="mt-3">
+                    <label class="labells form-label" for="pass" >Password</label>
+                    <input class="form-control" type="password"  name="pass" id="pass">
+                </div>
             </div>
-            <input id="btn" type="submit" name="login" class="submit" value="LOGIN">
-        </div>
+
+            <button  class="btn btn-primary" type="submit" name="login">Login</button>
+            <!-- ubah ke landing -->
+            <a class="btn btn-secondary" href="index.php" role="button">Back</a>
+        </form>
     </div>
 
+    <style>
+        body {
+            background-image: url('../assets/Artboard_6.png');
+        }
 
-    <!-- <div class="box">
-        <div class="container">
-            <div class="top-header">
-                <header>Login</header>
-            </div>
+        .container-login {
+            margin-top: 9em;
+        }
 
-            <?php if ($error_mess == true) { ?>
-                <div class="error-mess alert alert-danger" role="alert">
-                    nama kelompok atau password salah!
-                </div>
-            <?php } ?>
+        .btn{
+            align-items: center;
+            margin-top: 20px;
+        }
 
-            <form action="" method="post">
-                <div class="input-field">
-                    <input type="text" name="username" id="username" class="input" placeholder="Username" required>
-                    <i class='bx bx-user' ></i>
-                </div>
-                
-                <div class="input-field">
-                    <input type="password" name="pass" id="pass" class="input " placeholder="Password" required>
-                    <i class='bx bx-lock-alt'></i>
-                </div>
+        #back {
+            margin-left: 8px;
+        }
 
-                <div class="input-field">
-                    <input type="submit" name="login" class="submit" value="Login">
-                </div>
-            </form>
-        </div>
-    </div> -->
+        .labells {
+            color: white;
+        }
+
+
+    </style>
+
 </body>
 
 </html>

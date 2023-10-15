@@ -49,7 +49,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js" integrity="sha512-UxP+UhJaGRWuMG2YC6LPWYpFQnsSgnor0VUF3BHdD83PS/pOpN+FYbZmrYN+ISX8jnvgVUciqP/fILOXDjZSwg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/ScrollTrigger.min.js" integrity="sha512-DlTk2PLUinhBupE89kHOJTt11QqbRMQVlbb26XVDvp4D1kt0fRvQJslvZnTelRJHq6yK0tIPCR7cul8+9Blz0g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <!-- favico -->
-<link rel="apple-touch-icon" sizes="57x57" href="../assets/favico/apple-icon-57x57.png">
+<!-- <link rel="apple-touch-icon" sizes="57x57" href="../assets/favico/apple-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="../assets/favico/apple-icon-60x60.png">
 <link rel="apple-touch-icon" sizes="72x72" href="../assets/favico/apple-icon-72x72.png">
 <link rel="apple-touch-icon" sizes="76x76" href="../assets/favico/apple-icon-76x76.png">
@@ -61,10 +61,10 @@
 <link rel="icon" type="image/png" sizes="192x192" href="../assets/favico/android-icon-192x192.png">
 <link rel="icon" type="image/png" sizes="32x32" href="../assets/favico/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="96x96" href="../assets/favico/favicon-96x96.png">
-<link rel="icon" type="image/png" sizes="16x16" href="../assets/favico/favicon-16x16.png">
-<link rel="manifest" href="../assets/favico/manifest.json">
+<link rel="icon" type="image/png" sizes="16x16" href="../assets/favico/favicon-16x16.png"> -->
+<!-- <link rel="manifest" href="../assets/favico/manifest.json"> -->
 <meta name="msapplication-TileColor" content="#ffffff">
-<meta name="msapplication-TileImage" content="../assets/favico/ms-icon-144x144.png">
+<!-- <meta name="msapplication-TileImage" content="../assets/favico/ms-icon-144x144.png"> -->
 <meta name="theme-color" content="#ffffff">
 
 <title>Industrial Competition 2023</title>
@@ -1276,6 +1276,7 @@ button.centered-button {
                     contentType: false,
                     enctype: 'multipart/form-data',
                     success: (e) => {
+                      console.log(e);
                         if (!e.success_regist && e.message != null)
                         {
                             swal({
@@ -1304,8 +1305,8 @@ button.centered-button {
 
                         $("#masok").text("SUBMIT");
                     },
-                    error: function(err)
-                    {
+                    error: function(err){
+                      console.log(err);
                         swal({
                             title: "Error",
                             text: "Terjadi kesalahan saat memproses data!",

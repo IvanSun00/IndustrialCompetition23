@@ -8,7 +8,6 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         header('Location: ../login.php');
         exit;
     }
-    $_SESSION['nama_kelompok'] = "iniAdmin";
 
     //READ
     //Mengambil Data Kelompok Untuk Material dan apakah sudah Crafting
