@@ -1195,10 +1195,12 @@ if(!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == ""){
                     $(".Bom-E .fluorit").text(Kelompok.qty_Fluorit + "/" + Crafting[4].qty_Fluorit);
                     $(".Bom-E .hematit").text(Kelompok.qty_Hematit + "/" + Crafting[4].qty_Hematit);
 
-
                     // ubah warna elemen jadi darkcyan jika sudah penuh
                     $(".element").each(function(){
-                        if($(this).text().split("/")[0] >= $(this).text().split("/")[1]){
+                        var parts = $(this).text().split("/");
+                        var leftValue = parseInt(parts[0]);
+                        var rightValue = parseInt(parts[1]);
+                        if(leftValue>=rightValue){
                             $(this).css("background-color", "darkcyan");
                         }
                         else {
