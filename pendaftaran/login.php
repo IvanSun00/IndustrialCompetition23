@@ -22,7 +22,6 @@ if ( isset($_POST["login"]) ) {
         $msg = 'register';
         $error_mess = true;
     }
-    echo $msg;
 }
 ?>
 
@@ -34,7 +33,7 @@ if ( isset($_POST["login"]) ) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="../assets/login.css">
+    <link rel="stylesheet" href="login.css">
     <title>Industrial Competition 2023</title>
     <!-- <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&display=swap" rel="stylesheet"> -->
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -53,9 +52,9 @@ if ( isset($_POST["login"]) ) {
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"> -->
     
     <!-- SWEET ALERT -->
-    <!-- <script src="sweetalert2.min.js"></script>
-    <link rel="stylesheet" href="sweetalert2.min.css">   -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script> -->
+    <script src="sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="sweetalert2.min.css">  
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     
 </head>
 
@@ -66,53 +65,39 @@ if ( isset($_POST["login"]) ) {
         <div id="stars3"></div>
     </section>
     
+    <?php if ($error_mess == true) { ?>
+            <script>
+            Swal.fire({
+            // position: 'center',
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Nama kelompok atau password salah!',
+            });
+            </script>
+    <?php } ?>
+    
     <div class="box">
         <div class="form">
             <h2>LOGIN</h2>
-            <div class="inputBox">
-                <input type="text" required="required" name="username" id="username" class="input">
-                <span>Username</span>
-                <i></i>
-            </div>
-            <div class="inputBox">
-                <input type="password" required="required" name="pass" id="pass" class="input ">
-                <span>Password</span>
-                <i></i>
-            </div>
-            <input id="btn" type="submit" name="login" class="submit" value="LOGIN">
+            <form action="" method="post">
+                <div class="inputBox">
+                    <input type="text" required="required" name="username" id="username" class="input">
+                    <span>Username</span>
+                    <i></i>
+                </div>
+
+                <div class="inputBox">
+                    <input type="password" required="required" name="pass" id="pass" class="input">
+                    <span>Password</span>
+                    <i></i>
+                </div>
+                <input id="btn" type="submit" name="login" class="submit" value="Login">
+            </form>
         </div>
     </div>
 
 
-    <!-- <div class="box">
-        <div class="container">
-            <div class="top-header">
-                <header>Login</header>
-            </div>
-
-            <?php if ($error_mess == true) { ?>
-                <div class="error-mess alert alert-danger" role="alert">
-                    nama kelompok atau password salah!
-                </div>
-            <?php } ?>
-
-            <form action="" method="post">
-                <div class="input-field">
-                    <input type="text" name="username" id="username" class="input" placeholder="Username" required>
-                    <i class='bx bx-user' ></i>
-                </div>
-                
-                <div class="input-field">
-                    <input type="password" name="pass" id="pass" class="input " placeholder="Password" required>
-                    <i class='bx bx-lock-alt'></i>
-                </div>
-
-                <div class="input-field">
-                    <input type="submit" name="login" class="submit" value="Login">
-                </div>
-            </form>
-        </div>
-    </div> -->
+    
 </body>
 
 </html>

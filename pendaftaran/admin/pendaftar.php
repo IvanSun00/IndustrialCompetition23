@@ -497,7 +497,6 @@
                     data: { for: "detailAnggota", email: email },
                     success: function(data) {
                         var res = data.split('//');   
-                        
                         if (res[0] == "success") {
                             $("#cardAnggota").html(res[1]);
                             anggota1 = res[1]; anggota2 = res[2]; anggota3 = res[3]; anggota4 = res[4];
