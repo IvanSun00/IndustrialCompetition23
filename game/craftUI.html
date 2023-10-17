@@ -1,11 +1,4 @@
-<?php
-session_start();
-if(!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == ""){
-        header('Location: login.php');
-        exit;
-}
 
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -699,7 +692,7 @@ if(!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == ""){
             <div class="section clearfix">
                 <div class="nav">
                     <a href="#">Home</a>
-                    <a href="#">Inventory</a>
+                    <a href="#">History</a>
                     <a href="./logout.php">Logout</a>
                 </div>
                 
@@ -710,7 +703,7 @@ if(!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == ""){
                             <span class="h2">BOM-A</span>
                             <div class="loading"></div>
                             <p class="confirm"></p>
-                            <img src="https://plus.unsplash.com/premium_photo-1673481600854-83dc30ae7c38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fG1hdGVyaWFsfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" alt="" width="100%" height="100%">
+                            <img src="https://images.unsplash.com/photo-1630189179044-54e9d1de75e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="" width="100%" height="100%">
                         </div>
                         
                         <table class="Bom-A recipe">
@@ -1195,12 +1188,10 @@ if(!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == ""){
                     $(".Bom-E .fluorit").text(Kelompok.qty_Fluorit + "/" + Crafting[4].qty_Fluorit);
                     $(".Bom-E .hematit").text(Kelompok.qty_Hematit + "/" + Crafting[4].qty_Hematit);
 
+
                     // ubah warna elemen jadi darkcyan jika sudah penuh
                     $(".element").each(function(){
-                        var parts = $(this).text().split("/");
-                        var leftValue = parseInt(parts[0]);
-                        var rightValue = parseInt(parts[1]);
-                        if(leftValue>=rightValue){
+                        if($(this).text().split("/")[0] >= $(this).text().split("/")[1]){
                             $(this).css("background-color", "darkcyan");
                         }
                         else {
