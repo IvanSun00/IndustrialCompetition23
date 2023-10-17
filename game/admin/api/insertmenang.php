@@ -3,8 +3,11 @@ include '../../../connect.php';
 
 //POS MENANG
 if (isset($_POST["submitmenang"])) {
-    $nama_kelompok = $_POST["fruitselectmenang"];
-    $_SESSION["kelompok"] = $nama_kelompok;
+    if ($_SESSION['pickpos'] == true) {
+        $nama_kelompok = $_POST["fruitselectmenang"];
+        $_SESSION["kelompok"] = $nama_kelompok;
+    }
+
 
 
     //POS 1
@@ -388,9 +391,9 @@ if (isset($_POST["submitmenang"])) {
     }
 
 
+
     //POS 8
     if ($_SESSION["nama_poss"] == "Run and Run") {
-        echo "hai";
 
         $stmt = $conn->prepare('SELECT * FROM game_hadiahmenang WHERE id_post=8');
         $stmt->execute();

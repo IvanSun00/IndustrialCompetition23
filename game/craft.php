@@ -26,6 +26,9 @@ if(!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == ""){
     <!--=============== CSS ===============-->
     <link rel="stylesheet" href="inventory.css">
     
+    <!-- fav icon -->
+    <link rel="icon" type="image/png" href="../assets/logo%20ic.png">
+    
     <style>
                 /* http://meyerweb.com/eric/tools/css/reset/ 
         v2.0 | 20110126
@@ -548,11 +551,6 @@ if(!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == ""){
             opacity: 0.5;
         }
 
-        .finish-craft{
-            background: rgb(109, 1, 48);
-            color: antiquewhite;
-            opacity: 0.5;
-        }
 
 
         .section-title {
@@ -699,7 +697,7 @@ if(!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == ""){
             <div class="section clearfix">
                 <div class="nav">
                     <a href="#">Home</a>
-                    <a href="#">Inventory</a>
+                    <a href="#">History</a>
                     <a href="./logout.php">Logout</a>
                 </div>
                 
@@ -707,10 +705,10 @@ if(!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == ""){
                     
                     <div class="bom1 bom-box">
                         <div class="bom-img a">
-                            <span class="h2">BOM-A</span>
+                            <span class="h2" id="BOMA">BOM-A</span>
                             <div class="loading"></div>
                             <p class="confirm"></p>
-                            <img src="https://plus.unsplash.com/premium_photo-1673481600854-83dc30ae7c38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fG1hdGVyaWFsfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" alt="" width="100%" height="100%">
+                            <img src="https://images.unsplash.com/photo-1630189179044-54e9d1de75e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="" width="100%" height="100%">
                         </div>
                         
                         <table class="Bom-A recipe">
@@ -752,7 +750,7 @@ if(!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == ""){
                     <div class="bom2 bom-box">
                         <img src="" alt="">
                         <div class="bom-img b">
-                            <span class="h2">BOM-B</span>
+                            <span class="h2"id="BOMB">BOM-B</span>
                             <div class="loading"></div>
                             <p class="confirm"></p>
                             
@@ -797,7 +795,7 @@ if(!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == ""){
                     </div>
                     <div class="bom3 bom-box">
                         <div class="bom-img c">
-                            <span class="h2">BOM-C</span>
+                            <span class="h2" id="BOMC" >BOM-C</span>
                             <div class="loading"></div>
                             <p class="confirm" ></p>
                             
@@ -840,7 +838,7 @@ if(!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == ""){
                     </div>
                     <div class="bom4 bom-box">
                         <div class="bom-img d">
-                            <span class="h2">BOM-D</span>
+                            <span class="h2" id="BOMD">BOM-D</span>
                             <div class="loading"></div>
                             <p class="confirm" ></p>
                             
@@ -883,7 +881,7 @@ if(!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == ""){
                     </div>
                     <div class="bom5 bom-box">
                         <div class="bom-img e">
-                            <span class="h2">BOM-E</span>
+                            <span class="h2" id="BOME">BOM-E</span>
                             <div class="loading" id="load-E"></div>
                             <p class="confirm"></p>
                             
@@ -1035,41 +1033,6 @@ if(!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == ""){
     }
 
 
-
-
-
-    // document.getElementById("CraftA").addEventListener("click", function() {
-    //     loading(0);
-    //     document.getElementById("CraftA").disabled = true;
-    //     setTimeout(function(){
-    //         document.getElementById("CraftA").disabled = false;
-    //     }, 1100)
-        
-    // });
-    // document.getElementById("CraftB").addEventListener("click", function() {
-        
-    //     loading(1);
-    //     document.getElementById("CraftB").disabled = true;
-    //     setTimeout(function(){
-    //         document.getElementById("CraftB").disabled = false;
-    //     }, 1100)
-        
-    // });
-    // document.getElementById("CraftC").addEventListener("click", function() {
-    //     loading(2);
-    //     document.getElementById("CraftC").disabled = true;
-    //     setTimeout(function(){
-    //         document.getElementById("CraftC").disabled = false;
-    //     }, 1100)
-    // });
-    // document.getElementById("CraftD").addEventListener("click", function() {
-        
-    //     loading(3);
-    //     document.getElementById("CraftD").disabled = true;
-    //     setTimeout(function(){
-    //         document.getElementById("CraftD").disabled = false;
-    //     }, 1100)
-    // });
     // document.getElementById("CraftE").addEventListener("click", function(){
         
     //     loading(4);
@@ -1227,9 +1190,25 @@ if(!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == ""){
             $('.material_list #jumlah_fluorit').text(kelompok.qty_Fluorit+"x");
             $('.material_list #jumlah_hematit').text(kelompok.qty_Hematit+"x");
         }
+
+        // 
+        function jumlahCrafting(Jumlah){
+            Jumlah.forEach(function(e){
+                if(e.id_bom == 1 ){
+                    $("#BOMA").text("BOM-A ("+e.jumlah+"x)")
+                }else if(e.id_bom == 2 ){
+                    $("#BOMB").text("BOM-B ("+e.jumlah+"x)")
+                }else if(e.id_bom == 3 ){
+                    $("#BOMC").text("BOM-C ("+e.jumlah+"x)")
+                }else if(e.id_bom == 4 ){
+                    $("#BOMD").text("BOM-D ("+e.jumlah+"x)")
+                }else if(e.id_bom == 5 ){
+                    $("#BOME").text("BOM-E ("+e.jumlah+"x)")
+                }
+            })
+        }
         
-        //animation =true -> menampilkan animasi success
-        function getData(animation =false){
+        function getData(){
                 $.ajax({
                 url: "api/craftProses.php",
                 method: "POST",
@@ -1242,23 +1221,10 @@ if(!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == ""){
                     //ubah data
                     var Kelompok = res.dataKelompok;
                     var Crafting = res.dataCrafting;
+                    var Jumlah = res.jumlahCrafting
                     ubahDataBom(Kelompok,Crafting);
                     ubahDataMaterial(Kelompok);
-
-                    //Jika Sudah Crafting, tampilkan success
-                    if(animation){
-                        var counter = 0;
-                        Crafting.forEach(function(e){
-                            if(e.idCraft != null){
-                                text[counter] = "SUCCESS";
-                                loading(counter);
-                                var ch = String.fromCharCode(65+counter);
-                                $("#Craft"+ch).prop('disabled',true);
-                                $("#Craft"+ch).addClass("finish-craft");
-                            }
-                            counter++;
-                        })
-                    }
+                    jumlahCrafting(Jumlah);
 
                 },
                 error: function(){
@@ -1266,7 +1232,7 @@ if(!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == ""){
                 }
             });
         }
-        getData(true);
+        getData();
 
         //Crafting
         $(".btn-craft").click(function(){
@@ -1274,8 +1240,8 @@ if(!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == ""){
             var ch = id.charAt(id.length-1);
             var intVal = ch.charCodeAt(0); //dapatkan ASCII
             $("#Craft"+ch).prop('disabled',true);
-            console.log(ch);
-            console.log(intVal);
+            // console.log(ch);
+            // console.log(intVal);
             $.ajax({
                 url: "api/craftProses.php",
                 method: "POST",
@@ -1285,14 +1251,14 @@ if(!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == ""){
                     // console.log(res);
                     if(res.status == "error"){
                         text[intVal-65] = res.msg;
-                        setTimeout(() => {
-                            $("#Craft"+ch).prop('disabled',false);
-                        }, 3000);
 
                     }else if(res.status == "success"){
                         text[intVal-65] = "SUCCESS";
-                        $("#Craft"+ch).addClass("finish-craft");
+                        // $("#Craft"+ch).addClass("finish-craft");
                     }
+                    setTimeout(() => {
+                            $("#Craft"+ch).prop('disabled',false);
+                        }, 2000);
 
                     showConfirm();
                     loading(intVal-65);

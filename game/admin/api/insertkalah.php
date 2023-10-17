@@ -3,18 +3,23 @@ include '../../../connect.php';
 
 //POS MENANG
 if (isset($_POST["submitkalah"])) {
-    $nama_kelompok = $_POST["fruitselectkalah"];
-    $_SESSION["kelompokkalah"] = $nama_kelompok;
+    if ($_SESSION['pickpos'] == true) {
+        $nama_kelompok = $_POST["fruitselectkalah"];
+        $_SESSION["kelompokkalah"] = $nama_kelompok;
+    }
 
 
 
     //POS 1
     if ($_SESSION["nama_poss"] == "Remember Me") {
+
         $stmt = $conn->prepare('SELECT * FROM game_hadiahkalah WHERE id_post=1');
         $stmt->execute();
+
         if ($stmt->rowCount() == 1) {
 
             $insertdatamenang = $stmt->fetch();
+
             $timbal = $insertdatamenang['qty_Timbal'];
             $karbon = $insertdatamenang['qty_Karbon'];
 
@@ -714,8 +719,8 @@ if (isset($_POST["submitkalah"])) {
 
 
 
-       //POS 14
-       if ($_SESSION["nama_poss"] == "Rubber Bond") {
+        //POS 14
+        if ($_SESSION["nama_poss"] == "Rubber Bond") {
 
         $stmt = $conn->prepare('SELECT * FROM game_hadiahkalah WHERE id_post=14');
         $stmt->execute();

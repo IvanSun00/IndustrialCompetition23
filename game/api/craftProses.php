@@ -19,17 +19,30 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         $dataKelompok = $stmt->fetch();
         $idKelompok = $dataKelompok['id'];
 
-        //fetch data BOM dan Crafting
-        $sql = "SELECT b.*, c.id as idCraft, c.id_kelompok, c.id_bom, c.timestamp from game_bomcost b
-        left JOIN game_crafting c ON b.id = c.id_bom AND id_kelompok =?
-        order by b.id;";
+        //fetch data bom cost
+        $sql = "SELECT * FROM game_bomcost";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $dataCrafting = $stmt->fetchAll();
+
+        // fetch data sudah craft berapa kali
+        $sql ="SELECT id_kelompok,id_bom,count(*) as jumlah FROM game_crafting where id_kelompok = ? group by(id_bom)";
         $stmt = $conn->prepare($sql);
         $stmt->execute([$idKelompok]);
-        $dataCrafting = $stmt->fetchAll();
+        $jumlahCrafting = $stmt->fetchAll();
+
+        // //fetch data BOM dan Crafting
+        // $sql = "SELECT b.*, c.id as idCraft, c.id_kelompok, c.id_bom, c.timestamp from game_bomcost b
+        // left JOIN game_crafting c ON b.id = c.id_bom AND id_kelompok =?
+        // order by b.id;";
+        // $stmt = $conn->prepare($sql);
+        // $stmt->execute([$idKelompok]);
+        // $dataCrafting = $stmt->fetchAll();
 
         //output
         $output['dataKelompok']  = $dataKelompok;
         $output ['dataCrafting'] = $dataCrafting;
+        $output ['jumlahCrafting'] = $jumlahCrafting;
         echo json_encode($output, JSON_PRETTY_PRINT);
     }
 
@@ -56,15 +69,15 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 
 
             //validasi apa sudah pernah craft
-            $sql = "SELECT * FROM game_crafting WHERE id_bom = ? AND id_kelompok = ?";
-            $stmt = $conn->prepare($sql);
-            $stmt->execute([$id_bom, $id_kelompok]);
-            if($stmt->rowCount() > 0){
-                $output['status'] = "error";
-                $output['msg']= "Sudah Pernah Craft";
-                echo json_encode($output);
-                exit;
-            }
+            // $sql = "SELECT * FROM game_crafting WHERE id_bom = ? AND id_kelompok = ?";
+            // $stmt = $conn->prepare($sql);
+            // $stmt->execute([$id_bom, $id_kelompok]);
+            // if($stmt->rowCount() > 0){
+            //     $output['status'] = "error";
+            //     $output['msg']= "Sudah Pernah Craft";
+            //     echo json_encode($output);
+            //     exit;
+            // }
 
             //validasi apakah cukup bahan untuk craft 
             $sql = "SELECT * FROM game_bomcost WHERE id = ?";
@@ -72,7 +85,6 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
             $stmt->execute([$id_bom]);
             $dataBom = $stmt->fetch();
         
-
             // Ferumi,Lateks,Timbal,Cuprite,Karbon,Uvarovite,Titanium,Sylvite,Silikon,Copper,Nitrogen,Poliisoprena,Fluorit,Hematit
             if($dataKelompok['qty_Ferumi'] < $dataBom['qty_Ferumi'] || $dataKelompok["qty_Lateks"] < $dataBom["qty_Lateks"] || $dataKelompok["qty_Timbal"] < $dataBom["qty_Timbal"] || $dataKelompok["qty_Cuprite"] < $dataBom["qty_Cuprite"] || $dataKelompok["qty_Karbon"] < $dataBom["qty_Karbon"] || $dataKelompok["qty_Uvarovite"] < $dataBom["qty_Uvarovite"] || $dataKelompok["qty_Titanium"] < $dataBom["qty_Titanium"] || $dataKelompok["qty_Sylvite"] < $dataBom["qty_Sylvite"] || $dataKelompok["qty_Silikon"] < $dataBom["qty_Silikon"] || $dataKelompok["qty_Copper"] < $dataBom["qty_Copper"] || $dataKelompok["qty_Nitrogen"] < $dataBom["qty_Nitrogen"] || $dataKelompok["qty_Poliisoprena"] < $dataBom["qty_Poliisoprena"] || $dataKelompok["qty_Fluorit"] < $dataBom["qty_Fluorit"] || $dataKelompok["qty_Hematit"] < $dataBom["qty_Hematit"]){
                 $output['status'] = "error";
@@ -90,6 +102,12 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
             $sql = "INSERT INTO game_crafting (id_kelompok, id_bom) VALUES (?,?)";
             $stmt = $conn->prepare($sql);
             $stmt->execute([$id_kelompok, $id_bom]);
+
+            //tambahhkan poin ke peserta
+            $sql = "UPDATE game_kelompok SET poin = poin + ? WHERE id = ?";
+            $stmt = $conn->prepare($sql);
+            $stmt->execute([$dataBom['poin'], $id_kelompok]);
+            
             $conn->commit();
             $output['status'] = "success";
             $output['msg']= "Crafting berhasil";

@@ -15,6 +15,8 @@ require_once("api/receive.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     
+    <!-- fav icon -->
+    <link rel="icon" type="image/png" href="../assets/logo%20ic.png">
 
     <!-- Bootstrap CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.rtl.min.css" rel="stylesheet"
@@ -90,6 +92,9 @@ require_once("api/receive.php");
     <label for="kelompok1" class="keterangan full-container" style="text-align: center;"> NAMA KELOMPOK : </label>
     <div class="full-container">
         <select class="selectpicker" id="kelompok1" data-live-search="true">
+            <option value="-akdfuerhhdaer">
+                <?php echo "Show All"; ?>
+            </option>
         <?php if (is_array($dataKelompok)) {
             foreach ($dataKelompok as $kelompok) { ?>
 
@@ -177,6 +182,7 @@ require_once("api/receive.php");
                 "autoWidth": false, // Disable automatic column width calculation
                 "lengthChange": false, // Hide the length change control
                 "searching": false, // Disable searching
+                "order": [],
             });
         });
 
@@ -186,16 +192,20 @@ require_once("api/receive.php");
     <script>
         const dropDown1 = document.getElementById('kelompok1');
         const table1 = document.getElementById('kelompok1Table').getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+
         dropDown1.addEventListener('change', function () {
-            const selectedValue = this.value;
+            const selectedValue = this.value.trim().toLowerCase(); // Trim and convert to lowercase
             for (let i = 0; i < table1.length; i++) {
                 const kelompok1Cell = table1[i].getElementsByTagName('td')[0];
-                console.log(kelompok1Cell);
-                const cellContent = kelompok1Cell.textContent;
-                if (cellContent.includes(selectedValue)) {
+                const cellContent = kelompok1Cell.textContent.trim().toLowerCase(); // Trim and convert to lowercase
+                if (cellContent === selectedValue) {
                     table1[i].style.display = '';
                 } else {
                     table1[i].style.display = 'none';
+                }
+
+                if(selectedValue == "-akdfuerhhdaer"){
+                    table1[i].style.display = '';
                 }
             }
         });

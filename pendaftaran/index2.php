@@ -1171,9 +1171,17 @@ button.centered-button {
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
                 <ul class="nav navbar-nav text-center py-2 py-lg-0" id="top-menu">
-                <button class="other nav-link btn px-4 mx-auto ms-lg-3" type="button" onclick="location.href='login.php'">
-                    LOGIN
-                </button>
+                  <li class="mb-lg-0 mb-3">
+                    <button class="other nav-link btn px-4 mx-auto ms-lg-3" type="button" onclick="location.href='login.php'">
+                      LOGIN
+                    </button>
+                  </li>
+                  <li>
+                    <button class="other nav-link btn px-4 mx-auto ms-lg-3" type="button" onclick="location.href='../home'">
+                      Home
+                    </button>
+                  </li>
+                
                 </ul>
             </div>
             </div>
