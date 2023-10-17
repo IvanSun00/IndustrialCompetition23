@@ -155,6 +155,13 @@ input[type="submit"]:active {
 	opacity: 0.8;
 }
 
+.tengah-layar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
 @media screen and (max-width: 1280px) {
     .box {
         margin-top: 7vw;

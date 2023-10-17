@@ -64,18 +64,19 @@ if ( isset($_POST["login"]) ) {
         <div id="stars2"></div>
         <div id="stars3"></div>
     </section>
-    
-    <?php if ($error_mess == true) { ?>
-            <script>
-            Swal.fire({
-            // position: 'center',
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Nama kelompok atau password salah!',
-            });
-            </script>
-    <?php } ?>
-    
+    <div class="tengah-layar">
+        <?php if ($error_mess == true) { ?>
+                <script>
+                Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Nama kelompok atau password salah!',
+                });
+                </script>
+        <?php } ?>
+    </div>
+
     <div class="box">
         <div class="form">
             <h2>LOGIN</h2>
