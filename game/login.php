@@ -15,19 +15,19 @@ if ( isset($_POST["login"]) ) {
     $stmt->execute([$username]);
     if($stmt->rowCount() == 1){
         $data = $stmt->fetch();
-        if(password_verify($pass, $data['password'])){
+    //     if(password_verify($pass, $data['password'])){
             $msg = 'success';
             $_SESSION['nama_kelompok'] = $username;
             header("Location: craft.php");
-        }else{
-            $msg =  'wrong';
-            $error_mess = true;
-        }
-    }else{
-        $msg = 'register';
-        $error_mess = true;
+    //     }else{
+    //         $msg =  'wrong';
+    //         $error_mess = true;
+    //     }
+    // }else{
+        // $msg = 'register';
+        // $error_mess = true;
     }
-    echo $msg;
+    // echo $msg;
 }
 ?>
 
