@@ -26,7 +26,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         $dataCrafting = $stmt->fetchAll();
 
         // fetch data sudah craft berapa kali
-        $sql ="SELECT id_kelompok,id_bom,count(*) as jumlah FROM game_crafting where id_kelompok = ? group by(id_bom)";
+        $sql ="SELECT id_kelompok,id_bom,count(*) as jumlah FROM game_crafting where id_kelompok = ? group by id_bom,id_kelompok";
         $stmt = $conn->prepare($sql);
         $stmt->execute([$idKelompok]);
         $jumlahCrafting = $stmt->fetchAll();
