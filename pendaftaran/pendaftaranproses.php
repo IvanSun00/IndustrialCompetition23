@@ -204,7 +204,7 @@
 
             if($insert_data)
             {
-                $message = 'Data berhasil dimasukkan, silahkan tunggu sebentar!';
+                $message = 'Data berhasil dimasukkan !!';
             } else 
             {
                 $message = "Terjadi kesalahaan saat memasukkan data, silahkan ulangi kembali!";

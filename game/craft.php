@@ -696,8 +696,8 @@ if(!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == ""){
             </div>
             <div class="section clearfix">
                 <div class="nav">
-                    <a href="#">Home</a>
-                    <a href="#">History</a>
+                    <a href="craft.php">Home</a>
+                    <a href="myhistory.php">History</a>
                     <a href="./logout.php">Logout</a>
                 </div>
                 

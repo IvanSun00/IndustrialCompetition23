@@ -1,9 +1,9 @@
 <?php
 require_once("api/receive.php"); 
-// if(!isset($_SESSION['nrp_admin']) || $_SESSION['nrp_admin'] == ""){
-//     header("Location: index.php");
-//     exit();
-// }
+if(!isset($_SESSION['nrp_admin']) || $_SESSION['nrp_admin'] == ""){
+    header("Location: index.php");
+    exit();
+}
 
 ?>
 

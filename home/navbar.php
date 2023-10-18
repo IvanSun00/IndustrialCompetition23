@@ -194,7 +194,7 @@
 </head>
 
 <body>
-    <a href="" class="logo"><img src="assets/logo Putih.png" alt="Logo" id="nav_logo"></a>
+    <a href="" class="logo"><img src="assets/logo putih.png" alt="Logo" id="nav_logo"></a>
 
     <ul class="navbar">
         <li><a href="#home" class="active">Home</a></li>
