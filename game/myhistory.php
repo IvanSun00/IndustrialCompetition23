@@ -159,9 +159,9 @@ $dataHistory = $stmt->fetchAll();
                                     elseif($data['id_post'] == 3){
                                         echo "Cuprite:{$data['qty_Cuprite']}x, Poliisoprena:{$data['qty_Poliisoprena']}x ";
                                     }
-                                    // 4: sylvite silikon
+                                    // 4: ferumi silikon
                                     elseif($data['id_post'] == 4){
-                                        echo "Sylvite:{$data['qty_Sylvite']}x, Silikon:{$data['qty_Silikon']}x ";
+                                        echo "Ferumi:{$data['qty_Ferumi']}x, Silikon:{$data['qty_Silikon']}x ";
                                     }
                                     // 5:Lateks timbal
                                     elseif($data['id_post'] == 5){
@@ -196,9 +196,9 @@ $dataHistory = $stmt->fetchAll();
                                     elseif($data['id_post'] == 12){
                                         echo "Nitrogen:{$data['qty_Nitrogen']}x, Poliisoprena:{$data['qty_Poliisoprena']}x ";
                                     }
-                                    // 13:sylvite hematit
+                                    // 13:copper silikon
                                     elseif($data['id_post'] == 13){
-                                        echo "Sylvite:{$data['qty_Sylvite']}x, Hematit:{$data['qty_Hematit']}x ";
+                                        echo "Copper:{$data['qty_Copper']}x, Silikon:{$data['qty_Silikon']}x ";
                                     }
                                     // 14: timbal hematit
                                     elseif($data['id_post'] == 14){
