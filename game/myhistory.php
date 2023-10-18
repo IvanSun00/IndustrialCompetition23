@@ -235,8 +235,9 @@ $dataHistory = $stmt->fetchAll();
 <script>
 $(document).ready(function() {
     $('#history').DataTable({
-        "pagingType": "full_numbers",
+        // "pagingType": "full_numbers",
         "searching":false,
+        "order": [],
         responsive: true,
     });
 } );
