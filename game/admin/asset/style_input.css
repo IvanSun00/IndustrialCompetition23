@@ -1,0 +1,121 @@
+
+.container-fluid{
+    
+    display: flex;
+    justify-content: center;
+}
+
+.nav-item {
+   
+        margin-right: 10px;
+        margin-left: 10px;
+    
+}
+
+body{
+    background-color: gainsboro;
+    height: 1000px;
+
+}
+
+.container{
+    border-radius: 2px;
+    border-color: black;
+    border-style:outset;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-width: 25px;
+    height: 600px;
+    background-color: antiquewhite;
+    margin-top: 10px;
+}
+
+#exit {
+    margin-left: 10px;
+    display:inline-flex;
+    position:absolute;
+    width: 35px;
+    height: 30px;
+}
+
+.garis{
+    /* border-bottom: 3px;
+    border-style: dashed;
+    border-color: blue; */
+    margin-top: 5px;
+}
+
+.option {
+    width: 100%;
+}
+
+
+
+.horiline{
+    border: 3px solid black;
+    border-radius: 5px;
+}
+
+.judul{
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+.search_select_box {
+    text-align: center; /* Pusatkan elemen di dalam div */
+}
+
+.selectpicker {
+    width: 100%; /* Lebar dropdown 100% dari container */
+}
+
+#fruitSelect{
+    width: 100%;
+    margin: 10px auto;
+    display: inline-block;
+}
+
+#pos-dropdown{
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    margin-top: 10px; /* Jarak antara tombol Submit dan pembatas border */
+}
+
+.top-margin{
+    margin-top: 250px;
+}
+
+.bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
+    width: 90%;
+    max-width: 600px;
+}
+
+.bootstrap-select .dropdown-menu li a {
+    text-align: left;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#container{
+    display: inline-flex;
+    position:relative;
+    margin-top: 20px;
+}
+
+.full-container{
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-top: 10px;
+}
