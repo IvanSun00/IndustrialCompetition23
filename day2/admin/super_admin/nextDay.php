@@ -1,6 +1,5 @@
 <?php
-$con = mysqli_connect("localhost", "root", "", "ic_2023");
-
+require_once "../../../connect.php";
 if (isset($_GET['change'])) {
     $sql = "SELECT day FROM day2_day WHERE id = 1";
     $result = mysqli_query($con, $sql);

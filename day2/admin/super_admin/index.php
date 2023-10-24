@@ -1,5 +1,9 @@
 <?php
-$con = mysqli_connect("localhost", "root", "", "ic_2023");
+require_once "../../../connect.php";
+if(isset($_SESSION['nrp_admin']) && $_SESSION['nrp_admin'] != ""){
+    header("Location: ../index.php");
+    exit();
+}
 require "nextDay.php";
 ?>
 
