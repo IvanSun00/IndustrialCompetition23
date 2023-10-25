@@ -6,7 +6,6 @@ $query = $conn->prepare('SELECT * FROM day2_kelompok');
 $query->execute();
 
 $listKelompok = $query->fetchAll();
-$_SESSION['alert'] = "netral";
 ?>
 
 <!DOCTYPE html>
@@ -46,26 +45,28 @@ $_SESSION['alert'] = "netral";
 
 
     <div class="container">
-        <?php
-        if (isset($_POST["ckel"])) {
-            $_SESSION['namekel_day2'] = $_POST["select_kelompok"];
-        }
-        ?>
-
         <div>
-            <?php if (isset($_SESSION['namekel_day2'])) {
-                $kd2 = $_SESSION['namekel_day2'];
-                $qbalance = $conn->prepare("SELECT uang FROM day2_kelompok where nama='$kd2'");
-                $qbalance->execute();
-                $balancenow = $qbalance->fetch();
+            <?php
+            if (!isset($_SESSION['namekel_day2']) && !isset($_SESSION['balance_now'])) {
+                echo '<h3>Login di kelompok none</h3>';
+            } elseif (isset($_SESSION['namekel_day2']) && isset($_SESSION['balance_now'])) {
+                if ($_SESSION['namekel_day2'] != 'Pilih Kelompok') {
 
-
+                    $kd2 = $_SESSION['namekel_day2'];
+                    $qbalance = $conn->prepare("SELECT uang FROM day2_kelompok where nama='$kd2'");
+                    $qbalance->execute();
+                    $balancenow = $qbalance->fetch();
+                    $_SESSION['balance_now'] = $balancenow['uang'];
+                }
                 echo '<h3> Login di Kelompok ' . $_SESSION['namekel_day2'] . '</h3>';
-                echo "<h3> Balance now : " . $balancenow['uang'] . "</h3>";
+                echo "<h3> Balance now : " . $_SESSION['balance_now'] . "</h3>";
             }
             ?>
         </div>
     </div>
+
+
+
     <!--Pilih Kelompok-->
     <section>
         <div class="p-3 container justify-content-start text-end mt-4">
@@ -73,7 +74,7 @@ $_SESSION['alert'] = "netral";
                 <div>
                     <h5><label>Kelompok:</label></h5>
                 </div>
-                <form method="post">
+                <form action="setkelompok.php" method="post">
                     <div>
                         <select class="form-select form-select-lg mb-3" name="select_kelompok" id="select_kelompok" aria-label=".form-select-lg example">
                             <option selected>Pilih Kelompok</option>
@@ -95,28 +96,31 @@ $_SESSION['alert'] = "netral";
     <!-- Input Balance -->
     <section>
         <div class="p-3 container justify-content-start text-end mt-1">
-            <?php 
-            if ($_SESSION['alert'] = "berhasil") {
-                echo '<div class="alert alert-success" role="alert">
-                        Input uang berhasil
-                    </div>';
-            }elseif($_SESSION['alert'] = "netral"){
-                echo '';
-            }
-            ?>
 
             <div>
-                <div>
-                    <h5><label for="input-balance">Balance:</label></h5>
-                </div>
+                <?php
+                if (isset($_SESSION['alert'])) {
+                    if ($_SESSION['alert'] = "berhasil") {
+                        echo '<div class="alert alert-success" role="alert">
+                            Input uang berhasil
+                        </div>';
+                    } else if ($_SESSION['alert'] = "gagal") {
+                        echo '<div class="alert alert-danger" role="alert">
+                            Input uang gagal
+                        </div>';
+                    }
+                }
 
-                <form action="inputuang.php" method="post">
-                    <div class="d-flex flex-row">
-                        <input type="text" class="form-control" id="input-balance" name="input-balance" style="margin-right:20px">
-                        <button type="submit" value="submit" class="btn btn-primary" name="submit-balance" id="submit-balance">Submit</button>
-                    </div>
-                </form>
+                ?>
+                <h5><label for="input-balance">Balance:</label></h5>
             </div>
+
+            <form action="inputuang.php" method="post">
+                <div>
+                    <input type="text" class="form-control" id="input-balance" name="input-balance">
+                    <button type="submit" value="submit" class="btn btn-primary mt-3" name="submit-balance" id="submit-balance">Submit</button>
+                </div>
+            </form>
         </div>
     </section>
 
@@ -129,12 +133,31 @@ $_SESSION['alert'] = "netral";
             </div>
             <br>
 
-            <form method="post">
+            <form action="sertifikasi.php" method="post">
                 <div class="col-md-6">
-                    <p>Display text here</p>
-                    <div class="">
-                        <button type="button" class="btn btn-outline-primary" name="acc" id="acc">Sertifikasi</button>
-                        <button type="button" class="btn btn-outline-danger" name="undo" id="undo">Batalkan sertifikasi</button>
+                    <?php
+                    if (isset($_SESSION['namekel_day2']) && $_SESSION['namekel_day2'] != 'Pilih Kelompok') {
+                        $ks2 = $_SESSION['namekel_day2'];
+
+                        $stmt_serti = $conn->prepare("SELECT sertifikasi FROM day2_kelompok WHERE nama='$ks2'");
+                        $stmt_serti->execute();
+                        $check_serti = $stmt_serti->fetch();
+                        $_SESSION['quan_serti'] = $check_serti['sertifikasi'];
+
+                        if (isset($_SESSION['quan_serti']) && $_SESSION['quan_serti'] == 1) {
+                            echo '<div class="alert alert-primary" role="alert">
+                        Kelompok telah tersertifikasi
+                      </div>';
+                        } elseif (isset($_SESSION['quan_serti']) && $_SESSION['quan_serti'] == 0) {
+                            echo '<div class="alert alert-secondary" role="alert">
+                        Kelompok BELUM tersertifikasi
+                      </div>';
+                        }
+                    }
+                    ?>
+                    <div>
+                        <button type="submit" value="submit" class="btn btn-outline-primary" name="acc" id="acc">Sertifikasi</button>
+                        <button type="submit" value="submit" class="btn btn-outline-danger" name="undo" id="undo">Batalkan sertifikasi</button>
                     </div>
                 </div>
             </form>

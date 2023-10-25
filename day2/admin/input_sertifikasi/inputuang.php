@@ -1,19 +1,22 @@
 <?php
 include '../../../connect.php';
-if (isset($_POST["submit-balance"])) {
-    $balance = $_POST["input-balance"];
-    $kd2 = $_SESSION['namekel_day2'];
 
-    $stmt1 = $conn->prepare("SELECT * FROM day2_kelompok WHERE nama='$kd2'");
-    $stmt1->execute();
-    $insertdatakelompok = $stmt1->fetch();
-    $quan_uang = $insertdatakelompok['uang'];
+if (isset($_POST['submit-balance']) && isset($_SESSION['balance_now']) && isset($_SESSION['namekel_day2'])) {
+    $ku2 = $_SESSION['namekel_day2'];
+    $quan_uang = $_SESSION['balance_now'];
 
+    $balance = $_POST['input-balance'];
     $rewarduang = $balance + $quan_uang;
 
-    $stmt2 = $conn->prepare("UPDATE day2_kelompok SET uang='$rewarduang' WHERE nama='$kd2'");
-    $stmt2->execute();
+    $quang4 = $conn->prepare("UPDATE day2_kelompok SET uang=$rewarduang WHERE nama='$ku2'");
+    $quang4->execute();
 
-    $_SESSION['alert'] = "berhasil";
+    
+    if($quang4->rowCount() == 1){
+        $_SESSION['alert'] = "berhasil";
+    }else{
+        $_SESSION['alert'] = "gagal";
+    }
+
 }
 header("Location: index.php");
