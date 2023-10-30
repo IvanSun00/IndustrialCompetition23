@@ -99,7 +99,12 @@ function bid_check($db, $tableName, $columns) {
     return $msg;
 }
 
-echo json_encode([
-    'day' => $updatedDay,
-]);
+//biar echo nya ga ke print waktu di require di index.php
+if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest') {
+    echo json_encode([
+        'day' => $updatedDay,
+    ]);
+} else {
+
+}
 ?>

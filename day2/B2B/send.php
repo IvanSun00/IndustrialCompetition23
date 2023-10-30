@@ -36,6 +36,8 @@ if(isset($_POST['bidNumber']) && isset($_POST['harga'])){
         $message = "Anda sudah pernah membuat bid pada bid " . $_POST['bidNumber'];
     } elseif ($harga > $maxBid['max_bid']) {
         $message = "Maksimum harga yang bisa di bid untuk bid " . $_POST['bidNumber'] . " adalah " . $maxBid['max_bid'];
+    } elseif ($harga < 0){
+        $message = "Harga tidak bisa kurang dari 0!";
     } else {
     // membuat bid
         $sql = "INSERT INTO day2_kelompok_bid (id_kelompok, id_bid, harga) VALUES (?,?,?)";
