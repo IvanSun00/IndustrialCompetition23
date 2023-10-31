@@ -1,10 +1,10 @@
 <?php
+    require("receive.php");
 // if (!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == "") {
     $_SESSION['nama_kelompok'] = 'dummy';
 //     header('Location: login.php');
 //     exit;
 // }
-require("receive.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,12 +27,40 @@ require("receive.php");
         href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Handjet:wght@100;200;300;400;500;600;700;800;900&family=League+Spartan:wght@800&family=Press+Start+2P&family=Staatliches&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <!-- <link rel="stylesheet" href="star.css"> -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet">
+
+    <!-- font-family: 'DM Serif Display', serif;
+    font-family: 'PT Serif', serif;
+    font-family: 'Playfair Display', serif; -->
     <!-- Sweet Alert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
     <style>
+        .spacer {
+            aspect-ratio: 960/300;
+            width: 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+
+        .layer1 {
+            background-image: url('./layer1.svg');
+        }
+
+        .layer2 {
+            /* margin-top: 200px; */
+            background-image: url('./layer2.svg');
+        }
+
+        .flip {
+            transform: rotate(180deg);
+        }
+
         i {
             animation: colorChanges 3s linear 0s infinite;
         }
@@ -40,8 +68,13 @@ require("receive.php");
         h1 {
             color: rgb(37, 2, 80);
             background: rgb(238, 174, 202);
-            background: linear-gradient(90deg, rgba(238, 174, 202, 0.45) 0%, rgba(148, 187, 233, 0.77) 50%, rgba(148, 187, 233, 0.2) 100%);
-            font-family: 'Black Ops One', 'cursive';
+
+            background: linear-gradient(90deg, rgba(239, 142, 184, 0.45) 12%, rgba(148, 187, 233, 0.77) 50%, rgba(39, 47, 57, 0.392) 100%);
+            /* font-family: 'Black Ops One', 'cursive'; */
+            font-family: 'PT Serif', serif;
+            font-weight: bolder;
+
+
             text-shadow: 2px 2px 10px rgba(169, 60, 60, 0.5), -5px -7px 30px rgb(227, 243, 189, 0.55);
             border-bottom: 15px solid;
             border-top: 15px solid;
@@ -71,17 +104,24 @@ require("receive.php");
             box-shadow: -3px 4px 20px rgb(4, 2, 8);
         }
 
+        .bg-planet {
+            background-image: url("https://images.unsplash.com/photo-1462240006665-9529b3a399b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1927&q=80");
+            background-attachment: fixed;
+            background-size: cover;
+            background-blend-mode: luminosity;
 
+        }
 
         .card,
         .card-footer {
-            background-color: rgba(0, 10, 87, 0.348);
+            background-color: rgba(1, 1, 46, 0.348);
         }
 
         tr,
         td,
         th {
-            font-family: 'League Spartan', cursive;
+            /* font-family: 'League Spartan', cursive; */
+            font-family: 'DM Serif Display', serif;
             font-weight: bold;
             text-transform: uppercase;
             text-shadow: 2px 2px 10px rgb(227, 243, 189);
@@ -90,9 +130,8 @@ require("receive.php");
         }
 
         body {
-            background-image: url("https://images.unsplash.com/photo-1462240006665-9529b3a399b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1927&q=80");
-            background-attachment: fixed;
-            background-size: cover;
+            background-color: #202731;
+
         }
 
         @keyframes colorChanges {
@@ -125,6 +164,8 @@ require("receive.php");
 </head>
 
 <body>
+    <div class="spacer layer1 mt-0 pt-0"></div>
+
     <section class="wrapper">
         <div class="stars"></div>
         <div class="stars2"></div>
@@ -141,7 +182,7 @@ require("receive.php");
                 <?php foreach ($bids as $bid) { ?>
                     <div class="col">
                         <div class="card shadow-lg">
-                            <div class="card-body bg-warning-subtle">
+                            <div class="card-body bg-warning-subtle bg-planet">
                                 <table class="table table-sm table-bordered border-dark-subtle shadow-lg m-0"
                                     style="font-size: small;">
                                     <tr>
@@ -208,8 +249,9 @@ require("receive.php");
                                         </td>
                                 </table>
                             </div>
-                            <div class="card-footer">
-                                <div class="input-group border-5" style="font-family: 'League Spartan', 'cursive';">
+                            <div class="card-footer bg-planet">
+                                <div class="input-group border-5" style="font-family: 'DM Serif Display', serif;">
+
                                     <input class="form-control form-control-sm" type="text" placeholder="Input harga"
                                         id="harga_bid<?= htmlspecialchars($i) ?>" name="harga_bid<?= htmlspecialchars($i) ?>">
                                     <button class="btn btn-sm btn-warning w-25" type="button"
@@ -237,7 +279,7 @@ require("receive.php");
                 <?php foreach ($fixes as $fixed) { ?>
                     <div class="col">
                         <div class="card shadow-lg">
-                            <div class="card-body bg-dark-subtle">
+                            <div class="card-body bg-dark-subtle bg-planet">
                                 <table class="table table-sm table-bordered border-dark-subtle" style="font-size: small;">
                                     <tr>
                                         <th class="col-4 table-danger">Day Published</th>
@@ -268,7 +310,7 @@ require("receive.php");
                                         <td class="text-center col-4">
                                             <?php echo $fixed['client'] ?>
                                         </td>
-                                        <!-- <td class="text-center col-4"></td> -->
+                                        <td class="text-center col-4"></td>
 
                                     </tr>
                                     <tr>
@@ -276,7 +318,7 @@ require("receive.php");
                                         <td class="text-center">
                                             <?php echo $fixed['product'] ?>
                                         </td>
-                                        <!-- <td class="text-center"></td> -->
+                                        <td class="text-center"></td>
 
                                     </tr>
                                     <tr>
@@ -403,30 +445,42 @@ require("receive.php");
                 harga: harga
             };
 
-            $.ajax({
-                type: "POST",
-                url: "send.php",
-                data: formData,
-                dataType: "json",
-                success: (e) => {
-                    console.log(e);
-                    if (!e.success) {
-                        Swal.fire({
-                            title: "Failed",
-                            text: e.message,
-                            icon: "error",
-                            button: "OK"
-                        });
-                    } else if (e.success) {
-                        Swal.fire({
-                            title: "Berhasil",
-                            text: e.message,
-                            icon: "success",
-                            button: "OK"
-                        });
-                    }
+            Swal.fire({
+                title: 'Apakah anda yakin??',
+                text: "Anda hanya bisa membuat bid satu kali!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, lakukan bid!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        type: "POST",
+                        url: "send.php",
+                        data: formData,
+                        dataType: "json",
+                        success: (e) => {
+                            console.log(e);
+                            if (!e.success) {
+                                Swal.fire({
+                                    title: "Failed",
+                                    text: e.message,
+                                    icon: "error",
+                                    button: "OK"
+                                });
+                            } else if (e.success) {
+                                Swal.fire({
+                                    title: "Berhasil",
+                                    text: e.message,
+                                    icon: "success",
+                                    button: "OK"
+                                });
+                            }
+                        }
+                    });
                 }
-            });
+            })
             $(`#harga_bid${i}`).val('');
         }
 
@@ -442,30 +496,42 @@ require("receive.php");
                 fixedNumber: fixedNumber,
             };
 
-            $.ajax({
-                type: "POST",
-                url: "send.php",
-                data: formData,
-                dataType: "json",
-                success: (e) => {
-                    console.log(e);
-                    if (!e.success) {
-                        Swal.fire({
-                            title: "Failed",
-                            text: e.message,
-                            icon: "error",
-                            button: "OK"
-                        });
-                    } else if (e.success) {
-                        Swal.fire({
-                            title: "Berhasil",
-                            text: e.message,
-                            icon: "success",
-                            button: "OK"
-                        });
-                    }
+            Swal.fire({
+                title: 'Apakah anda yakin??',
+                text: "Anda hanya bisa membuat bid satu kali!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, lakukan bid!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        type: "POST",
+                        url: "send.php",
+                        data: formData,
+                        dataType: "json",
+                        success: (e) => {
+                            console.log(e);
+                            if (!e.success) {
+                                Swal.fire({
+                                    title: "Failed",
+                                    text: e.message,
+                                    icon: "error",
+                                    button: "OK"
+                                });
+                            } else if (e.success) {
+                                Swal.fire({
+                                    title: "Berhasil",
+                                    text: e.message,
+                                    icon: "success",
+                                    button: "OK"
+                                });
+                            }
+                        }
+                    });
                 }
-            });
+            })
         }
     </script>
 
@@ -476,7 +542,7 @@ require("receive.php");
             setInterval(function () {
                 $.ajax({
                     type: "POST",
-                    url: "receive.php", 
+                    url: "receive.php",
                     dataType: "json",
                     success: function (response) {
                         var data = response;
@@ -490,7 +556,7 @@ require("receive.php");
         });
     </script>
 
-
+    <div class="spacer layer2 flip mb-0"></div>
 </body>
 
 </html>
