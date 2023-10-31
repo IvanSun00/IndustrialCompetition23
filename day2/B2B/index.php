@@ -1,5 +1,6 @@
 <?php
 session_start();
+// $_SESSION['nama_kelompok'] = 'admin';
 if (!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == "") {
     // $_SESSION['nama_kelompok'] = 'smarty';
     header('Location: login.php');
@@ -70,11 +71,11 @@ require("receive.php");
             color: rgb(37, 2, 80);
             background: rgb(238, 174, 202);
 
-            background: linear-gradient(90deg, rgba(239, 142, 184, 0.45) 12%,rgba(148,187,233,0.77) 50%, rgba(39, 47, 57, 0.392) 100%);
+            background: linear-gradient(90deg, rgba(239, 142, 184, 0.45) 12%, rgba(148, 187, 233, 0.77) 50%, rgba(39, 47, 57, 0.392) 100%);
             /* font-family: 'Black Ops One', 'cursive'; */
             font-family: 'PT Serif', serif;
             font-weight: bolder;
-            
+
 
             text-shadow: 2px 2px 10px rgba(169, 60, 60, 0.5), -5px -7px 30px rgb(227, 243, 189, 0.55);
             border-bottom: 15px solid;
@@ -105,12 +106,12 @@ require("receive.php");
             box-shadow: -3px 4px 20px rgb(4, 2, 8);
         }
 
-        .bg-planet{
+        .bg-planet {
             background-image: url("https://images.unsplash.com/photo-1462240006665-9529b3a399b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1927&q=80");
             background-attachment: fixed;
             background-size: cover;
             background-blend-mode: luminosity;
-            
+
         }
 
         .card,
@@ -446,30 +447,42 @@ require("receive.php");
                 harga: harga
             };
 
-            $.ajax({
-                type: "POST",
-                url: "send.php",
-                data: formData,
-                dataType: "json",
-                success: (e) => {
-                    console.log(e);
-                    if (!e.success) {
-                        Swal.fire({
-                            title: "Failed",
-                            text: e.message,
-                            icon: "error",
-                            button: "OK"
-                        });
-                    } else if (e.success) {
-                        Swal.fire({
-                            title: "Berhasil",
-                            text: e.message,
-                            icon: "success",
-                            button: "OK"
-                        });
-                    }
+            Swal.fire({
+                title: 'Apakah anda yakin??',
+                text: "Anda hanya bisa membuat bid satu kali!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, lakukan bid!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        type: "POST",
+                        url: "send.php",
+                        data: formData,
+                        dataType: "json",
+                        success: (e) => {
+                            console.log(e);
+                            if (!e.success) {
+                                Swal.fire({
+                                    title: "Failed",
+                                    text: e.message,
+                                    icon: "error",
+                                    button: "OK"
+                                });
+                            } else if (e.success) {
+                                Swal.fire({
+                                    title: "Berhasil",
+                                    text: e.message,
+                                    icon: "success",
+                                    button: "OK"
+                                });
+                            }
+                        }
+                    });
                 }
-            });
+            })
             $(`#harga_bid${i}`).val('');
         }
 
@@ -485,30 +498,42 @@ require("receive.php");
                 fixedNumber: fixedNumber,
             };
 
-            $.ajax({
-                type: "POST",
-                url: "send.php",
-                data: formData,
-                dataType: "json",
-                success: (e) => {
-                    console.log(e);
-                    if (!e.success) {
-                        Swal.fire({
-                            title: "Failed",
-                            text: e.message,
-                            icon: "error",
-                            button: "OK"
-                        });
-                    } else if (e.success) {
-                        Swal.fire({
-                            title: "Berhasil",
-                            text: e.message,
-                            icon: "success",
-                            button: "OK"
-                        });
-                    }
+            Swal.fire({
+                title: 'Apakah anda yakin??',
+                text: "Anda hanya bisa membuat bid satu kali!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, lakukan bid!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        type: "POST",
+                        url: "send.php",
+                        data: formData,
+                        dataType: "json",
+                        success: (e) => {
+                            console.log(e);
+                            if (!e.success) {
+                                Swal.fire({
+                                    title: "Failed",
+                                    text: e.message,
+                                    icon: "error",
+                                    button: "OK"
+                                });
+                            } else if (e.success) {
+                                Swal.fire({
+                                    title: "Berhasil",
+                                    text: e.message,
+                                    icon: "success",
+                                    button: "OK"
+                                });
+                            }
+                        }
+                    });
                 }
-            });
+            })
         }
     </script>
 
@@ -533,7 +558,7 @@ require("receive.php");
         });
     </script>
 
-<div class="spacer layer2 flip mb-0"></div>
+    <div class="spacer layer2 flip mb-0"></div>
 </body>
 
 </html>
