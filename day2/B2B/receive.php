@@ -1,5 +1,5 @@
 <?php
-require("connect.php");
+require("../../connect.php");
 $db = $conn;
 $tableName = "day2_bid";
 $columns = ['id', 'id_post', 'id_kelompok', 'timestamp'];

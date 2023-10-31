@@ -1,10 +1,9 @@
 <?php
-session_start();
-if (!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == "") {
-    // $_SESSION['nama_kelompok'] = 'dummy';
-    header('Location: login.php');
-    exit;
-}
+// if (!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == "") {
+    $_SESSION['nama_kelompok'] = 'dummy';
+//     header('Location: login.php');
+//     exit;
+// }
 require("receive.php");
 ?>
 <!DOCTYPE html>
