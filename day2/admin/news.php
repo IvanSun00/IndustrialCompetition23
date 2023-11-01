@@ -33,6 +33,8 @@ if(!isset($_SESSION['nrp_admin']) || $_SESSION['nrp_admin'] == ""){
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
 
+        <!-- favicon -->
+        <link rel="icon" href="../../assets/logo ic.png" type="image/png">
     <style>
 
         body {

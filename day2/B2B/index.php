@@ -37,6 +37,8 @@
     font-family: 'Playfair Display', serif; -->
     <!-- Sweet Alert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <!-- favicon -->
+        <link rel="icon" href="../../assets/logo ic.png" type="image/png">
 
 
     <style>

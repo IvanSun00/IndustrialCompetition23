@@ -31,8 +31,10 @@ $listKelompok = $query->fetchAll();
 
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js">
     </script>
+    <!-- FavIcon -->
+    <link rel="icon" href="../../../assets/logo ic.png" type="image/png">
 
-    <title>Document</title>
+    <title>Admin Page Day2</title>
 </head>
 
 <body>
