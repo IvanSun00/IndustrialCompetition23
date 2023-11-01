@@ -1,8 +1,11 @@
-<?php require_once("../connect.php");
+<?php 
+require_once("../connect.php");
+$title = "demand";
 
-// if(!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == ""){
-//     header("Location: login.php");
-//     exit;
+if(!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == ""){
+    header("Location: index.php");
+    exit;
+}
 ?>
 
 <?php
@@ -16,7 +19,7 @@ $data = $stmt->fetch();
 
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap demo</title>
@@ -29,6 +32,8 @@ $data = $stmt->fetch();
 <style>
     body{
         margin-top: 1vh;
+            background: linear-gradient(13deg, rgba(99, 3, 148, 1) 17%, rgba(9, 23, 55, 1) 100%);
+
     }
     #tabel{
         /* font-family: 'Inter Tight', sans-serif; */
@@ -45,80 +50,26 @@ $data = $stmt->fetch();
         padding-bottom: 10px;
         vertical-align: center; }*/
 
-
-        /* navbar */
-        nav{
-            /* background-color: burlywood; */
-            display: flex;
-            justify-content: center;
-            
-
-        }
-        .judul{
-            color: whitesmoke;
-            background: rgba(50, 10, 100,0.5);
-            /* background: linear-gradient(13deg, rgba(99, 3, 148, 1) 17%, rgba(9, 23, 55, 1) 100%); */
-            width: 40vw;
-            backdrop-filter: blur(3px);
-
-            padding: 0.7% 0;
-            display: flex;
-            justify-content: center;
-            gap:10px;
-            border-radius: 100vw;
-            position: fixed;
-
-
-        }
-      
-        .poin-nav{
-            text-decoration: none;
-            color: black; 
-            background-color: rgba(143, 220, 194 , 0.5);
-            border-radius: 100vw;
-            backdrop-filter: blur(1px);
-            padding: 2% 3%;
-            min-width: 5vw;
-            text-align: center;
-            color: whitesmoke;
-            font-weight: bold;
-            font-size: 13pt;
-        }
-
-        .judul .active{
-            background-color: red;
+        .container{
+            box-shadow: 0px 1px 2px 0px rgba(255,255,255,0.2),
+            1px 2px 4px 0px rgba(255,255,255,0.2),
+            2px 2px 8px 0px rgba(255,255,255,0.2),
+            2px 2px 8px 0px rgba(255,255,255,0.2);
         }
 
     
 </style>
+<link rel="stylesheet" href="./assets/nav.css">
 </head>
-  <!-- Judul -->
-  <header>
-        <!-- Navbar -->
-        <nav>
-            <div class="judul">       
-                <a href="./chart.php" class="poin-nav active ">Forecast</a>
-                <a href="./demandTable.php" class="poin-nav">Demand</a>
-                <a href="./news.php" class="poin-nav">News</a>
-                <a href="./B2B/" class="poin-nav">Bid/Fixed</a>
-            
-            </div>
-        </nav>
-    </header>
+  <body class="">  
+   <?php include_once "nav.php"; ?>
 
-
-  <body class="bg-primary">  
-    <!-- <pre>
-        <?php
-        print_r($data);
-         ?>
-    </pre> -->
     <section class= " p-5">
         <div class="container bg-dark p-4 mt-5 text-light text-center" id="judul">
             <h1 >STARLIGHT ODYSSEY</h1>
-        </div>
-        <div class="container bg-dark py-4 px-4 text-light text-center" id="tabel">
-        <table class="table table-bordered table-striped table-hover ">
+        <!-- </div> -->
+        <!-- <div class="container bg-dark py-4 px-4 text-light text-center" id="tabel"> -->
+        <table class="table table-bordered table-striped table-hover mt-5">
             <thead class="thead">
                 <tr>
                     <th>Cruiser</th>
@@ -145,9 +96,9 @@ $data = $stmt->fetch();
     <section class= " p-5">
         <div class="container bg-dark p-4 text-light text-center" id="judul">
             <h1 >CELESTIAL FLARE</h1>
-        </div>
-        <div class="container bg-dark py-4 px-4 text-light text-center" id="tabel">
-        <table class="table table-bordered table-striped table-hover">
+        <!-- </div> -->
+        <!-- <div class="container bg-dark py-4 px-4 text-light text-center" id="tabel"> -->
+        <table class="table table-bordered table-striped table-hover mt-5">
             <thead class="thead">
                 <tr>
                     
@@ -173,9 +124,9 @@ $data = $stmt->fetch();
     <section class= " p-5">
         <div class="container bg-dark p-4 text-light text-center" id="judul">
             <h1 >STARRY TWILIGHT</h1>
-        </div>
-        <div class="container bg-dark py-4 px-4 text-light text-center" id="tabel">
-        <table class="table table-bordered table-striped table-hover">
+        <!-- </div> -->
+        <!-- <div class="container bg-dark py-4 px-4 text-light text-center" id="tabel"> -->
+        <table class="table table-bordered table-striped table-hover mt-5">
             <thead>
                 <tr>
                     

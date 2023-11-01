@@ -11,23 +11,22 @@ if (isset($_POST["login"]) ) {
     if($stmt->rowCount() == 1){
         $data = $stmt->fetch();
         if(password_verify($pass, $data['password'])){
-            $stmt = $conn->prepare('SELECT * FROM game_kelompok where nama=?');
+            $stmt = $conn->prepare('SELECT * FROM day2_kelompok where nama=?');
             $stmt->execute([$username]);
             if($stmt->rowCount() == 1){
                 $msg = 'success';
                 $_SESSION['nama_kelompok'] = $username;
-                header("Location: craft.php");
+                header("Location: demandTable.php");
             }else{
                 $msg = 'Anda belum bisa bermain di game ini!';
                 $error_mess = true;
             }
-         
         }else{
-            $msg =  'Nama kelompok atau password salah!';
+            $msg =  'wrong';
             $error_mess = true;
         }
     }else{
-        $msg = 'Nama kelompok atau password salah!';
+        $msg = 'register';
         $error_mess = true;
     }
 }
@@ -89,7 +88,7 @@ if (isset($_POST["login"]) ) {
 
     <div class="box">
         <div class="form">
-            <h2>Game Day1 Login</h2>
+            <h2>Game Day2 Login</h2>
             <form action="" method="post">
                 <div class="inputBox">
                     <input type="text" required="required" name="username" id="username" class="input">

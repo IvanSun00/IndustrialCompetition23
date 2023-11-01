@@ -1,5 +1,5 @@
 <?php
-require("connect.php");
+require("../../connect.php");
 $success = false;
 $message = '';
 //dapetin id kelompok

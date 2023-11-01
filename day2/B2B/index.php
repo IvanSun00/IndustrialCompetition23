@@ -1,10 +1,10 @@
 <?php
     require("receive.php");
-// if (!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == "") {
-    $_SESSION['nama_kelompok'] = 'dummy';
-//     header('Location: login.php');
-//     exit;
-// }
+    $title = "bid";
+    if(!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == ""){
+        header("Location: ../index.php");
+        exit;
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,6 +46,7 @@
             background-repeat: no-repeat;
             background-position: center;
             background-size: cover;
+            z-index: -1;
         }
 
         .layer1 {
@@ -55,6 +56,7 @@
         .layer2 {
             /* margin-top: 200px; */
             background-image: url('./layer2.svg');
+            
         }
 
         .flip {
@@ -160,10 +162,26 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="../assets/nav.css">
 
 </head>
 
 <body>
+      <!-- Judul -->
+    <header>
+        <!-- Navbar -->
+        <nav>
+            <div class="judul">       
+                <a href="../chart.php" class="poin-nav <?= ($title == "forecast")? "active": "" ?> ">Forecast</a>
+                <a href="../demandTable.php" class="poin-nav <?= ($title == "demand")? "active": "" ?> ">Demand</a>
+                <a href="../news.php" class="poin-nav <?= ($title == "news")? "active": "" ?> ">News</a>
+                <a href="./B2B" class="poin-nav <?= ($title == "bid")? "active": "" ?> ">Bid/Fixed</a>
+                <a href="../api/logout.php" class="poin-nav bg-danger">Logout</a>
+            
+            </div>
+        </nav>
+    </header>
+
     <div class="spacer layer1 mt-0 pt-0"></div>
 
     <section class="wrapper">

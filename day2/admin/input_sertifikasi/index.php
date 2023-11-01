@@ -1,5 +1,9 @@
 <?php
 include '../../../connect.php';
+if(!isset($_SESSION['nrp_admin']) || $_SESSION['nrp_admin'] == ""){
+    header("Location: ../index.php");
+    exit();
+}
 $error_mess = false;
 
 $query = $conn->prepare('SELECT * FROM day2_kelompok');
@@ -58,10 +62,16 @@ $listKelompok = $query->fetchAll();
                     <a class="nav-link" href="../super_admin/">Super Admin</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../input_sertifikasi/">Input Sertifikasi</a>
+                    <a class="nav-link active " href="../input_sertifikasi/">Input Sertifikasi</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../delivery.php">Delivery</a>
+                </li>
+                <li class="nav-item">
+                        <a class="nav-link" href="../news.php">News</a>
+                    </li>
+                <li class="nav-item">
+                    <a class="nav-link text-danger " href="../api/logout.php">Logout</a>
                 </li>
             </ul>
             </div>

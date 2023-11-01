@@ -1,9 +1,9 @@
 <?php
-require_once("../connect.php");
+require_once("../../connect.php");
 $title = "news";
-if(!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == ""){
+if(!isset($_SESSION['nrp_admin']) || $_SESSION['nrp_admin'] == ""){
     header("Location: index.php");
-    exit;
+    exit();
 }
 ?>
 
@@ -34,14 +34,9 @@ if(!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == ""){
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
 
     <style>
-        /* * {
-            margin: 0;
-            padding: 0;
-            max-height: 100vh;
-        } */
 
         body {
-            background-color: #202731;
+            /* background-color: #202731; */
             overflow-x: hidden;
             margin: 0;
         }
@@ -53,7 +48,7 @@ if(!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == ""){
         h2 {
             font-family: 'Playfair Display', serif;
             font-weight: 300;
-            animation: lights 5s 750ms linear infinite;
+            /* animation: lights 5s 750ms linear infinite; */
             font-size: 3.5rem;
         }
 
@@ -152,38 +147,6 @@ if(!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == ""){
         /* .container-fluid {
             bottom: 50vw;
         } */
-
-
-
-        .spacer {
-            position: relative;
-            aspect-ratio: 960/300;
-            width: 100%;
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: cover;
-        }
-
-        .layer1 {
-            top: 0;
-            z-index: -1;
-            background-image: url('./B2B/layer1.svg');
-        }
-
-        .layer2 {
-            bottom: 0;
-            background-image: url('./B2B/layer2.svg');
-            margin-bottom: 0;
-            position: relative;
-        }
-
-        /* .navbar{
-            margin-top: 35vw;
-        } */
-
-        /* main{
-            min-height: 80vh;
-        } */
         .content {
             /* min-height: 100%;
             display: flex;
@@ -201,18 +164,45 @@ if(!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == ""){
     <link rel="stylesheet" href="./assets/nav.css">
 </head>
 <body class="news m-0 p-0">
-    <?php include_once "nav.php"; ?>
-    <div class="content d-flex justify-content-between flex-column">
+   
         <header>
-            <!-- Navbar -->
-            <div class="spacer layer1"></div>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand d-flex align-items-center" href="#">
+                    <img src="../../assets/Logo Putih.png" alt="" width="30" height="30" class="d-inline-block align-text-top">
+                    <span class="ms-2">Admin Page</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse ms-4" id="navbarNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 p-0 ">
+                <li class="nav-item">
+                        <a class="nav-link" href="super_admin/">Super Admin</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="input_sertifikasi/">Input Sertifikasi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="delivery.php">Delivery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active " href="news.php">News</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-danger " href="api/logout.php">Logout</a>
+                    </li>
+                </ul>
+                </div>
+            </div>
+            </nav>
         </header>
 
         <main>
             <div class="mt-4 mb-4">
                 <nav class="navbar navbar-expand-lg">
                     <div class="container-fluid m-0 p-0">
-                        <h2 class="text-white me-auto ms-auto">NEWS</h2>
+                        <h2 class=" me-auto ms-auto">NEWS</h2>
                     </div>
                 </nav>
             </div>
@@ -248,11 +238,6 @@ if(!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == ""){
             </div>
 
         </main>
-
-        <footer>
-            <div class="spacer layer2 flip"></div>
-        </footer>
-    </div>
 
 </body>
 

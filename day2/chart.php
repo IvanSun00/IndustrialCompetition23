@@ -1,5 +1,12 @@
 <?php
 require_once "../connect.php";
+if(!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == ""){
+    header("Location: index.php");
+    exit;
+}
+
+
+$title = "forecast";
 $sql = "SELECT * FROM `day2_day` WHERE `id` = 1";
 $stmt = $conn->prepare($sql);
 $stmt->execute();
@@ -17,10 +24,20 @@ $day = $result['day'];
     <!-- favicon -->
     <link rel="icon" href="../assets/logo ic.png" type="image/png">
     
- 
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+
+    <!-- boo -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 
     <style>
         body{
+
           /* background: rgb(166,136,203); */
           /* background: linear-gradient(180deg, rgba(166,136,203,1) 0%, rgba(92,70,156,1) 35%, rgba(29,38,125,1) 67%, rgba(12,19,79,1) 98%); */
           /* background-position:center ; */
@@ -38,9 +55,10 @@ $day = $result['day'];
             hsl(263deg 36% 59%) 80%,
             hsl(267deg 39% 66%) 100%
             ); */
-            background: rgb(99, 3, 148);
+            /* background: rgb(99, 3, 148); */
             background: linear-gradient(13deg, rgba(99, 3, 148, 1) 17%, rgba(9, 23, 55, 1) 100%);
 
+            /* background-color: #202731; */
         background-size: cover;
         background-repeat: no-repeat;   
         background-attachment: fixed;
@@ -58,7 +76,7 @@ $day = $result['day'];
             margin-bottom: 5%;
         }
 
-        .container{
+        .containers{
             height: 500px;
         }
 
@@ -68,7 +86,7 @@ $day = $result['day'];
                 margin-bottom: 10%;
             }
 
-            .container{
+            .containers{
                 height: 300px;
             }   
         }
@@ -83,76 +101,21 @@ $day = $result['day'];
                 height: 450px;
             }   
         }
-
-        nav{
-            /* background-color: burlywood; */
-            display: flex;
-            justify-content: center;
-            
-
-        }
-        .judul{
-            color: whitesmoke;
-            background: rgba(50, 10, 100,0.5);
-            /* background: linear-gradient(13deg, rgba(99, 3, 148, 1) 17%, rgba(9, 23, 55, 1) 100%); */
-            width: 40vw;
-            backdrop-filter: blur(3px);
-
-            padding: 0.7% 0;
-            display: flex;
-            justify-content: center;
-            gap:10px;
-            border-radius: 100vw;
-            position: fixed;
-
-
-        }
-      
-        .poin-nav{
-            text-decoration: none;
-            color: black; 
-            background-color: rgba(143, 220, 194 , 0.5);
-            border-radius: 100vw;
-            backdrop-filter: blur(1px);
-            padding: 2% 3%;
-            min-width: 5vw;
-            text-align: center;
-            color: whitesmoke;
-            font-weight: bold;
-            font-size: 13pt;
-        }
-
-        .judul .active{
-            background-color: red;
-        }
-        
-
-     
     </style>
+    <link rel="stylesheet" href="./assets/nav.css">
 </head>
 <body>
     <!-- Judul -->
-    <header>
-        <!-- Navbar -->
-        <nav>
-            <div class="judul">       
-                <a href="./chart.php" class="poin-nav active ">Forecast</a>
-                <a href="./demandTable.php" class="poin-nav">Demand</a>
-                <a href="./news.php" class="poin-nav">News</a>
-                <a href="./B2B/" class="poin-nav">Bid/Fixed</a>
-            
-            </div>
-        </nav>
-    </header>
+    <?php include("nav.php"); ?>
     <!-- cara solvenya bisa maintainaspectration =false atau kasik height:500px !important; pilih salah satu -->
-    <div style=" padding: 2%;" class="container">
+    <div style=" padding: 2%;" class="containers">
 
         <?php
         if($day < 14):
         ?>
         <canvas width="600px" height="250px" id="Starlight"></canvas>
         <canvas width="600px" height="250px" id="Celestial"></canvas>   
-        <canvas width="600px" height="250px" id="Starry"></canvas>
+        <canvas width="600px" height="250px" id="Starry" ></canvas>
         <?php
         elseif($day >= 14):
         ?>
@@ -164,6 +127,7 @@ $day = $result['day'];
         endif;
         ?>
     </div>      
+
 
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -268,20 +232,20 @@ function config(label, data){
         if($day < 14):
 ?>
 <script>
-const labels = ["day4","day5","day6","day7","day8","day9","day10","day11","day12","day13","day14"];
+const labels = ["day3","day4","day5","day6","day7","day8","day9","day10","day11","day12","day13","day14"];
 
 //separuh pertama
-const Starlight_Cyclone1 = [5,5,9,4,8,5,10,7,5,6,7];
-const Starlight_Stellar1 = [2,3,3,3,2,4,5,2,5,4,4];
-const Starlight_Cruiser1 = [1,9,6,1,1,1,3,4,2,3,3];
+const Starlight_Cyclone1 = [5,4,3,3,5,4,5,4,3,1,1,1];
+const Starlight_Stellar1 = [2,2,2,2,2,3,2,1,2,1,2,1];
+const Starlight_Cruiser1 = [1,1,1,2,2,3,1,2,1,3,2,2];
 
-const Celestial_Cyclone1 = [5,11,11,11,8,6,7,5,5,6,9];
-const Celestial_Stellar1 = [5,3,4,3,3,3,6,4,3,4,6];
-const Celestial_Cruiser1 = [9,4,1,4,5,9,4,1,2,4,4];
+const Celestial_Cyclone1 = [7,4,4,5,5,5,4,3,2,3,2,1];
+const Celestial_Stellar1 = [1,2,3,2,3,3,3,1,1,2,2,2];
+const Celestial_Cruiser1 = [1,2,1,1,2,2,2,3,4,1,2,2];
 
-const Starry_Cyclone1 = [5,4,8,4,8,3,7,9,4,5,3];
-const Starry_Stellar1 = [2,4,1,2,2,4,3,1,1,1,3];
-const Starry_Cruiser1 = [5,1,2,1,9,1,2,8,6,13,8];
+const Starry_Cyclone1 = [3,1,3,3,4,5,4,4,3,1,3,1];
+const Starry_Stellar1 = [1,5,3,1,1,3,1,2,1,1,1,2];
+const Starry_Cruiser1 = [2,1,1,3,3,1,2,1,2,3,1,1];
 
 // isi data
 const dataStarlight1 = data(labels, Starlight_Cyclone1, Starlight_Stellar1, Starlight_Cruiser1);
@@ -316,17 +280,17 @@ var myChart = new Chart(
 const labels2 = ["day15","day16","day17","day18","day19","day20","day21","day22","day23","day24","day25","day26","day27","day28","day29","day30","day31","day32","day33","day34"];
     
 //separuh kedua
-const Starlight_Cyclone2 = [5,8,5,4,7,5,6,5,10,5,5,5,6,9,4,7,6,5,7,5];
-const Starlight_Stellar2 = [5,3,2,6,3,4,2,6,3,3,5,2,3,5,5,2,3,2,5,2];
-const Starlight_Cruiser2 = [5,2,1,10,1,9,1,1,3,2,5,1,2,6,2,4,2,1,8,1];
+const Starlight_Cyclone2 = [1,1,3,4,3,2,3,1,3,4,4,3,4,3,3,5,5,1,2,1];
+const Starlight_Stellar2 = [5,3,3,2,2,1,1,1,4,3,2,2,4,5,3,2,2,3,2,1];
+const Starlight_Cruiser2 = [1,3,2,1,1,2,1,2,1,1,1,1,1,2,2,1,0,1,1,3];
 
-const Celestial_Cyclone2 = [5,6,7,11,10,7,5,5,9,5,10,7,10,6,7,11,5,8,10,7];
-const Celestial_Stellar2 = [4,3,6,3,4,5,5,3,3,3,3,3,4,3,6,3,3,4,6,4];
-const Celestial_Cruiser2 = [3,7,5,2,6,3,2,1,7,1,6,2,6,10,2,2,1,2,2,1];
+const Celestial_Cyclone2 = [4,3,1,3,3,2,1,1,4,1,4,3,2,5,6,5,1,3,1,3];
+const Celestial_Stellar2 = [3,4,2,1,2,1,3,2,2,2,1,3,5,2,1,2,5,2,3,2];
+const Celestial_Cruiser2 = [1,1,5,3,2,3,1,2,2,4,3,2,3,2,1,1,1,1,1,1];
 
-const Starry_Cyclone2 = [3,7,5,5,3,6,9,9,9,5,9,6,9,3,7,4,9,7,7,6];
-const Starry_Stellar2 = [3,4,4,4,2,3,3,4,1,3,1,2,1,2,3,1,4,2,2,1];
-const Starry_Cruiser2 = [11,6,4,11,9,2,5,3,2,6,5,7,6,2,8,10,3,8,10,13];
+const Starry_Cyclone2 = [2,2,4,3,4,2,3,2,3,4,5,3,5,5,3,3,2,2,1,2];
+const Starry_Stellar2 = [4,3,1,1,1,1,1,2,1,1,1,2,1,1,2,3,3,2,3,1];
+const Starry_Cruiser2 = [1,2,1,2,2,2,1,1,3,2,1,1,2,3,2,1,2,1,1,2];
 
 // isi data
 const dataStarlight2 = data(labels2, Starlight_Cyclone2, Starlight_Stellar2, Starlight_Cruiser2);

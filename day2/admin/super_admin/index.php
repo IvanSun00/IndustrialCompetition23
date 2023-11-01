@@ -1,9 +1,9 @@
 <?php
 require_once "../../../connect.php";
-// if(!isset($_SESSION['nrp_admin']) || $_SESSION['nrp_admin'] == ""){
-//     header("Location: ../index.php");
-//     exit();
-// }
+if(!isset($_SESSION['nrp_admin']) || $_SESSION['nrp_admin'] == ""){
+    header("Location: ../index.php");
+    exit();
+}
 require "nextDay.php";
 ?>
 
@@ -67,13 +67,19 @@ require "nextDay.php";
             <div class="collapse navbar-collapse ms-4" id="navbarNav">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0 p-0   text-start">
             <li class="nav-item">
-                    <a class="nav-link" href="../super_admin/">Super Admin</a>
+                    <a class="nav-link active" href="../super_admin/">Super Admin</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../input_sertifikasi/">Input Sertifikasi</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../delivery.php">Delivery</a>
+                </li>
+                <li class="nav-item">
+                        <a class="nav-link" href="../news.php">News</a>
+                    </li>
+                <li class="nav-item">
+                    <a class="nav-link text-danger " href="../api/logout.php">Logout</a>
                 </li>
             </ul>
             </div>

@@ -1,3 +1,11 @@
+<?php
+require_once "../../connect.php";
+if(!isset($_SESSION['nrp_admin']) || $_SESSION['nrp_admin'] == ""){
+    header("Location: index.php");
+    exit();
+}
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -72,7 +80,13 @@
                     <a class="nav-link" href="input_sertifikasi/">Input Sertifikasi</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="delivery.php">Delivery</a>
+                    <a class="nav-link active " href="delivery.php">Delivery</a>
+                </li>
+                <li class="nav-item">
+                        <a class="nav-link" href="news.php">News</a>
+                    </li>
+                <li class="nav-item">
+                    <a class="nav-link text-danger " href="api/logout.php">Logout</a>
                 </li>
             </ul>
             </div>
@@ -158,7 +172,7 @@
                                 <tr>
                                     <th class="table-success">Client</th>
                                     <td class="text-center col-4">${info.client}</td>
-                                    <td class="text-center col-4"></td>
+                                    <td class="text-center col-4">${info.kota}</td>
                         
                                 </tr>
                                 <tr>
@@ -220,7 +234,7 @@
                                 <tr>
                                     <th class="table-danger">Client</th>
                                     <td class="text-center col-4">${info.client}</td>
-                                    <td class="text-center col-4"></td>
+                                    <td class="text-center col-4">${info.kota}</td>
                         
                                 </tr>
                                 <tr>
