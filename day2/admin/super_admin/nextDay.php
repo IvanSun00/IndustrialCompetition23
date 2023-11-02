@@ -47,38 +47,108 @@ if (isset($_GET['change'])) {
                         }
                     } else {
                         // Cari winner
-                        $cariWinner = "SELECT kb.id_kelompok, MIN(kb.harga) as min_harga
-                        FROM day2_kelompok_bid AS kb
-                        INNER JOIN day2_kelompok AS k ON kb.id_kelompok = k.id
-                        WHERE kb.id_bid = $idBid AND k.sertifikasi = 1
-                        GROUP BY kb.id_kelompok
-                        HAVING min_harga = (SELECT MIN(harga) FROM day2_kelompok_bid WHERE id_bid = $idBid AND id_kelompok IN (SELECT id FROM day2_kelompok WHERE sertifikasi = 1))
-                        ORDER BY (SELECT timestamp FROM day2_kelompok_bid WHERE id_bid = $idBid AND id_kelompok = kb.id_kelompok LIMIT 1)
-                        LIMIT 1";
+                        if ($jumlahBidders == 1) {
+                            $cariWinner = "SELECT kb.id_kelompok 
+                            FROM day2_kelompok_bid AS kb
+                            WHERE kb.id_bid = $idBid";
 
-                        $winnerResult = mysqli_query($con, $cariWinner);
-                        if ($winnerResult) {
-                            $winnerRow = mysqli_fetch_assoc($winnerResult);
-                            $winnerKelompok = $winnerRow['id_kelompok'];
+                            $winnerResult = mysqli_query($con, $cariWinner);
+                            if ($winnerResult) {
+                                $winnerRow = mysqli_fetch_assoc($winnerResult);
+                                $winnerKelompok = $winnerRow['id_kelompok'];
 
-                            // Insert winner ke tabel win
-                            $sql = "INSERT INTO day2_win (id_kelompok, no_bid, type) VALUES ($winnerKelompok, $noBid, 0)";
-                            if (mysqli_query($con, $sql)) {
-                                $cariNama = "SELECT nama FROM day2_kelompok WHERE id = $winnerKelompok";
-                                $namaResult = mysqli_query($con, $cariNama);
-                                if ($namaResult) {
-                                    $namaRow = mysqli_fetch_assoc($namaResult);
-                                    $namaKelompok = $namaRow['nama'];
-                                    // Insert winner ke tabel news
-                                    $sql = "INSERT INTO day2_news (day, judul, content) VALUES ($newDay, 'PEMENANG BID NO $noBid', 'KELOMPOK $namaKelompok')";
-                                    if (!mysqli_query($con, $sql)) {
+                                // Insert winner ke tabel win
+                                $sql = "INSERT INTO day2_win (id_kelompok, no_bid, type) VALUES ($winnerKelompok, $noBid, 0)";
+                                if (mysqli_query($con, $sql)) {
+                                    $cariNama = "SELECT nama FROM day2_kelompok WHERE id = $winnerKelompok";
+                                    $namaResult = mysqli_query($con, $cariNama);
+                                    if ($namaResult) {
+                                        $namaRow = mysqli_fetch_assoc($namaResult);
+                                        $namaKelompok = $namaRow['nama'];
+                                        // Insert winner ke tabel news
+                                        $sql = "INSERT INTO day2_news (day, judul, content) VALUES ($newDay, 'PEMENANG BID NO $noBid', 'KELOMPOK $namaKelompok')";
+                                        if (!mysqli_query($con, $sql)) {
+                                            echo "Error: " . $sql . "<br>" . mysqli_error($con);
+                                        }
+                                    } else {
                                         echo "Error: " . $sql . "<br>" . mysqli_error($con);
                                     }
                                 } else {
                                     echo "Error: " . $sql . "<br>" . mysqli_error($con);
                                 }
-                            } else {
-                                echo "Error: " . $sql . "<br>" . mysqli_error($con);
+                            }
+                        } else {
+                            $cariWinner = "SELECT kb.id_kelompok, MIN(kb.harga) as min_harga
+                            FROM day2_kelompok_bid AS kb
+                            INNER JOIN day2_kelompok AS k ON kb.id_kelompok = k.id
+                            WHERE kb.id_bid = $idBid AND k.sertifikasi = 1
+                            GROUP BY kb.id_kelompok
+                            HAVING min_harga = (SELECT MIN(harga) FROM day2_kelompok_bid WHERE id_bid = $idBid AND id_kelompok IN (SELECT id FROM day2_kelompok WHERE sertifikasi = 1))
+                            ORDER BY (SELECT timestamp FROM day2_kelompok_bid WHERE id_bid = $idBid AND id_kelompok = kb.id_kelompok LIMIT 1)
+                            LIMIT 1";
+
+                            $winnerResult = mysqli_query($con, $cariWinner);
+                            if ($winnerResult) {
+                                $winnerRow = mysqli_fetch_assoc($winnerResult);
+
+                                if ($winnerRow) {
+                                    $winnerKelompok = $winnerRow['id_kelompok'];
+
+                                    // Insert winner ke tabel win
+                                    $sql = "INSERT INTO day2_win (id_kelompok, no_bid, type) VALUES ($winnerKelompok, $noBid, 0)";
+                                    if (mysqli_query($con, $sql)) {
+                                        $cariNama = "SELECT nama FROM day2_kelompok WHERE id = $winnerKelompok";
+                                        $namaResult = mysqli_query($con, $cariNama);
+                                        if ($namaResult) {
+                                            $namaRow = mysqli_fetch_assoc($namaResult);
+                                            $namaKelompok = $namaRow['nama'];
+                                            // Insert winner ke tabel news
+                                            $sql = "INSERT INTO day2_news (day, judul, content) VALUES ($newDay, 'PEMENANG BID NO $noBid', 'KELOMPOK $namaKelompok')";
+                                            if (!mysqli_query($con, $sql)) {
+                                                echo "Error: " . $sql . "<br>" . mysqli_error($con);
+                                            }
+                                        } else {
+                                            echo "Error: " . $sql . "<br>" . mysqli_error($con);
+                                        }
+                                    } else {
+                                        echo "Error: " . $sql . "<br>" . mysqli_error($con);
+                                    }
+                                } else {
+                                    $cariWinner = "SELECT kb.id_kelompok, MIN(kb.harga) as min_harga
+                                    FROM day2_kelompok_bid AS kb
+                                    INNER JOIN day2_kelompok AS k ON kb.id_kelompok = k.id
+                                    WHERE kb.id_bid = $idBid
+                                    GROUP BY kb.id_kelompok
+                                    HAVING min_harga = (SELECT MIN(harga) FROM day2_kelompok_bid WHERE id_bid = $idBid AND id_kelompok IN (SELECT id FROM day2_kelompok))
+                                    ORDER BY (SELECT timestamp FROM day2_kelompok_bid WHERE id_bid = $idBid AND id_kelompok = kb.id_kelompok LIMIT 1)
+                                    LIMIT 1";
+
+                                    $winnerResult = mysqli_query($con, $cariWinner);
+                                    if ($winnerResult) {
+                                        $winnerRow = mysqli_fetch_assoc($winnerResult);
+                                        $winnerKelompok = $winnerRow['id_kelompok'];
+
+                                        // Insert winner ke tabel win
+                                        $sql = "INSERT INTO day2_win (id_kelompok, no_bid, type) VALUES ($winnerKelompok, $noBid, 0)";
+                                        if (mysqli_query($con, $sql)) {
+                                            $cariNama = "SELECT nama FROM day2_kelompok WHERE id = $winnerKelompok";
+                                            $namaResult = mysqli_query($con, $cariNama);
+                                            if ($namaResult) {
+                                                $namaRow = mysqli_fetch_assoc($namaResult);
+                                                $namaKelompok = $namaRow['nama'];
+                                                // Insert winner ke tabel news
+                                                $sql = "INSERT INTO day2_news (day, judul, content) VALUES ($newDay, 'PEMENANG BID NO $noBid', 'KELOMPOK $namaKelompok')";
+                                                if (!mysqli_query($con, $sql)) {
+                                                    echo "Error: " . $sql . "<br>" . mysqli_error($con);
+                                                }
+                                            } else {
+                                                echo "Error: " . $sql . "<br>" . mysqli_error($con);
+                                            }
+                                        } else {
+                                            echo "Error: " . $sql . "<br>" . mysqli_error($con);
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
@@ -121,36 +191,103 @@ if (isset($_GET['change'])) {
                         }
                     } else {
                         // Cari winner
-                        $cariWinner = "SELECT kf.id_kelompok
-                        FROM day2_kelompok_fixed AS kf
-                        INNER JOIN day2_kelompok AS k ON kf.id_kelompok = k.id
-                        WHERE kf.id_fixed = $idFixed AND k.sertifikasi = 1
-                        ORDER BY (SELECT timestamp FROM day2_kelompok_fixed WHERE id_fixed = $idFixed AND id_kelompok = kf.id_kelompok LIMIT 1)
-                        LIMIT 1";
+                        if ($jumlahBidders == 1) {
+                            $cariWinner = "SELECT kf.id_kelompok 
+                            FROM day2_kelompok_fixed AS kf
+                            WHERE kf.id_fixed = $idBid";
 
-                        $winnerResult = mysqli_query($con, $cariWinner);
-                        if ($winnerResult) {
-                            $winnerRow = mysqli_fetch_assoc($winnerResult);
-                            $winnerKelompok = $winnerRow['id_kelompok'];
+                            $winnerResult = mysqli_query($con, $cariWinner);
+                            if ($winnerResult) {
+                                $winnerRow = mysqli_fetch_assoc($winnerResult);
+                                $winnerKelompok = $winnerRow['id_kelompok'];
 
-                            // Insert winner ke tabel win
-                            $sql = "INSERT INTO day2_win (id_kelompok, no_bid, type) VALUES ($winnerKelompok, $noFixed, 1)";
-                            if (mysqli_query($con, $sql)) {
-                                $cariNama = "SELECT nama FROM day2_kelompok WHERE id = $winnerKelompok";
-                                $namaResult = mysqli_query($con, $cariNama);
-                                if ($namaResult) {
-                                    $namaRow = mysqli_fetch_assoc($namaResult);
-                                    $namaKelompok = $namaRow['nama'];
-                                    // Insert winner ke tabel news
-                                    $sql = "INSERT INTO day2_news (day, judul, content) VALUES ($newDay, 'PEMENANG FIXED NO $noFixed', 'KELOMPOK $namaKelompok')";
-                                    if (!mysqli_query($con, $sql)) {
+                                // Insert winner ke tabel win
+                                $sql = "INSERT INTO day2_win (id_kelompok, no_bid, type) VALUES ($winnerKelompok, $noFixed, 1)";
+                                if (mysqli_query($con, $sql)) {
+                                    $cariNama = "SELECT nama FROM day2_kelompok WHERE id = $winnerKelompok";
+                                    $namaResult = mysqli_query($con, $cariNama);
+                                    if ($namaResult) {
+                                        $namaRow = mysqli_fetch_assoc($namaResult);
+                                        $namaKelompok = $namaRow['nama'];
+                                        // Insert winner ke tabel news
+                                        $sql = "INSERT INTO day2_news (day, judul, content) VALUES ($newDay, 'PEMENANG FIXED NO $noFixed', 'KELOMPOK $namaKelompok')";
+                                        if (!mysqli_query($con, $sql)) {
+                                            echo "Error: " . $sql . "<br>" . mysqli_error($con);
+                                        }
+                                    } else {
                                         echo "Error: " . $sql . "<br>" . mysqli_error($con);
                                     }
                                 } else {
                                     echo "Error: " . $sql . "<br>" . mysqli_error($con);
                                 }
-                            } else {
-                                echo "Error: " . $sql . "<br>" . mysqli_error($con);
+                            }
+                        } else {
+                            $cariWinner = "SELECT kf.id_kelompok
+                            FROM day2_kelompok_fixed AS kf
+                            INNER JOIN day2_kelompok AS k ON kf.id_kelompok = k.id
+                            WHERE kf.id_fixed = $idFixed AND k.sertifikasi = 1
+                            ORDER BY (SELECT timestamp FROM day2_kelompok_fixed WHERE id_fixed = $idFixed AND id_kelompok = kf.id_kelompok LIMIT 1)
+                            LIMIT 1";
+
+                            $winnerResult = mysqli_query($con, $cariWinner);
+                            if ($winnerResult) {
+                                $winnerRow = mysqli_fetch_assoc($winnerResult);
+
+                                if ($winnerRow) {
+                                    $winnerKelompok = $winnerRow['id_kelompok'];
+
+                                    // Insert winner ke tabel win
+                                    $sql = "INSERT INTO day2_win (id_kelompok, no_bid, type) VALUES ($winnerKelompok, $noFixed, 1)";
+                                    if (mysqli_query($con, $sql)) {
+                                        $cariNama = "SELECT nama FROM day2_kelompok WHERE id = $winnerKelompok";
+                                        $namaResult = mysqli_query($con, $cariNama);
+                                        if ($namaResult) {
+                                            $namaRow = mysqli_fetch_assoc($namaResult);
+                                            $namaKelompok = $namaRow['nama'];
+                                            // Insert winner ke tabel news
+                                            $sql = "INSERT INTO day2_news (day, judul, content) VALUES ($newDay, 'PEMENANG FIXED NO $noFixed', 'KELOMPOK $namaKelompok')";
+                                            if (!mysqli_query($con, $sql)) {
+                                                echo "Error: " . $sql . "<br>" . mysqli_error($con);
+                                            }
+                                        } else {
+                                            echo "Error: " . $sql . "<br>" . mysqli_error($con);
+                                        }
+                                    } else {
+                                        echo "Error: " . $sql . "<br>" . mysqli_error($con);
+                                    }
+                                } else {
+                                    $cariWinner = "SELECT kf.id_kelompok
+                                    FROM day2_kelompok_fixed AS kf
+                                    INNER JOIN day2_kelompok AS k ON kf.id_kelompok = k.id
+                                    WHERE kf.id_fixed = $idFixed
+                                    ORDER BY (SELECT timestamp FROM day2_kelompok_fixed WHERE id_fixed = $idFixed AND id_kelompok = kf.id_kelompok LIMIT 1)
+                                    LIMIT 1";
+
+                                    $winnerResult = mysqli_query($con, $cariWinner);
+                                    if ($winnerResult) {
+                                        $winnerRow = mysqli_fetch_assoc($winnerResult);
+                                        $winnerKelompok = $winnerRow['id_kelompok'];
+                                        // Insert winner ke tabel win
+                                        $sql = "INSERT INTO day2_win (id_kelompok, no_bid, type) VALUES ($winnerKelompok, $noFixed, 1)";
+                                        if (mysqli_query($con, $sql)) {
+                                            $cariNama = "SELECT nama FROM day2_kelompok WHERE id = $winnerKelompok";
+                                            $namaResult = mysqli_query($con, $cariNama);
+                                            if ($namaResult) {
+                                                $namaRow = mysqli_fetch_assoc($namaResult);
+                                                $namaKelompok = $namaRow['nama'];
+                                                // Insert winner ke tabel news
+                                                $sql = "INSERT INTO day2_news (day, judul, content) VALUES ($newDay, 'PEMENANG FIXED NO $noFixed', 'KELOMPOK $namaKelompok')";
+                                                if (!mysqli_query($con, $sql)) {
+                                                    echo "Error: " . $sql . "<br>" . mysqli_error($con);
+                                                }
+                                            } else {
+                                                echo "Error: " . $sql . "<br>" . mysqli_error($con);
+                                            }
+                                        } else {
+                                            echo "Error: " . $sql . "<br>" . mysqli_error($con);
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
