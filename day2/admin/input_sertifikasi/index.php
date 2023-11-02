@@ -1,5 +1,9 @@
 <?php
 include '../../../connect.php';
+if(!isset($_SESSION['nrp_admin']) || $_SESSION['nrp_admin'] == ""){
+    header("Location: ../index.php");
+    exit();
+}
 $error_mess = false;
 
 $query = $conn->prepare('SELECT * FROM day2_kelompok');
@@ -27,21 +31,55 @@ $listKelompok = $query->fetchAll();
 
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js">
     </script>
+    <!-- FavIcon -->
+    <link rel="icon" href="../../../assets/logo ic.png" type="image/png">
 
-    <title>Document</title>
+    <title>Admin Page Day2</title>
 </head>
 
 <body>
 
     <!-- HEADER -->
-    <section>
+    <!-- <section>
         <div class="p-3 container justify-content-start text-end">
             <div>
-                <a type="button" class="btn btn-light" href="../super_admin/index.php">Back to Superadmin</a>
+                <a type="button" class="btn btn-outline-secondary" href="../super_admin/index.php">Back to Superadmin</a>
+                
             </div>
         </div>
-    </section>
+    </section> -->
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
+        <div class="container-fluid">
+            <a class="navbar-brand m-0" href="#">
+                <img src="../../../assets/Logo Putih.png" alt="" width="30" height="30" class="d-inline-block align-text-top">
+                <span class="">Admin Page</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse me-5" id="navbarNav">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 p-0 ">
+            <li class="nav-item">
+                    <a class="nav-link" href="../super_admin/">Super Admin</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active " href="../input_sertifikasi/">Input Sertifikasi</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../delivery.php">Delivery</a>
+                </li>
+                <li class="nav-item">
+                        <a class="nav-link" href="../news.php">News</a>
+                    </li>
+                <li class="nav-item">
+                    <a class="nav-link text-danger " href="../api/logout.php">Logout</a>
+                </li>
+            </ul>
+            </div>
+        </div>
 
+    </nav>
 
 
     <div class="container">
@@ -78,7 +116,11 @@ $listKelompok = $query->fetchAll();
                     <div>
                         <select class="form-select form-select-lg mb-3" name="select_kelompok" id="select_kelompok" aria-label=".form-select-lg example">
                             <option selected>Pilih Kelompok</option>
-                            <?php foreach ($listKelompok as $value) { ?>
+                            <?php foreach ($listKelompok as $value) { 
+                                if($value["id"]==-1){
+                                    continue;
+                                }
+                                ?>
                                 <option value="<?= $value['nama'] ?>"><?= $value['nama'] ?></option>
                             <?php } ?>
                         </select>
@@ -101,10 +143,12 @@ $listKelompok = $query->fetchAll();
                 <?php
                 if (isset($_SESSION['alert'])) {
                     if ($_SESSION['alert'] = "berhasil") {
+                        unset($_SESSION['alert']);
                         echo '<div class="alert alert-success" role="alert">
                             Input uang berhasil
                         </div>';
                     } else if ($_SESSION['alert'] = "gagal") {
+                        unset($_SESSION['alert']);
                         echo '<div class="alert alert-danger" role="alert">
                             Input uang gagal
                         </div>';

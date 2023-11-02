@@ -17,7 +17,8 @@ if(isset($_SESSION['nrp_admin']) && $_SESSION['nrp_admin'] != ""){
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     
     <!-- fav icon -->
-    <link rel="icon" type="image/png" href="../assets/logo%20ic.png">
+    <link rel="icon" type="image/png" href="../../assets/logo%20ic.png">
+    
 
 </head>
 <body>

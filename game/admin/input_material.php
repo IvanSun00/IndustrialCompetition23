@@ -35,7 +35,7 @@ $listKelompok = $query->fetchAll();
     <link rel="stylesheet" href="asset/style_input.css">
     
     <!-- fav icon -->
-    <link rel="icon" type="image/png" href="../assets/logo%20ic.png">
+    <link rel="icon" type="image/png" href="../../assets/logo%20ic.png">
 
     <title>Input Material</title>
 </head>

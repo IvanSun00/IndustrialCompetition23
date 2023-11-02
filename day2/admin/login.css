@@ -1,0 +1,104 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: gray;
+}
+
+
+section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 95vh;
+    width: 100%;
+    background: no-repeat; 
+    background-size:cover;
+    background-position: center;
+    background-attachment:fixed;
+}
+
+.login-box {
+    background: antiquewhite;
+    position: relative;
+    width: 575px;
+    height: 500px;
+    border-radius: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 25px solid rgb(221, 186, 162);
+    border-style:outset;
+
+}
+
+h2{
+    font-size: 2em;
+    color: rgb(0, 0, 0);
+    text-align: center;
+}
+
+.input-box{
+    width: 330px;
+    margin: 35px 0;
+    border-bottom: 2px solid;
+}
+
+.input-box input{
+    width: 100%;
+    height: 50px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color:black;
+}
+
+.input-box .icon{
+    position: absolute;
+    right: 75px;
+    color:rgba(17, 17, 17, 0.8);
+    font-size: 1.3em;
+    line-height: 75px;
+}
+
+.input-box input::placeholder{
+    color:rgb(0, 0, 0);
+}
+
+.remember-forgot{
+    margin: 15px 0 15px;
+    font-size: 0.9em;
+    color: #fff;
+    display: flex;
+    justify-content:space-between;
+}
+.remember-forgot input{
+    margin-right: 4px;
+}
+
+button{
+    width: 75%;
+    height: 45px;
+    background:rgba(139, 130, 102, 0.8);
+    border: none;
+    margin: 0 50px;
+    outline: none;
+    border-radius: 45px;
+    cursor: pointer;
+    font-size: 1em;
+    color: rgb(0, 51, 255);
+    font-weight: 999;
+}
+
+

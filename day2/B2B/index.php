@@ -1,12 +1,10 @@
 <?php
-session_start();
-// $_SESSION['nama_kelompok'] = 'admin';
-if (!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == "") {
-    // $_SESSION['nama_kelompok'] = 'smarty';
-    header('Location: login.php');
-    exit;
-}
-require("receive.php");
+    require("receive.php");
+    $title = "bid";
+    if(!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == ""){
+        header("Location: ../index.php");
+        exit;
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,6 +37,8 @@ require("receive.php");
     font-family: 'Playfair Display', serif; -->
     <!-- Sweet Alert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <!-- favicon -->
+        <link rel="icon" href="../../assets/logo ic.png" type="image/png">
 
 
     <style>
@@ -48,6 +48,7 @@ require("receive.php");
             background-repeat: no-repeat;
             background-position: center;
             background-size: cover;
+            z-index: -1;
         }
 
         .layer1 {
@@ -57,6 +58,7 @@ require("receive.php");
         .layer2 {
             /* margin-top: 200px; */
             background-image: url('./layer2.svg');
+            
         }
 
         .flip {
@@ -162,10 +164,26 @@ require("receive.php");
             }
         }
     </style>
+    <link rel="stylesheet" href="../assets/nav.css">
 
 </head>
 
 <body>
+      <!-- Judul -->
+    <header>
+        <!-- Navbar -->
+        <nav>
+            <div class="judul">       
+                <a href="../chart.php" class="poin-nav <?= ($title == "forecast")? "active": "" ?> ">Forecast</a>
+                <a href="../demandTable.php" class="poin-nav <?= ($title == "demand")? "active": "" ?> ">Demand</a>
+                <a href="../news.php" class="poin-nav <?= ($title == "news")? "active": "" ?> ">News</a>
+                <a href="./B2B" class="poin-nav <?= ($title == "bid")? "active": "" ?> ">Bid/Fixed</a>
+                <a href="../api/logout.php" class="poin-nav bg-danger">Logout</a>
+            
+            </div>
+        </nav>
+    </header>
+
     <div class="spacer layer1 mt-0 pt-0"></div>
 
     <section class="wrapper">

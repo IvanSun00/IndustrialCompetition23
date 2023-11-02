@@ -1,0 +1,84 @@
+nav{
+    /* background-color: burlywood; */
+    display: flex;
+    justify-content: center;
+    
+
+}
+.judul{
+    z-index: 100;
+    color: whitesmoke;
+    background: rgba(50, 10, 100,0.5);
+    /* background: linear-gradient(13deg, rgba(99, 3, 148, 1) 17%, rgba(9, 23, 55, 1) 100%); */
+    /* width: 30vw; */
+    backdrop-filter: blur(3px);
+    top: 1vh;
+    padding: 0.7% 2%;
+    display: flex;
+    justify-content: center;
+    gap:10px;
+    border-radius: 100vw;
+    position: fixed;
+}
+
+.poin-nav{
+    text-decoration: none;
+    display: inline;
+    color: black; 
+    background-color: rgba(143, 220, 194 , 0.5);
+    border-radius: 100vw;
+    backdrop-filter: blur(1px);
+    padding: 10px 10px;
+    min-width: 5vw;
+    text-align: center;
+    color: whitesmoke;
+    font-weight: bold;
+    font-size: 14pt;
+}
+
+.judul .active{
+    background-color: green;
+}
+/* medium device */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .judul{
+        padding: 1% 2%;
+
+    }
+    .poin-nav{
+        padding: 10px 10px;
+        font-size: 13pt;
+
+    }
+}
+
+/* small device */
+@media (min-width: 400px) and (max-width: 767px) {
+    .judul{
+        padding: 1.5% 2.5%;
+        top: 1.5vh; 
+
+        /* backdrop-filter: blur(0.5px); */
+
+    }
+    .poin-nav{
+        padding: 7px 7px;
+
+        font-size: 12pt;
+        /* backdrop-filter: blur(1px); */
+
+    }
+}
+
+/* extra small device */
+@media (max-width: 399px) {
+    .judul{
+        top: 2vh;
+        padding: 1.5% 3%;
+    }
+    .poin-nav{
+        padding: 10px 10px;
+        font-size: 8pt;
+    }
+}
+

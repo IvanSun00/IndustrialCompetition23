@@ -16,7 +16,7 @@ if(!isset($_SESSION['nrp_admin']) || $_SESSION['nrp_admin'] == ""){
 
     
     <!-- fav icon -->
-    <link rel="icon" type="image/png" href="../assets/logo%20ic.png">
+    <link rel="icon" type="image/png" href="../../assets/logo%20ic.png">
 
     <!-- Bootstrap CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.rtl.min.css" rel="stylesheet"

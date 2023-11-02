@@ -1,5 +1,7 @@
 <?php
 require_once "../../../connect.php";
+
+
 if (isset($_GET['change'])) {
     $sql = "SELECT day FROM day2_day WHERE id = 1";
     $result = mysqli_query($con, $sql);
@@ -34,7 +36,7 @@ if (isset($_GET['change'])) {
                     // Cek jumlah bidder memenuhi ngga
                     if ($jumlahBidders < $row['minimum_bidders']) {
                         // Kalau kurang dari minimum, isi winnernya pake kelompok dummy
-                        $sql = "INSERT INTO day2_win (id_kelompok, no_bid) VALUES (-1, $noBid)";
+                        $sql = "INSERT INTO day2_win (id_kelompok, no_bid, type) VALUES (-1, $noBid, 0)";
                         if (mysqli_query($con, $sql)) {
                             $sql = "INSERT INTO day2_news (day, judul, content) VALUES ($newDay, 'BID NO $noBid', 'TIDAK ADA PEMENANG')";
                             if (!mysqli_query($con, $sql)) {
@@ -60,7 +62,7 @@ if (isset($_GET['change'])) {
                             $winnerKelompok = $winnerRow['id_kelompok'];
 
                             // Insert winner ke tabel win
-                            $sql = "INSERT INTO day2_win (id_kelompok, no_bid) VALUES ($winnerKelompok, $noBid)";
+                            $sql = "INSERT INTO day2_win (id_kelompok, no_bid, type) VALUES ($winnerKelompok, $noBid, 0)";
                             if (mysqli_query($con, $sql)) {
                                 $cariNama = "SELECT nama FROM day2_kelompok WHERE id = $winnerKelompok";
                                 $namaResult = mysqli_query($con, $cariNama);
@@ -108,7 +110,7 @@ if (isset($_GET['change'])) {
                     // Cek jumlah bidder memenuhi ngga
                     if ($jumlahBidders < 1) {
                         // Kalau kurang dari minimum, isi winnernya pake kelompok dummy
-                        $sql = "INSERT INTO day2_win (id_kelompok, no_bid) VALUES (-1, $noFixed)";
+                        $sql = "INSERT INTO day2_win (id_kelompok, no_bid, type) VALUES (-1, $noFixed,1)";
                         if (mysqli_query($con, $sql)) {
                             $sql = "INSERT INTO day2_news (day, judul, content) VALUES ($newDay, 'FIXED NO $noFixed', 'TIDAK ADA PEMENANG')";
                             if (!mysqli_query($con, $sql)) {
@@ -132,7 +134,7 @@ if (isset($_GET['change'])) {
                             $winnerKelompok = $winnerRow['id_kelompok'];
 
                             // Insert winner ke tabel win
-                            $sql = "INSERT INTO day2_win (id_kelompok, no_bid) VALUES ($winnerKelompok, $noFixed)";
+                            $sql = "INSERT INTO day2_win (id_kelompok, no_bid, type) VALUES ($winnerKelompok, $noFixed, 1)";
                             if (mysqli_query($con, $sql)) {
                                 $cariNama = "SELECT nama FROM day2_kelompok WHERE id = $winnerKelompok";
                                 $namaResult = mysqli_query($con, $cariNama);

@@ -1,6 +1,6 @@
 <?php
 require_once "../../../connect.php";
-if(isset($_SESSION['nrp_admin']) && $_SESSION['nrp_admin'] != ""){
+if(!isset($_SESSION['nrp_admin']) || $_SESSION['nrp_admin'] == ""){
     header("Location: ../index.php");
     exit();
 }
@@ -13,7 +13,10 @@ require "nextDay.php";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Admin Page Day2</title>
+
+    <!-- FavIcon -->
+    <link rel="icon" href="../../../assets/logo ic.png" type="image/png">
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -52,6 +55,38 @@ require "nextDay.php";
 </head>
 
 <body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3 position-absolute top-0 w-100 ">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="../../../assets/Logo Putih.png" alt="" width="30" height="30" class="d-inline-block align-text-top">
+                <span class="ms-2">Admin Page</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse ms-4" id="navbarNav">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 p-0   text-start">
+            <li class="nav-item">
+                    <a class="nav-link active" href="../super_admin/">Super Admin</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../input_sertifikasi/">Input Sertifikasi</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../delivery.php">Delivery</a>
+                </li>
+                <li class="nav-item">
+                        <a class="nav-link" href="../news.php">News</a>
+                    </li>
+                <li class="nav-item">
+                    <a class="nav-link text-danger " href="../api/logout.php">Logout</a>
+                </li>
+            </ul>
+            </div>
+        </div>
+    </nav>
+
+
     <div class="container mt-4">
         <?php
         if (!empty($success))
