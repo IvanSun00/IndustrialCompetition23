@@ -225,7 +225,7 @@
                                         <td class="text-center col-4">
                                             <?php echo $bid['client'] ?>
                                         </td>
-                                        <!-- <td class="text-center col-4"></td> -->
+                                        <td class="text-center col-4"> <?php echo $bid['kota'] ?></td>
 
                                     </tr>
                                     <tr>
@@ -233,7 +233,7 @@
                                         <td class="text-center">
                                             <?php echo $bid['product'] ?>
                                         </td>
-                                        <!-- <td class="text-center"></td> -->
+                                        <td class="text-center"><?php echo $bid['jumlah'] ?></td>
 
                                     </tr>
                                     <tr>
@@ -330,7 +330,7 @@
                                         <td class="text-center col-4">
                                             <?php echo $fixed['client'] ?>
                                         </td>
-                                        <td class="text-center col-4"></td>
+                                        <td class="text-center col-4"><?php echo $fixed['kota'] ?></td>
 
                                     </tr>
                                     <tr>
@@ -338,7 +338,7 @@
                                         <td class="text-center">
                                             <?php echo $fixed['product'] ?>
                                         </td>
-                                        <td class="text-center"></td>
+                                        <td class="text-center"><?php echo $fixed['jumlah'] ?></td>
 
                                     </tr>
                                     <tr>
