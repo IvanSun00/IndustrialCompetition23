@@ -22,11 +22,11 @@ if (isset($_POST["login"]) ) {
                 $error_mess = true;
             }
         }else{
-            $msg =  'wrong';
+            $msg =  'Username atau password salah!';
             $error_mess = true;
         }
     }else{
-        $msg = 'register';
+        $msg = 'Username atau password salah!';
         $error_mess = true;
     }
 }
@@ -88,7 +88,7 @@ if (isset($_POST["login"]) ) {
 
     <div class="box">
         <div class="form">
-            <h2>Game Day2 Login</h2>
+            <h2>Game Day2</h2>
             <form action="" method="post">
                 <div class="inputBox">
                     <input type="text" required="required" name="username" id="username" class="input">
