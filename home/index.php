@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Industrial Competition 2023</title>
 
-    <!-- fav icon -->
-    <link rel="icon" type="image/png" href="../assets/logo%20ic.png">
-
     <!-- Remix Icon -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.zzcss" rel="stylesheet">
 
     <!-- Box Icon -->
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+    <!-- fav icon -->
+    <link rel="icon" type="image/png" href="../assets/logo%20ic.png">
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/stars.css">
@@ -220,7 +220,7 @@
                 <img src="assets/star.png">
                 <div class="text-box">
                     <h2>Registration</h2>
-                    <h3>5 September - 20 Oktober 2023</h3>
+                    <h3>5 September - 29 Oktober 2023</h3>
                     <span class="left-container-arrow"></span>
                 </div>
             </div>
@@ -275,14 +275,14 @@
 
         </div>
 
-        <!-- <div class="news__container container">
+        <div class="news__container container">
             <div class="news__data">
                 <h1 class="news__subtitle" data-aos="zoom-in" data-aos-duration="1500">Berita dan Pengumuman Terbaru</h1>
             </div>
-        </div> -->
+        </div>
 
         <!-- Swiper -->
-        <!-- <div class="swiper mySwiper">
+        <div class="swiper mySwiper">
 
             <div class="swiper-wrapper">
 
@@ -292,12 +292,13 @@
                     </div>
 
                     <div class="card__content">
-                        <span class="card__title">1</span>
-                        <span class="card__name">TBA</span>
-                        <p class="card__text">TBA</p>
-                        <button class="card__btn">View More</button>
+                        <span class="card__title">Peraturan</span>
+                        <span class="card__name">Peraturan IC 2023</span>
+                        <p class="card__text">Klik link di bawah ini untuk melihat peraturan IC 2023</p>
+                        <a href="https://drive.google.com/file/d/1ROOnda9ey09Dh-uTSKhDxW8raNWstb2s/view?usp=drivesdk" target="_blank"><button class="card__btn">Lihat Peraturan</button></a>
                     </div>
                 </div>
+
 
                 <div class="card swiper-slide">
                     <div class="card__image">
@@ -305,58 +306,15 @@
                     </div>
 
                     <div class="card__content">
-                        <span class="card__title">Tes 2</span>
-                        <span class="card__name">hmmm</span>
-                        <p class="card__text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit veritatis labore provident
-                            non tempora odio est sunt, ipsum</p>
-                        <button class="card__btn">View More</button>
-                    </div>
-                </div>
-
-                <div class="card swiper-slide">
-                    <div class="card__image">
-                        <img src="assets/information3.png" alt="card image">
-                    </div>
-
-                    <div class="card__content">
-                        <span class="card__title">Tes 3</span>
-                        <span class="card__name">hahhhhh</span>
-                        <p class="card__text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit veritatis labore provident
-                            non tempora odio est sunt, ipsum</p>
-                        <button class="card__btn">View More</button>
-                    </div>
-                </div>
-
-                <div class="card swiper-slide">
-                    <div class="card__image">
-                        <img src="assets/information3.png" alt="card image">
-                    </div>
-
-                    <div class="card__content">
-                        <span class="card__title">Tes 4</span>
-                        <span class="card__name">lollllllll</span>
-                        <p class="card__text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit veritatis labore provident
-                            non tempora odio est sunt, ipsum</p>
-                        <button class="card__btn">View More</button>
-                    </div>
-                </div>
-
-                <div class="card swiper-slide">
-                    <div class="card__image">
-                        <img src="assets/information3.png" alt="card image">
-                    </div>
-
-                    <div class="card__content">
-                        <span class="card__title">Tes 5</span>
-                        <span class="card__name">lelah</span>
-                        <p class="card__text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit veritatis labore provident
-                            non tempora odio est sunt, ipsum</p>
-                        <button class="card__btn">View More</button>
+                        <span class="card__title">Modul Babak 1</span>
+                        <span class="card__name">Modul Babak 1</span>
+                        <p class="card__text">Klik link di bawah ini untuk melihat modul babak 1 IC 2023</p>
+                        <a href="https://drive.google.com/file/d/1tWFAFH9kWrTX41fEHEs-w3IpB9xEA-Hk/view?usp=drivesdk" target="_blank"><button class="card__btn">Lihat Modul Babak 1</button></a>
                     </div>
                 </div>
             </div>
             <br> <br>
-            <div class="swiper-pagination"></div> -->
+            <div class="swiper-pagination"></div>
         </div>
 
     </section>
@@ -542,26 +500,27 @@
         }
 
         window.addEventListener('scroll', handleScroll);
+        
 
         // Swiper
-        var swiper = new Swiper(".mySwiper", {
-            loop: false,
-            initialSlide: 2,
-            effect: "coverflow",
-            grabCursor: true,
-            centeredSlides: true,
-            slidesPerView: "auto",
-            coverflowEffect: {
-                rotate: 0,
-                stretch: 0,
-                depth: 300,
-                modifier: 1,
-                slideShadows: false,
-            },
-            pagination: {
-                el: ".swiper-pagination",
-            },
-        });
+        // var swiper = new Swiper(".mySwiper", {
+        //     loop: false,
+        //     initialSlide: 0,
+        //     effect: "coverflow",
+        //     grabCursor: true,
+        //     centeredSlides: true,
+        //     slidesPerView: "auto",
+        //     coverflowEffect: {
+        //         rotate: 0,
+        //         stretch: 0,
+        //         depth: 300,
+        //         modifier: 1,
+        //         slideShadows: false,
+        //     },
+        //     pagination: {
+        //         el: ".swiper-pagination",
+        //     },
+        // });
 
 
         // GALLERY
