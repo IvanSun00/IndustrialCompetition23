@@ -193,7 +193,7 @@
         <h1 class="p-1 ps-2" id="bid">BID PRICE </h1>
         <div class="container-fluid">
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-sm-1 gy-lg-0 gy-2 gy-sm-3">
-                <h2 class="text-danger text-center w-100 mt-2 fw-bold  fs-1">Coming Soon ...</h2>
+                <!-- <h2 class="text-danger text-center w-100 mt-2 fw-bold  fs-1">Coming Soon ...</h2> -->
                 <!-- start of card -->
                 <?php if (is_array($bids)) { ?>
                     <?php $i = 1; ?>
@@ -207,7 +207,7 @@
                                             <th class="col-4 table-success">Day Published</th>
                                             <td colspan="2" class="text-center col-8">
                                                 <?php echo $bid['day'] ?>
-                                            </td>
+                                            </td>   
                                         </tr>
                                         <tr>
                                             <th class="table-success">Bid Number</th>
@@ -265,17 +265,36 @@
                                             <td colspan="2" class="text-center">
                                                 <?php echo $bid['need_day'] ?>
                                             </td>
-                                    </table>
-                                </div>
-                                <div class="card-footer bg-planet">
-                                    <div class="input-group border-5" style="font-family: 'DM Serif Display', serif;">
+                                    </tr>
+                                    <tr>
+                                        <th class="table-success">Late Penalty</th>
+                                        <td colspan="2" class="text-center">
+                                            <?php echo $bid['late_penalty'] ?>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="table-success">Bid Result Day</th>
+                                        <td colspan="2" class="text-center">
+                                            <?php echo $bid['result_day'] ?>
+                                        </td>
 
-                                        <input class="form-control form-control-sm" type="text" placeholder="Input harga"
-                                            id="harga_bid<?= htmlspecialchars($i) ?>" name="harga_bid<?= htmlspecialchars($i) ?>">
-                                        <button class="btn btn-sm btn-warning w-25" type="button"
-                                            name="bid_button<?= htmlspecialchars($i) ?>" id="bid_button<?= htmlspecialchars($i) ?>"
-                                            onclick="sendData(<?= htmlspecialchars($i) ?>)">BID</button>
-                                    </div>
+                                    </tr>
+                                    <tr>
+                                        <th class="table-success">Need Day</th>
+                                        <td colspan="2" class="text-center">
+                                            <?php echo $bid['need_day'] ?>
+                                        </td>
+                                </table>
+                            </div>
+                            <div class="card-footer bg-planet">
+                                <div class="input-group border-5" style="font-family: 'DM Serif Display', serif;">
+
+                                    <input class="form-control form-control-sm" type="number" placeholder="Input harga"
+                                        id="harga_bid<?= htmlspecialchars($i) ?>" name="harga_bid<?= htmlspecialchars($i) ?>">
+                                    <button class="btn btn-sm btn-warning w-25" type="button"
+                                        name="bid_button<?= htmlspecialchars($i) ?>" id="bid_button<?= htmlspecialchars($i) ?>"
+                                        onclick="sendData(<?= htmlspecialchars($i) ?>)">BID</button>
+                                </div>
                                 </div>
                             </div>
                         </div>
@@ -383,7 +402,8 @@
                             </div>
                         </div>
                         <!-- end of card -->
-                    <?php } ?>
+                    <?php $i++;
+                } ?>
                 <?php } ?>
 
             </div>
