@@ -254,7 +254,7 @@ require("receive.php");
                             <div class="card-footer bg-planet">
                                 <div class="input-group border-5" style="font-family: 'DM Serif Display', serif;">
 
-                                    <input class="form-control form-control-sm" type="text" placeholder="Input harga"
+                                    <input class="form-control form-control-sm" type="number" placeholder="Input harga"
                                         id="harga_bid<?= htmlspecialchars($i) ?>" name="harga_bid<?= htmlspecialchars($i) ?>">
                                     <button class="btn btn-sm btn-warning w-25" type="button"
                                         name="bid_button<?= htmlspecialchars($i) ?>" id="bid_button<?= htmlspecialchars($i) ?>"
