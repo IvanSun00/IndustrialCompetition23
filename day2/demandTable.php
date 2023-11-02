@@ -32,14 +32,20 @@ $data = $stmt->fetch();
     <link rel="icon" href="../assets/logo ic.png" type="image/png">
 
 <style>
+    html{
+        scroll-behavior: smooth;
+    }
     body{
         margin-top: 1vh;
             background: linear-gradient(13deg, rgba(99, 3, 148, 1) 17%, rgba(9, 23, 55, 1) 100%);
+            min-height: 100vh;
+            padding-bottom: 5vh;
 
     }
-    #tabel{
+    .table{
         /* font-family: 'Inter Tight', sans-serif; */
         font-family: 'PT Serif', serif;
+        width: 100%;
     }
     #judul{
         /* font-family: 'Gentium Book Plus', serif; */
@@ -66,8 +72,8 @@ $data = $stmt->fetch();
   <body class="">  
    <?php include_once "nav.php"; ?>
 
-    <section class= " p-5">
-        <div class="container bg-dark p-4 mt-5 text-light text-center" id="judul">
+    <section class= " px-3 pt-5">
+        <div class="container bg-dark p-4 mt-5 text-light text-center rounded-4" id="judul">
             <h1 >STARLIGHT ODYSSEY</h1>
         <!-- </div> -->
         <!-- <div class="container bg-dark py-4 px-4 text-light text-center" id="tabel"> -->
@@ -95,8 +101,8 @@ $data = $stmt->fetch();
 
     </section>
 
-    <section class= " p-5">
-        <div class="container bg-dark p-4 text-light text-center" id="judul">
+    <section class= "px-3 pt-5">
+        <div class="container bg-dark p-4 text-light text-center rounded-4" id="judul">
             <h1 >CELESTIAL FLARE</h1>
         <!-- </div> -->
         <!-- <div class="container bg-dark py-4 px-4 text-light text-center" id="tabel"> -->
@@ -123,8 +129,8 @@ $data = $stmt->fetch();
 
     </section>
 
-    <section class= " p-5">
-        <div class="container bg-dark p-4 text-light text-center" id="judul">
+    <section class= " px-3 pt-5">
+        <div class="container bg-dark p-4 text-light text-center rounded-4 " id="judul">
             <h1 >STARRY TWILIGHT</h1>
         <!-- </div> -->
         <!-- <div class="container bg-dark py-4 px-4 text-light text-center" id="tabel"> -->

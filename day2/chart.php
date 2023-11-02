@@ -73,17 +73,32 @@ $day = $result['day'];
             border-radius: 10px;
             padding: 2%;
             margin-top: 5%;
-            margin-bottom: 5%;
+            margin-bottom: 2%;
         }
 
         .containers{
             height: 500px;
         }
 
-        @media screen and (max-width: 600px) {
+        @media screen and (max-width: 300px) {
+            #Starlight, #Starlight2{
+                margin-top: 35%;
+                margin-bottom: 5%;
+            }
+            #Celestial, #Starry, #Celestial2, #Starry2{
+                margin-top: 15%;
+                margin-bottom: 5%;
+            }
+            .containers{
+                height: 300px;
+            }   
+            
+        }
+
+        @media screen and (min-width:301px) and (max-width: 600px) {
             #Starlight, #Celestial, #Starry, #Starlight2, #Celestial2, #Starry2{
                 margin-top: 10%;
-                margin-bottom: 10%;
+                margin-bottom: 5%;
             }
 
             .containers{
@@ -94,7 +109,7 @@ $day = $result['day'];
         @media screen and (max-width: 1200px) and (min-width: 600px) {
             #Starlight, #Celestial, #Starry, #Starlight2, #Celestial2, #Starry2{
                 margin-top: 10%;
-                margin-bottom: 10%;
+                margin-bottom:5%;
             }
 
             .container{
@@ -108,14 +123,14 @@ $day = $result['day'];
     <!-- Judul -->
     <?php include("nav.php"); ?>
     <!-- cara solvenya bisa maintainaspectration =false atau kasik height:500px !important; pilih salah satu -->
-    <div style=" padding: 2%;" class="containers">
+    <div style=" padding: 2%;" class="containers mt-sm-3 mt-4">
 
         <?php
         if($day < 14):
         ?>
         <canvas width="600px" height="250px" id="Starlight"></canvas>
         <canvas width="600px" height="250px" id="Celestial"></canvas>   
-        <canvas width="600px" height="250px" id="Starry" ></canvas>
+        <canvas width="600px" height="250px" id="Starry"  ></canvas>
         <?php
         elseif($day >= 14):
         ?>
@@ -126,7 +141,11 @@ $day = $result['day'];
         <?php
         endif;
         ?>
-    </div>      
+       <p style="visibility:hidden;">.</p> 
+    </div>  
+     
+    
+    
 
 
 

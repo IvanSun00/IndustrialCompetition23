@@ -43,6 +43,7 @@ nav{
 @media (min-width: 768px) and (max-width: 1024px) {
     .judul{
         padding: 1% 2%;
+        top:1.5vh;
 
     }
     .poin-nav{
@@ -53,10 +54,11 @@ nav{
 }
 
 /* small device */
-@media (min-width: 400px) and (max-width: 767px) {
+@media (min-width: 371px) and (max-width: 767px) {
     .judul{
         padding: 1.5% 2.5%;
-        top: 1.5vh; 
+        top: 2vh; 
+        gap:7px;
 
         /* backdrop-filter: blur(0.5px); */
 
@@ -64,21 +66,22 @@ nav{
     .poin-nav{
         padding: 7px 7px;
 
-        font-size: 12pt;
+        font-size: 11pt;
         /* backdrop-filter: blur(1px); */
 
     }
 }
 
 /* extra small device */
-@media (max-width: 399px) {
+@media (max-width: 370px) {
     .judul{
-        top: 2vh;
-        padding: 1.5% 3%;
+        top: 2.5vh;
+        padding: 1.5% 2.5%;
+        gap:5px;
     }
     .poin-nav{
-        padding: 10px 10px;
-        font-size: 8pt;
-    }
+        padding: 7px 6px;
+        font-size: 10pt;
+    }       
 }
 
