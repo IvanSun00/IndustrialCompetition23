@@ -754,7 +754,8 @@ if(!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == ""){
                             <div class="loading"></div>
                             <p class="confirm"></p>
                             
-                            <img src="https://images.unsplash.com/photo-1491895200222-0fc4a4c35e18?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG1hdGVyaWFsfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" alt="">
+                            <!-- <img src="https://images.unsplash.com/photo-1491895200222-0fc4a4c35e18?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG1hdGVyaWFsfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" alt=""> -->
+                            <img src="https://live.staticflickr.com/2343/2176940495_d4719d1289_b.jpg" alt="">
                             
                         </div>
                         
@@ -842,7 +843,8 @@ if(!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == ""){
                             <div class="loading"></div>
                             <p class="confirm" ></p>
                             
-                            <img src="https://img.freepik.com/free-photo/stones-texture-beach_1428-142.jpg?size=626&ext=jpg&ga=GA1.2.1305773865.1694879307&semt=sph" alt="">
+                            <!-- <img src="https://img.freepik.com/free-photo/stones-texture-beach_1428-142.jpg?size=626&ext=jpg&ga=GA1.2.1305773865.1694879307&semt=sph" alt=""> -->
+                            <img src="https://images.unsplash.com/photo-1609216970378-ce61cd74a187?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
                             
                         </div>
                         <table class="Bom-D recipe">
