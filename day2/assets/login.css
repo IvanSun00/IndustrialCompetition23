@@ -12,7 +12,7 @@
 }
 body {
 	display: flex;
-	min-height: 100vh;
+	height: 100vh;
 	flex-direction: column;
     /* background-image: url('../assets/Artboard_6.png'); */
     background: linear-gradient(13deg, rgba(99, 3, 148, 1) 17%, rgba(9, 23, 55, 1) 100%);
@@ -21,15 +21,19 @@ body {
     background-attachment: fixed;
     margin: 0;
     width: 100%;
-    height: 100%;
-    height: auto;
+    /*height: 100%;*/
+    /*height: auto;*/
+    overflow: hidden;
 }
 .box {
-    margin-top: 17vh;
+    /* margin-top: 17vh;
     margin-bottom: 17vh;
     margin-left: 35vw;
-    margin-right: 35vw;
+    margin-right: 35vw; */
 	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 	/* width: 28vw;
 	height: 70vh; */
     width: 380px;
@@ -165,49 +169,50 @@ input[type="submit"]:active {
 
 @media screen and (max-width: 1280px) {
     .box {
-        margin-top: 7vw;
-        margin-left: 35vw;
+        /* margin-top: 7vw;
+        margin-left: 35vw; */
     }
 }
 @media screen and (max-width: 1100px) {
     .box {
-        margin-left: 32vw;
+        /* margin-left: 32vw; */
     }
 }
 @media screen and (max-width: 1024px) {
     .box {
-        margin-top: 8vw;
-        margin-left: 31vw;
+        /* margin-top: 8vw;
+        margin-left: 31vw; */
     }
 }
 @media screen and (max-width: 912px) {
     .box {
-        margin-top: 9vw;
-        margin-left: 30vw;
+        /* margin-top: 9vw;
+        margin-left: 30vw; */
     }
 }
 @media screen and (max-width: 850px) {
     .box {
-        margin-top: 11vw;
-        margin-left: 27vw;
+        /* margin-top: 11vw;
+        margin-left: 27vw; */
     }
 }
 @media screen and (max-width: 550px) {
     .box {
-        margin-top: 17vw;
-        margin-left: 15vw;
+        /* margin-top: 17vw;
+        margin-left: 15vw; */
     }
 }
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 415px) {
     .box {
-        margin-top: 19vw;
-        margin-left: 4vw;
+        /*top:30%;*/
+        /* margin-top: 19vw;
+        margin-left: 4vw; */
     }
 }
 @media screen and (max-width: 393px) {
     .box {
-        margin-top: 22vw;
-        margin-left: 6vw;
+        /* margin-top: 22vw;
+        margin-left: 6vw; */
         width: 340px;
         height: 400px;
     }
@@ -220,8 +225,8 @@ input[type="submit"]:active {
 }
 @media screen and (max-width: 375px) {
     .box {
-        margin-top: 24vw;
-        margin-left: 7vw;
+        /* margin-top: 24vw;
+        margin-left: 7vw; */
         width: 320px;
         height: 400px;
     }
@@ -234,8 +239,8 @@ input[type="submit"]:active {
 }
 @media screen and (max-width: 360px) {
     .box {
-        margin-top: 24vw;
-        margin-left: 5vw;
+        /* margin-top: 24vw;
+        margin-left: 5vw; */
         width: 320px;
         height: 400px;
     }
@@ -248,8 +253,8 @@ input[type="submit"]:active {
 }
 @media screen and (max-width: 280px) {
     .box {
-        margin-top: 32vw;
-        margin-left: 5vw;
+        /* margin-top: 32vw;
+        margin-left: 5vw; */
         width: 250px;
         height: 400px;
     }
