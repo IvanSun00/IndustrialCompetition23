@@ -213,11 +213,11 @@ if(!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == ""){
 
         <main>
             <div class="mt-4 mb-4">
-                <nav class="navbar navbar-expand-lg">
-                    <div class="container-fluid m-0 p-0">
-                        <h2 class="text-white me-auto ms-auto">NEWS</h2>
+                <!-- <nav class="navbar navbar-expand-lg"> -->
+                    <div class="container">
+                        <h2 class="text-white mx-auto text-center ">NEWS</h2>
                     </div>
-                </nav>
+                <!-- </nav> -->
             </div>
             <div style="margin-left: 2vw; margin-right: 2vw; position: relative" class="p-2">
                 <!-- <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4"> -->
