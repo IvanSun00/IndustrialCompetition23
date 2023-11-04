@@ -200,7 +200,7 @@ if(isset($_SESSION['namekel_day2'])){
 
             <form action="inputuang.php" method="post">
                 <div>
-                    <input type="number" class="form-control" id="input-balance" name="input-balance">
+                    <input type="number" step=any class="form-control" id="input-balance" name="input-balance">
                     <button type="submit" value="submit" class="btn btn-primary mt-3" name="submit-balance" id="submit-balance">Submit</button>
                 </div>
             </form>
