@@ -665,16 +665,6 @@ if(!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == ""){
         .jumlah{
             font-size: 15pt;
         }
-    
-       
-        
-
-
-
-
-
-
-
     </style>
 </head>
 <body>
