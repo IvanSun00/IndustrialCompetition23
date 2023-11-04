@@ -56,6 +56,7 @@ $dataHistory = $stmt->fetchAll();
             /* background-color: #ffffff; */
             background-size: cover;
             background-attachment: fixed;
+            min-height: 100vh;
             
         
         }
