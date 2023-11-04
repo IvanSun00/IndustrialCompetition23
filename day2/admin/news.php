@@ -201,7 +201,7 @@ if(!isset($_SESSION['nrp_admin']) || $_SESSION['nrp_admin'] == ""){
         </header>
 
         <main>
-            <div class="mt-4 mb-4">
+            <div class="mt-3 mb-2">
                 <nav class="navbar navbar-expand-lg">
                     <div class="container-fluid m-0 p-0">
                         <h2 class=" me-auto ms-auto">NEWS</h2>
@@ -209,17 +209,32 @@ if(!isset($_SESSION['nrp_admin']) || $_SESSION['nrp_admin'] == ""){
                 </nav>
             </div>
             <div style="margin-left: 2vw; margin-right: 2vw; position: relative" class="p-2">
-                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-
+                <!-- <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4"> -->
+                <div>
                     <?php
-                    $sql = "SELECT * 
+                        $sql = "SELECT * 
                         FROM day2_news N
-                        JOIN day2_day D ON N.day = D.day";
+                        ORDER BY N.day DESC";
                     $result = $con->query($sql);
+                    $previousDay = 0; // Membuat variabel untuk melacak hari sebelumnya
                     while ($row = $result->fetch_assoc()) {
+                        $currentDay = $row['day'];
+                        // Memeriksa jika hari saat ini berbeda dari hari sebelumnya
+                        if ($currentDay != $previousDay) {
+                            // Tutup baris sebelumnya (jika ada)
+                            if ($previousDay != 0) {
+                                echo '</div>';
+                            }
+                            // Mulai baris baru
+                            ?>
+                            <div class="row text-center ">
+                                <h3 class=" col-12">DAY <?php echo $row['day'] ?></h3>
+                            <!-- </div> -->
+                            <?php
+                        }
                     ?>
-                        <div class="col">
-                            <div class="card mb-3" style="max-width: 540px;">
+                        <div class="col-12 col-md-4">
+                            <div class="card mb-3 mx-auto mx-md-0 " style="max-width: 540px;">
                                 <div class="row g-0">
                                     <!-- <div class="col-md-4">
                                 <img src="..." class="img-fluid rounded-start" alt="...">
@@ -234,6 +249,8 @@ if(!isset($_SESSION['nrp_admin']) || $_SESSION['nrp_admin'] == ""){
                             </div>
                         </div>
                     <?php
+                        $previousDay = $currentDay;
+
                     }
                     ?>
                 </div>

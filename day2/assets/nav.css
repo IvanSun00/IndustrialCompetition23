@@ -5,6 +5,20 @@ nav{
     
 
 }
+
+.navbar{
+    background-color: rgba(50, 10, 100,1) !important;
+}
+
+/* .uang{
+    top:10vh;
+    position: absolute;
+    background-color: aliceblue;
+    border-radius: 100vw;
+    padding: 0.5% 1%;
+    left: 2vw;
+    z-index: 100;
+} */
 .judul{
     z-index: 100;
     color: whitesmoke;
@@ -39,8 +53,10 @@ nav{
 .judul .active{
     background-color: green;
 }
-/* medium device */
-@media (min-width: 768px) and (max-width: 1024px) {
+
+
+/* large device */
+@media (min-width: 576px) and (max-width: 1024px) {
     .judul{
         padding: 1% 2%;
         top:1.5vh;
@@ -54,18 +70,17 @@ nav{
 }
 
 /* small device */
-@media (min-width: 371px) and (max-width: 767px) {
+@media (min-width: 380px) and (max-width: 575px) {
     .judul{
         padding: 1.5% 2.5%;
         top: 2vh; 
-        gap:7px;
+        gap:5px;
 
         /* backdrop-filter: blur(0.5px); */
 
     }
     .poin-nav{
-        padding: 7px 7px;
-
+        padding: 7px 5px;
         font-size: 11pt;
         /* backdrop-filter: blur(1px); */
 
@@ -73,15 +88,31 @@ nav{
 }
 
 /* extra small device */
-@media (max-width: 370px) {
-    .judul{
-        top: 2.5vh;
+ @media (max-width: 380px) {
+    /* .judul{
+        top: 50vh;
         padding: 1.5% 2.5%;
         gap:5px;
     }
     .poin-nav{
         padding: 7px 6px;
         font-size: 10pt;
-    }       
+    }   */
+    
+    #myNav{
+        display: none;
+    }
+    /* #sec-top{
+        padding-top: 0vh;
+    
+    } */
+} 
+
+/* navbar bootstrap */
+@media (min-width:381px){
+    .navbar{
+        display:none;
+    }
 }
+
 

@@ -34,7 +34,7 @@ if($_SERVER['REQUEST_METHOD']== "POST"){
                 $response['status'] = 2;
 
                 //check apakah sudah pernah di isi late
-                if($data["late"]!=NULL){
+                if($data["late"] !== NULL){
                     $response['sudahPernah'] = "Bid sudah Pernah di isi Late";
                 }
         
@@ -43,7 +43,7 @@ if($_SERVER['REQUEST_METHOD']== "POST"){
                 $stmt = $conn->prepare($sql);
                 $stmt->execute([$data['id_kelompok']]);
                 $namakelompok = $stmt->fetch(PDO::FETCH_COLUMN);
-                $response['msg'] = "Pemenang bid ini adalah kelompok ".$namakelompok;
+                $response['msg'] = "Pemenang bid ini adalah kelompok: ".$namakelompok;
                 
                 //check jika bid atau fixed
                 if($data['type']== 0){

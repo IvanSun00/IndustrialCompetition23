@@ -661,7 +661,11 @@ if(!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == ""){
             visibility: hidden;
             
         }
-
+        
+        .jumlah{
+            font-size: 15pt;
+        }
+    
        
         
 
@@ -946,72 +950,72 @@ if(!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == ""){
                 <ul class="nav__list material_list">
                     <li class="nav__item">
                         <a href="#" class="nav__link">
-                            <i class="uil uil-estate nav__icon"><span id="jumlah_ferumi">x2</span></i> Ferumi 
+                            <span class="jumlah" id="jumlah_ferumi">x</span> Ferumi 
                         </a>
                     </li>
                     <li class="nav__item">
                         <a href="#" class="nav__link">
-                            <i class="uil uil-user nav__icon"><span id="jumlah_lateks">x2</span></i> Lateks
+                            <span class="jumlah" id="jumlah_lateks">x</span> Lateks
                         </a>
                     </li>
                     <li class="nav__item">
                         <a href="#" class="nav__link">
-                            <i class="uil uil-file-alt nav__icon"><span id="jumlah_timbal">x2</span></i> Timbal
+                            <span class="jumlah" id="jumlah_timbal">x</span> Timbal
                         </a>
                     </li>
                     <li class="nav__item">
                         <a href="#" class="nav__link">
-                            <i class="uil uil-briefcase-alt nav__icon"><span id="jumlah_cuprite">x2</span></i> Cuprite
+                            <span class="jumlah" id="jumlah_cuprite">x</span> Cuprite
                         </a>
                     </li>
                     <li class="nav__item">
                         <a href="#" class="nav__link">
-                            <i class="uil uil-scenery nav__icon"><span id="jumlah_carbon">x2</span></i> Carbon
+                            <span class="jumlah" id="jumlah_carbon">x</span>Carbon
                         </a>
                     </li>
                     <li class="nav__item">
                         <a href="#" class="nav__link">
-                            <i class="uil uil-message nav__icon"><span id="jumlah_uvarovite">x2</span></i> Uvavorite 
+                            <span class="jumlah" id="jumlah_uvarovite">x</span> Uvavorite 
                         </a>
                     </li>
                     <li class="nav__item">
                         <a href="#" class="nav__link">
-                            <i class="uil uil-estate nav__icon"><span id="jumlah_titanium">x2</span></i> Titanium
+                            <span class="jumlah" id="jumlah_titanium">x</span> Titanium
                         </a>
                     </li>
                     <li class="nav__item">
                         <a href="#" class="nav__link">
-                            <i class="uil uil-user nav__icon"><span id="jumlah_sylvite">x2</span></i> Sylvite
+                            <span class="jumlah" id="jumlah_sylvite">x</span> Sylvite
                         </a>
                     </li>
                     <li class="nav__item">
                         <a href="#" class="nav__link">
-                            <i class="uil uil-file-alt nav__icon"><span id="jumlah_silikon">x2</span></i> Silikon
+                            <span class="jumlah" id="jumlah_silikon">x</span> Silikon
                         </a>
                     </li>
                     <li class="nav__item">
                         <a href="#" class="nav__link">
-                            <i class="uil uil-briefcase-alt nav__icon"><span id="jumlah_copper">x2</span></i> Copper
+                            <span class="jumlah" id="jumlah_copper">x</span> Copper
                         </a>
                     </li>
                     <li class="nav__item">
                         <a href="#" class="nav__link">
-                            <i class="uil uil-scenery nav__icon"><span id="jumlah_nitrogen">x2</span></i> Nitrogen
+                            <span class="jumlah" id="jumlah_nitrogen">x</span> Nitrogen
                         </a>
                     </li>
                     <li class="nav__item">
                         <a href="#" class="nav__link">
-                            <i class="uil uil-message nav__icon"><span id="jumlah_poliisoprena">x2</span></i> Poliisoprena 
+                            <span class="jumlah" id="jumlah_poliisoprena">x</span> Poliisoprena 
                         </a>
                     </li>
                     <li class="nav__item">
                         <a href="#" class="nav__link">
-                            <i class="uil uil-estate nav__icon"><span id="jumlah_fluorit">x2</span></i> Fluorit
+                            <span class="jumlah" id="jumlah_fluorit">x</span></i> Fluorit
                         </a>
                     </li>
                     <li class="nav__item">
                         <a href="#" class="nav__link">
-                            <i class="uil uil-user nav__icon"><span id="jumlah_hematit">x2</span></i> Hematit
+                            <span class="jumlah" id="jumlah_hematit">x</span></i> Hematit
                         </a>
                 </ul>
                 <i class="uil uil-times nav__close" id="nav-close"></i>

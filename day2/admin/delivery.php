@@ -111,8 +111,6 @@ if(!isset($_SESSION['nrp_admin']) || $_SESSION['nrp_admin'] == ""){
                     <button type="submit" id="submit" class="btn btn-primary w-100 fs-sm-2">Submit</button>
                 </div>
             </form>
-          
-        
             <div class="table"></div>
         </div>
     </main>
@@ -158,7 +156,7 @@ if(!isset($_SESSION['nrp_admin']) || $_SESSION['nrp_admin'] == ""){
                         if(res.bid){
                             var info = res.bidData;
                             $(".table").html(`
-                            ${res.sudahPernah? `<div class="alert alert-danger mt-3" role="alert"> Sudah Pernah di isi late </div>` : `<h1>aaa </h1>` }
+                            ${res.sudahPernah? `<div class="alert alert-danger mt-3" role="alert"> Sudah Pernah di isi late </div>` : `` }
                             <h3 class="text-center mt-4" >Delivery Bid</h3>
                             <table class="table table-sm table-bordered border-dark-subtle shadow-lg mt-2" style="font-size: small;">
                                 <tr>
@@ -206,7 +204,10 @@ if(!isset($_SESSION['nrp_admin']) || $_SESSION['nrp_admin'] == ""){
                             </table>
 
                             
-                            <div class="input-late bg-bg-danger row gy-2 mt-3">
+                            <div class="input-late row gy-2 mt-3">
+                            <div class="alert alert-primary" role="alert">
+                                    ${res.msg}
+                                </div>
                                 <input type="hidden" name="BidId" id="BidId" value="${res.data.id}">
                                 <label for="late" class="col-sm-2">Late: </label>
                                 <div class="col-sm-10 pe-0">
@@ -219,7 +220,7 @@ if(!isset($_SESSION['nrp_admin']) || $_SESSION['nrp_admin'] == ""){
                         }else if(res.fixed){
                             var info =res.fixedData;
                             $(".table").html(`
-                            ${res.sudahPernah? `<div class="alert alert-danger mt-3" role="alert"> Sudah Pernah di isi late </div>` : `<h1>aaa </h1>` }
+                            ${res.sudahPernah? `<div class="alert alert-danger mt-3" role="alert"> Sudah Pernah di isi late </div>` : `` }
                             <h3 class="text-center mt-4" >Delivery Fixed</h3>
                             <table class="table table-sm table-bordered border-dark-subtle mt-2" style="font-size: small;">
                                 <tr>
@@ -263,7 +264,10 @@ if(!isset($_SESSION['nrp_admin']) || $_SESSION['nrp_admin'] == ""){
                             </table>
 
                             
-                            <div class="input-late bg-bg-danger gy-2 row mt-3">
+                            <div class="input-late gy-2 row mt-3">
+                            <div class="alert alert-primary" role="alert">
+                                    ${res.msg}
+                                </div>
                                 <input type="hidden" name="BidId" id="BidId" value="${res.data.id}">
                                 <label for="late" class="col-sm-2">Late: </label>
                                 <div class="col-sm-10 pe-0">

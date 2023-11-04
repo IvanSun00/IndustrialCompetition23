@@ -10,6 +10,39 @@ $query = $conn->prepare('SELECT * FROM day2_kelompok');
 $query->execute();
 
 $listKelompok = $query->fetchAll();
+
+//late
+if(isset($_SESSION['namekel_day2'])){
+    $bid;
+    $fixed;
+
+    // data kelompok dan bid
+    $sql = "SELECT w.*,k.nama FROM day2_win w JOIN
+    day2_kelompok k on w.id_kelompok = k.id
+    where k.nama = ? and late is not null;";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute([$_SESSION['namekel_day2']]);
+
+    while($data = $stmt->fetch()){
+        // jika bid
+        if($data['type']==0){
+            $stmt2 = $conn->prepare("SELECT * FROM `day2_bid` b JOIN day2_kelompok_bid kb on b.id = kb.id_bid WHERE no = ? AND id_kelompok = ?;");
+            $stmt2->execute([$data['no_bid'], $data['id_kelompok']]);
+            $databid = $stmt2->fetch();
+            $databid['data'] = $data;
+            $bid[] = $databid;
+
+        }
+        // jika fixed
+        else if($data['type']==1){
+            $stmt2 = $conn->prepare("SELECT * FROM day2_fixed where no = ?");
+            $stmt2->execute([$data['no_bid']]);
+            $datafixed = $stmt2->fetch();
+            $datafixed['data'] = $data;
+            $fixed[] = $datafixed;
+        }
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -35,6 +68,12 @@ $listKelompok = $query->fetchAll();
     <link rel="icon" href="../../../assets/logo ic.png" type="image/png">
 
     <title>Admin Page Day2</title>
+    <style>
+        table input[type="checkbox"] {
+            width: 15px;
+            height: 15px;
+        }
+    </style>
 </head>
 
 <body>
@@ -205,6 +244,358 @@ $listKelompok = $query->fetchAll();
                     </div>
                 </div>
             </form>
+        </div>
+    </section>
+
+    <!-- informasi late -->
+    <section>
+        <div class="container p-3 justify-content-start text-end mt-3">
+            <div>
+                <h5><label>Informasi Late:</label></h5>
+            </div>
+            <br>
+
+                <div class="">
+                    
+                    <!-- show -->
+                    <div >
+                        <?php
+                        if(isset($bid)){
+                            // bid
+                            foreach($bid as $data1){
+                                if($data1['data']['status']== 1){
+                                echo "
+                                <h3 class='text-center mt-4' >Bid Tabel</h3>
+                                <table class='table table-bordered border-dark-subtle  shadow-lg  mt-2 ' style='font-size:small;' >
+                                    <tr>
+                                        <th class='table-success'>Pemenang</th>
+                                        <td colspan='2' class='text-center'>".$data1['data']['nama']."</td>
+                                    </tr>
+                                    <tr>
+                                        <th class='table-success'>Day Published</th>
+                                        <td colspan='2' class='text-center'>".$data1['day']."</td>
+                                    </tr>
+                                    <tr>
+                                        <th class='table-success'>Bid Number</th>
+                                        <td colspan='2' class='text-center'>".$data1['no']."</td>
+                                        
+                            
+                                    </tr>
+                                    <tr>
+                                        <th class='table-success'>Client</th>
+                                        <td class='text-center col-4'>".$data1['client']."</td>
+                                        <td class='text-center col-4'>".$data1['kota']."</td>
+                            
+                                    </tr>
+                                    <tr>
+                                        <th class='table-success'>Product</th>
+                                        <td class='text-center'>".$data1['product']."</td>
+                                        <td class='text-center'>".$data1['jumlah']."</td>
+                            
+                                    </tr>
+                                    <tr>
+                                        <th class='table-success'>Late Penalty</th>
+                                        <td colspan='2' class='text-center'>".$data1['late_penalty']."</td>
+                                    </tr>
+                                    <tr>
+                                        <th class='table-success'>Result Day</th>
+                                        <td colspan='2' class='text-center'>".$data1['result_day']."</td>
+                            
+                                    </tr>
+                                    <tr>
+                                        <th class='table-success'>Need Day</th>
+                                        <td colspan='2' class='text-center'>".$data1['need_day']."</td>
+                                    </tr>
+                                    <tr>
+                                        <th class='table-success'>Harga</th>
+                                        <td colspan='2' class='text-center'>".$data1['harga']."</td>
+                                    </tr>
+                                    <tr>
+                                        <th class='table-success'>Archieve</th>
+
+                                        <form action='lateInfo.php' method='post'>
+                                        <input type='hidden' name='idBid' value='".$data1['data']['id']."'>
+                                        <td colspan='2' class='text-center'> <button type='submit' value='archieve' class='btn btn-outline-secondary' name='kondisi'>Archieve</button> </td>
+                                        </form>
+                                    </tr>
+                                </table>
+                                <div class='alert alert-primary' role='alert'>Terlambat: ".
+                                    $data1['data']['late'].
+                                " hari</div>";
+                                }
+                            }
+                        }
+
+                        if(isset($fixed)){
+                            // fixed
+                            foreach($fixed as $data2){
+                                if($data2['data']['status']== 1){
+                                echo "
+                                <h3 class='text-center mt-4'>Fixed Tabel</h3>
+                                <table class='table table-bordered border-dark-subtle  shadow-lg  mt-2 ' style='font-size:small;' >
+                                    <tr>
+                                        <th class='table-danger'>Pemenang</th>
+                                        <td colspan='2' class='text-center'>".$data2['data']['nama']."</td>
+                                    </tr>
+                                    <tr>
+                                        <th class='table-danger'>Day Published</th>
+                                        <td colspan='2' class='text-center'>".$data2['day']."</td>
+                                    </tr>
+                                    <tr>
+                                        <th class='table-danger'>Bid Number</th>
+                                        <td colspan='2' class='text-center'>".$data2['no']."</td>
+                                    </tr>
+                                    <tr>
+                                        <th class='table-danger'>Client</th>
+                                        <td class='text-center col-4'>".$data2['client']."</td>
+                                        <td class='text-center col-4'>".$data2['kota']."</td>
+                            
+                                    </tr>
+                                    <tr>
+                                        <th class='table-danger'>Product</th>
+                                        <td class='text-center'>".$data2['product']."</td>
+                                        <td class='text-center'>".$data2['jumlah']."</td>
+                            
+                                    </tr>
+                                    <tr>
+                                        <th class='table-danger'>Late Penalty</th>
+                                        <td colspan='2' class='text-center'>".$data2['late_penalty']."</td>
+                                    </tr>
+                                    <tr>
+                                        <th class='table-danger'>Result Day</th>
+                                        <td colspan='2' class='text-center'>".$data2['result_day']."</td>
+                            
+                                    </tr>
+                                    <tr>
+                                        <th class='table-danger'>Need Day</th>
+                                        <td colspan='2' class='text-center'>".$data2['need_day']."</td>
+                                    </tr>
+                                    <tr>
+                                        <th class='table-danger'>Harga</th>
+                                        <td colspan='2' class='text-center'>".$data2['bid']."</td>
+                                    </tr>   
+                                    <tr>
+                                        <th class='table-danger'>Archieve</th>
+                                        <form action='lateInfo.php' method='post'>
+                                        <input type='hidden' name='idBid' value='".$data2['data']['id']."'>
+                                        <td colspan='2' class='text-center'> <button type='submit' value='kondisi' class='btn btn-outline-secondary' name='kondisi'>Archieve</button> </td>
+                                        </form>
+                                    </tr>
+                                </table>
+                                <div class='alert alert-primary' role='alert'>Terlambat: ".
+                                    $data2['data']['late']." hari</div>";
+                                }
+                            }
+
+                        }
+                        ?>
+                    </div>
+                    <!-- archive -->
+                    <div class="accordion" id="accordionExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Archive Late
+                            </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse " data-bs-parent="#accordionExample">
+                                <div class="accordion-body row row-cols-1 row-cols-md-2 row-cols-lg-3 gx-4 gy-3 ">
+                                    <!-- <div class="col">
+                                         <h3 class="text-center mt-4" >Delivery Fixed</h3>
+                                        <table class="table table-sm table-bordered border-dark-subtle mt-2" style="font-size: small;">
+                                            <tr>
+                                                <th class="col-4 table-danger">Day Published</th>
+                                                <td colspan="2" class="text-center col-8">${info.day}</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="table-danger">Bid Number</th>
+                                                <td colspan="2" class="text-center">${info.no}</td>
+                                                
+                                    
+                                            </tr>
+                                            <tr>
+                                                <th class="table-danger">Client</th>
+                                                <td class="text-center col-4">${info.client}</td>
+                                                <td class="text-center col-4">${info.kota}</td>
+                                    
+                                            </tr>
+                                            <tr>
+                                                <th class="table-danger">Product</th>
+                                                <td class="text-center">${info.product}</td>
+                                                <td class="text-center">${info.jumlah}</td>
+                                    
+                                            </tr>
+                                            <tr>
+                                                <th class="table-danger">Each</th>
+                                                <td colspan="2" class="text-center">${info.bid}</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="table-danger">Late Penalty</th>
+                                                <td colspan="2" class="text-center">${info.late_penalty}</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="table-danger">Result Day</th>
+                                                <td colspan="2" class="text-center">${info.result_day}</td>
+                                    
+                                            </tr>
+                                            <tr>
+                                                <th class="table-danger">Need Day</th>
+                                                <td colspan="2" class="text-center">${info.need_day}</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="table-danger">Harga</th>
+                                                <td colspan="2" class="text-center">${info.need_day}</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="table-danger">Archieve</th>
+                                                <td colspan="2" class="text-center"><input type="checkbox" name="check" id="" width="100%" checked></td>
+                                            </tr>
+                                            
+                                        </table>
+                                        <div class="alert alert-primary" role="alert">
+                                            ${res.msg}
+                                        </div>
+                                     
+                                    </div> -->
+
+                                    <?php
+                        if(isset($bid)){
+                            // bid
+                            foreach($bid as $data1){
+                                if($data1['data']['status']== 0){
+                                echo "
+                                <div class='col'>
+                                <h3 class='text-center mt-4' >Bid Tabel</h3>
+                                <table class='table table-bordered border-dark-subtle  shadow-lg  mt-2 ' style='font-size:small;' >
+                                    <tr>
+                                        <th class='table-success'>Pemenang</th>
+                                        <td colspan='2' class='text-center'>".$data1['data']['nama']."</td>
+                                    </tr>
+                                    <tr>
+                                        <th class='table-success'>Day Published</th>
+                                        <td colspan='2' class='text-center'>".$data1['day']."</td>
+                                    </tr>
+                                    <tr>
+                                        <th class='table-success'>Bid Number</th>
+                                        <td colspan='2' class='text-center'>".$data1['no']."</td>
+                                        
+                            
+                                    </tr>
+                                    <tr>
+                                        <th class='table-success'>Client</th>
+                                        <td class='text-center col-4'>".$data1['client']."</td>
+                                        <td class='text-center col-4'>".$data1['kota']."</td>
+                            
+                                    </tr>
+                                    <tr>
+                                        <th class='table-success'>Product</th>
+                                        <td class='text-center'>".$data1['product']."</td>
+                                        <td class='text-center'>".$data1['jumlah']."</td>
+                            
+                                    </tr>
+                                    <tr>
+                                        <th class='table-success'>Late Penalty</th>
+                                        <td colspan='2' class='text-center'>".$data1['late_penalty']."</td>
+                                    </tr>
+                                    <tr>
+                                        <th class='table-success'>Result Day</th>
+                                        <td colspan='2' class='text-center'>".$data1['result_day']."</td>
+                            
+                                    </tr>
+                                    <tr>
+                                        <th class='table-success'>Need Day</th>
+                                        <td colspan='2' class='text-center'>".$data1['need_day']."</td>
+                                    </tr>
+                                    <tr>
+                                        <th class='table-success'>Harga</th>
+                                        <td colspan='2' class='text-center'>".$data1['harga']."</td>
+                                    </tr>
+                                    <tr>
+                                        <th class='table-success'>Archieve</th>
+                                        <input type='hidden' name='idBid' value='".$data1['data']['id']."'>
+                                    </tr>
+                                </table>
+
+                                <div class='alert alert-primary' role='alert'>Terlambat: ".
+                                    $data1['data']['late'].
+                                " hari</div>
+                                </div>";
+                                }
+                            }
+                        }
+
+
+                        if(isset($fixed)){
+                            // fixed
+                            foreach($fixed as $data2){
+                                if($data2['data']['status']== 0){
+                                echo "
+                                <div class='col'>
+                                <h3 class='text-center mt-4'>Fixed Tabel</h3>
+                                <table class='table table-bordered border-dark-subtle  shadow-lg  mt-2 ' style='font-size:small;' >
+                                    <tr>
+                                        <th class='table-danger'>Pemenang</th>
+                                        <td colspan='2' class='text-center'>".$data2['data']['nama']."</td>
+                                    </tr>
+                                    <tr>
+                                        <th class='table-danger'>Day Published</th>
+                                        <td colspan='2' class='text-center'>".$data2['day']."</td>
+                                    </tr>
+                                    <tr>
+                                        <th class='table-danger'>Bid Number</th>
+                                        <td colspan='2' class='text-center'>".$data2['no']."</td>
+                                    </tr>
+                                    <tr>
+                                        <th class='table-danger'>Client</th>
+                                        <td class='text-center col-4'>".$data2['client']."</td>
+                                        <td class='text-center col-4'>".$data2['kota']."</td>
+                            
+                                    </tr>
+                                    <tr>
+                                        <th class='table-danger'>Product</th>
+                                        <td class='text-center'>".$data2['product']."</td>
+                                        <td class='text-center'>".$data2['jumlah']."</td>
+                            
+                                    </tr>
+                                    <tr>
+                                        <th class='table-danger'>Late Penalty</th>
+                                        <td colspan='2' class='text-center'>".$data2['late_penalty']."</td>
+                                    </tr>
+                                    <tr>
+                                        <th class='table-danger'>Result Day</th>
+                                        <td colspan='2' class='text-center'>".$data2['result_day']."</td>
+                            
+                                    </tr>
+                                    <tr>
+                                        <th class='table-danger'>Need Day</th>
+                                        <td colspan='2' class='text-center'>".$data2['need_day']."</td>
+                                    </tr>
+                                    <tr>
+                                        <th class='table-danger'>Harga</th>
+                                        <td colspan='2' class='text-center'>".$data2['bid']."</td>
+                                    </tr>   
+                                    <tr>
+                                        <th class='table-danger'>Archieve</th>
+                                            <td colspan='2' class='text-center'> 
+                                                <input type='hidden' name='idBid' value='".$data2['data']['id']."'>
+                                            </td>
+
+                                    </tr>
+                                </table>
+
+                                <div class='alert alert-primary' role='alert'>Terlambat: ".
+                                    $data2['data']['late']." hari</div>
+                                    </div>";
+                                }
+                            }
+                        }
+                        ?>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
         </div>
     </section>
 

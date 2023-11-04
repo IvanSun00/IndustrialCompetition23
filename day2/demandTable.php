@@ -36,7 +36,6 @@ $data = $stmt->fetch();
         scroll-behavior: smooth;
     }
     body{
-        margin-top: 1vh;
             background: linear-gradient(13deg, rgba(99, 3, 148, 1) 17%, rgba(9, 23, 55, 1) 100%);
             min-height: 100vh;
             padding-bottom: 5vh;
@@ -69,11 +68,11 @@ $data = $stmt->fetch();
 </style>
 <link rel="stylesheet" href="./assets/nav.css">
 </head>
-  <body class="">  
-   <?php include_once "nav.php"; ?>
+<body class="">  
+    <?php include_once "nav.php"; ?>
 
-    <section class= " px-3 pt-5">
-        <div class="container bg-dark p-4 mt-5 text-light text-center rounded-4" id="judul">
+    <section class= " px-3 pt-5 mt-3" id="sec-top">
+        <div class="container bg-dark p-4 mt-3 text-light text-center rounded-4" id="judul">
             <h1 >STARLIGHT ODYSSEY</h1>
         <!-- </div> -->
         <!-- <div class="container bg-dark py-4 px-4 text-light text-center" id="tabel"> -->

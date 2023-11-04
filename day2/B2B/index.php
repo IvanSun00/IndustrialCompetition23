@@ -5,6 +5,12 @@
         header("Location: ../index.php");
         exit;
     }
+
+    // ambil uang
+$sql = "SELECT * FROM day2_kelompok WHERE nama = ?";
+$stmt = $conn->prepare($sql);
+$stmt->execute([$_SESSION['nama_kelompok']]);
+$uang = $stmt->fetch()['uang'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,7 +18,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Industrial Competition</title>
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -176,20 +182,51 @@
     <!-- Judul -->
     <header>
         <!-- Navbar -->
-        <nav>
+        <nav id="myNav">
             <div class="judul">       
                 <a href="../chart.php" class="poin-nav <?= ($title == "forecast")? "active": "" ?> ">Forecast</a>
                 <a href="../demandTable.php" class="poin-nav <?= ($title == "demand")? "active": "" ?> ">Demand</a>
                 <a href="../news.php" class="poin-nav <?= ($title == "news")? "active": "" ?> ">News</a>
-                <a href="./" class="poin-nav <?= ($title == "bid")? "active": "" ?> ">Bid/Fixed</a>
+                <a href="./" class="poin-nav <?= ($title == "bid")? "active": "" ?> ">Deals</a>
                 <a href="../api/logout.php" class="poin-nav bg-danger">Logout</a>
-            
             </div>
         </nav>
+        <!-- bootstrap nav -->
+            <nav class="navbar navbar-dark navbar-expand-lg bg-body-tertiary">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">Industrial Game</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                        <a class="nav-link <?= ($title == "forecast")? "active": "" ?>" href="../chart.php">forecast</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link <?= ($title == "demand")? "active": "" ?> " href="../demandTable.php">Demand</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link <?= ($title == "news")? "active": "" ?>" href="../news.php">News</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link <?= ($title == "bid")? "active": "" ?>" href="./" >Deals</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link text-danger  " href="../api/logout.php" >Logout</a>
+                        </li>
+                    </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- <div class="uang text-end d-flex justify-content-between ">
+                <span class="uang-text text-auto">Uang: <span class="uang-value">$100</span></span>
+            </div> -->
 
         <div class="spacer layer1 mt-0 pt-0"></div>
 
         <main>
+            <h3 class="bg-success mb-5 p "><?= $uang ?></h3>
         <h1 class="p-1 ps-2" id="bid">BID PRICE </h1>
         <div class="container-fluid">
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-sm-1 gy-lg-0 gy-2 gy-sm-3">
