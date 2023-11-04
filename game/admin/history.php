@@ -39,6 +39,7 @@ if(!isset($_SESSION['nrp_admin']) || $_SESSION['nrp_admin'] == ""){
     <!-- My CSS -->
     <link rel="stylesheet" href="asset/style_history.css">
     <title>History</title>
+    
 
 </head>
 
