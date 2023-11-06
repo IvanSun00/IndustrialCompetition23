@@ -240,6 +240,7 @@ $(document).ready(function() {
         "searching":false,
         "order": [],
         responsive: true,
+        "scrollX": true, // Enable horizontal scrolling
     });
 } );
 </script>

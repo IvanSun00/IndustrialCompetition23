@@ -1,16 +1,10 @@
 <?php
     require("receive.php");
     $title = "bid";
-    if(!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == ""){
-        header("Location: ../index.php");
-        exit;
+    if(!isset($_SESSION['nrp_admin']) || $_SESSION['nrp_admin'] == ""){
+        header("Location: index.php");
+        exit();
     }
-
-    // ambil uang
-$sql = "SELECT * FROM day2_kelompok WHERE nama = ?";
-$stmt = $conn->prepare($sql);
-$stmt->execute([$_SESSION['nama_kelompok']]);
-$uang = $stmt->fetch()['uang'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,29 +38,10 @@ $uang = $stmt->fetch()['uang'];
     <!-- Sweet Alert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <!-- favicon -->
-        <link rel="icon" href="../../assets/logo ic.png" type="image/png">
+        <link rel="icon" href="../../../assets/logo ic.png" type="image/png">
 
 
     <style>
-        .spacer {
-            aspect-ratio: 960/300;
-            width: 100%;
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: cover;
-            z-index: -1;
-        }
-
-        .layer1 {
-            background-image: url('./layer1.svg');
-        }
-
-        .layer2 {
-            /* margin-top: 200px; */
-            background-image: url('./layer2.svg');
-            
-        }
-
         .flip {
             transform: rotate(180deg);
         }
@@ -114,13 +89,13 @@ $uang = $stmt->fetch()['uang'];
             box-shadow: -3px 4px 20px rgb(4, 2, 8);
         }
 
-        .bg-planet {
+        /* .bg-planet {
             background-image: url("https://images.unsplash.com/photo-1462240006665-9529b3a399b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1927&q=80");
             background-attachment: fixed;
             background-size: cover;
             background-blend-mode: luminosity;
 
-        }
+        } */
 
         .card,
         .card-footer {
@@ -140,7 +115,6 @@ $uang = $stmt->fetch()['uang'];
         }
 
         body {
-            background-color: #202731;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -181,54 +155,46 @@ $uang = $stmt->fetch()['uang'];
 <body>
     <!-- Judul -->
     <header>
-        <!-- Navbar -->
-        <nav id="myNav">
-            <div class="judul">       
-                <a href="../chart.php" class="poin-nav <?= ($title == "forecast")? "active": "" ?> ">Forecast</a>
-                <a href="../demandTable.php" class="poin-nav <?= ($title == "demand")? "active": "" ?> ">Demand</a>
-                <a href="../news.php" class="poin-nav <?= ($title == "news")? "active": "" ?> ">News</a>
-                <a href="./" class="poin-nav <?= ($title == "bid")? "active": "" ?> ">Deals</a>
-                <a href="../api/logout.php" class="poin-nav bg-danger">Logout</a>
-            </div>
-        </nav>
-        <!-- bootstrap nav -->
-            <nav class="navbar navbar-dark navbar-expand-lg bg-body-tertiary">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="#">Industrial Game</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                        <a class="nav-link <?= ($title == "forecast")? "active": "" ?>" href="../chart.php">forecast</a>
-                        </li>
-                        <li class="nav-item">
-                        <a class="nav-link <?= ($title == "demand")? "active": "" ?> " href="../demandTable.php">Demand</a>
-                        </li>
-                        <li class="nav-item">
-                        <a class="nav-link <?= ($title == "news")? "active": "" ?>" href="../news.php">News</a>
-                        </li>
-                        <li class="nav-item">
-                        <a class="nav-link <?= ($title == "bid")? "active": "" ?>" href="./" >Deals</a>
-                        </li>
-                        <li class="nav-item">
-                        <a class="nav-link text-danger  " href="../api/logout.php" >Logout</a>
-                        </li>
-                    </ul>
-                    </div>
-                </div>
-            </nav>
-            <!-- <div class="uang text-end d-flex justify-content-between ">
-                <span class="uang-text text-auto">Uang: <span class="uang-value">$100</span></span>
-            </div> -->
-
-        <div class="spacer layer1 mt-0 pt-0"></div>
-
-        <main>
-            <h3 class="bg-success mb-5 p "><?= $uang ?></h3>
-        <h1 class="p-1 ps-2" id="bid">BID PRICE </h1>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
         <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="../../../assets/Logo Putih.png" alt="" width="30" height="30" class="d-inline-block align-text-top">
+                <span class="ms-2">Admin Page</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse ms-4" id="navbarNav">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 p-0 ">
+            <li class="nav-item">
+                    <a class="nav-link" href="../super_admin/">Super Admin</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../input_sertifikasi/">Input Sertifikasi</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="../delivery.php">Delivery</a>
+                </li>
+                <li class="nav-item">
+                        <a class="nav-link" href="../news.php">News</a>
+                </li>
+                <li class="nav-item">
+                        <a class="nav-link active" href="./">Deal</a>
+                </li>
+                <li class="nav-item">
+                        <a class="nav-link " href="../rank.php">Rank</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-danger " href="../api/logout.php">Logout</a>
+                </li>
+            </ul>
+            </div>
+        </div>
+    </nav>
+        
+    <main>
+        <h1 class="p-1 ps-2" id="bid">BID PRICE </h1>
+        <div class="container-fluid mt-3">
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-sm-1 gy-lg-0 gy-2 gy-sm-3">
                 <!-- <h2 class="text-danger text-center w-100 mt-2 fw-bold  fs-1">Coming Soon ...</h2> -->
                 <!-- start of card -->
@@ -303,16 +269,13 @@ $uang = $stmt->fetch()['uang'];
                                         </td>
                                 </table>
                             </div>
-                            <div class="card-footer bg-planet">
+                                <div class="card-footer bg-planet">
                                 <div class="input-group border-5" style="font-family: 'DM Serif Display', serif;">
 
-                                    <input class="form-control form-control-sm" type="number" placeholder="Input harga"
-                                        id="harga_bid<?= htmlspecialchars($i) ?>" name="harga_bid<?= htmlspecialchars($i) ?>">
-                                    <button class="btn btn-sm btn-warning w-25" type="button"
-                                        name="bid_button<?= htmlspecialchars($i) ?>" id="bid_button<?= htmlspecialchars($i) ?>"
-                                        onclick="sendData(<?= htmlspecialchars($i) ?>)">BID</button>
+                                    
                                 </div>
                                 </div>
+                                
                             </div>
                         </div>
                         <!-- end of card -->
@@ -323,8 +286,8 @@ $uang = $stmt->fetch()['uang'];
             </div>
         </div>
 
-        <h1 class="mt-5 p-1 ps-2" id="fixed">Deals PRICE </h1>
-        <div class="container-fluid">
+        <h1 class="mt-5 p-1 ps-2" id="fixed">FIXED PRICE </h1>
+        <div class="container-fluid mt-3">
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-sm-1 mb-5 gy-lg-0 gy-2 gy-sm-3 ">
 
                 <!-- start of card -->
@@ -350,12 +313,8 @@ $uang = $stmt->fetch()['uang'];
                                             <td class="text-center">
                                                 <?php echo $fixed['no'] ?>
                                             </td>
-                                            <td class="d-flex align-items-center justify-content-center">
-                                                <!-- <input type="checkbox" class="form-check"> -->
-                                                <button class="btn btn-danger w-100 btn-sm"
-                                                    name="fix_button<?= htmlspecialchars($i) ?>"
-                                                    id="fix_button<?= htmlspecialchars($i) ?>"
-                                                    onclick="sendFixed(<?= htmlspecialchars($i) ?>)">BID</button>
+                                            <td>
+                                              
                                             </td>
 
                                         </tr>
@@ -426,6 +385,7 @@ $uang = $stmt->fetch()['uang'];
             </div>
         </div>
 
+    
         <script>
             $(document).ready(function () {
                 var text = $("#fixed").html();
@@ -485,8 +445,6 @@ $uang = $stmt->fetch()['uang'];
 
         </script>
 
-        <!-- ngirim data -->
-        <input type="text" name="nama_kelompok" id="nama_kelompok" value="<?php echo $_SESSION['nama_kelompok'] ?>" hidden>
         <script>
             function sendData(i) {
                 var bidNumber = $(`#bid_no${i}`).val();
@@ -622,7 +580,6 @@ $uang = $stmt->fetch()['uang'];
 
    
 
-    <div class="spacer layer2 flip mb-0"></div>
 </body>
 
 </html>

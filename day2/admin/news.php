@@ -192,6 +192,12 @@ if(!isset($_SESSION['nrp_admin']) || $_SESSION['nrp_admin'] == ""){
                         <a class="nav-link active " href="news.php">News</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="DealAdmin/">Deal</a>
+                </li>
+                <li class="nav-item">
+                        <a class="nav-link active" href="rank.php">Rank</a>
+                </li>
+                    <li class="nav-item">
                         <a class="nav-link text-danger " href="api/logout.php">Logout</a>
                     </li>
                 </ul>

@@ -36,15 +36,14 @@ $data = $stmt->fetch();
         scroll-behavior: smooth;
     }
     body{
-        background: linear-gradient(13deg, rgba(99, 3, 148, 1) 17%, rgba(9, 23, 55, 1) 100%);
         min-height: 100vh;
         padding-bottom: 25vw;
-        /* background-color: #202731; */
+        background-color: #202731;
     }
     .table {
         font-family: 'PT Serif', serif;
         width: 100%;
-        /* background-color: rgba(255, 255, 255, 0) !important; */
+        background-color: rgba(255, 255, 255, 0) !important;
     }
     #judul{
         /* font-family: 'Gentium Book Plus', serif; */
@@ -58,8 +57,7 @@ $data = $stmt->fetch();
         vertical-align: center; }*/
 
         .container{
-            /* background: linear-gradient(13deg, rgba(99, 3, 148, 1) 17%, rgba(9, 23, 55, 1) 100%); */
-            background-color: var(--bs-dark);
+            background: linear-gradient(13deg, rgba(99, 3, 148, 1) 17%, rgba(9, 23, 55, 1) 100%);
             box-shadow: 0px 1px 2px 0px rgba(255,255,255,0.2),
             1px 2px 4px 0px rgba(255,255,255,0.2),
             2px 2px 8px 0px rgba(255,255,255,0.2),
@@ -70,13 +68,13 @@ $data = $stmt->fetch();
             position: relative;
             top: 13vw;
         }
-        /* th, td{
+        th, td{
             background-color: rgba(255, 255, 255, 0) !important;
             color: white !important;
         }
         td{
-            border-bottom: 1px solid rgba(255, 255, 255, 0.5) !important;
-        } */
+            border-bottom: 1px solid rgba(255, 255, 255, 0) !important;
+        }
     
 </style>
 <link rel="stylesheet" href="./assets/nav.css">

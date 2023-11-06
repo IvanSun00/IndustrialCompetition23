@@ -111,6 +111,12 @@ if(isset($_SESSION['namekel_day2'])){
                 <li class="nav-item">
                         <a class="nav-link" href="../news.php">News</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../DealAdmin/">Deal</a>
+                </li>
+                <li class="nav-item">
+                        <a class="nav-link " href="../rank.php">Rank</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link text-danger " href="../api/logout.php">Logout</a>
                 </li>
