@@ -226,7 +226,7 @@ $uang = $stmt->fetch()['uang'];
         <div class="spacer layer1 mt-0 pt-0"></div>
 
         <main>
-            <h3 class="bg-success mb-5 p "><?= $uang ?></h3>
+            <h3 class="text-white text-center mb-5 py-1 ">Uang: $ <?= $uang ?></h3>
         <h1 class="p-1 ps-2" id="bid">BID PRICE </h1>
         <div class="container-fluid">
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-sm-1 gy-lg-0 gy-2 gy-sm-3">
