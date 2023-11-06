@@ -239,8 +239,8 @@ $(document).ready(function() {
         // "pagingType": "full_numbers",
         "searching":false,
         "order": [],
+        // "scrollX": true, // Enable horizontal scrolling
         responsive: true,
-        "scrollX": true, // Enable horizontal scrolling
     });
 } );
 </script>
