@@ -523,7 +523,7 @@ if (isset($_POST["submitkalah"])) {
             $quan_Sylvite = $insertdatakelompok['qty_Sylvite'];
 
             $rewardKarbon = $Karbon + $quan_Karbon;
-            $rewardkarbon = $Sylvite + $quan_Sylvite;
+            $rewardSylvite = $Sylvite + $quan_Sylvite;
 
             //INSERT POIN
             $quan_poin = $insertdatakelompok['poin'];
