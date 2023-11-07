@@ -73,7 +73,10 @@ $listKelompok = $query->fetchAll();
     </div>
 
     <script>
-        new DataTable('#example');
+        new DataTable('#example',{
+            paging:false,
+            order:[[2,'desc']]
+        });
     </script>
 
 </body>
