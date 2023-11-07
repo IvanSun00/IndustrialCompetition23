@@ -35,13 +35,11 @@ $listKelompok = $query->fetchAll();
             <table id="example" class="display" style="width:100%">
                 <thead>
                     <tr>
-                        <th>Nomer</th>
                         <th>Nama</th>
                         <th>Poin Before</th>
                         <th>Poin_aft_convert</th>
                     </tr>
                 </thead>
-                <?php $counter = 0; ?>
                 <tbody>
                     <?php foreach ($listKelompok as $value) { ?>
                         <?php
@@ -59,10 +57,8 @@ $listKelompok = $query->fetchAll();
                         $konv_Poliisoprena = $value['qty_Poliisoprena'] * 60;
                         $konv_Fluorit = $value['qty_Fluorit'] * 50;
                         $konv_Hematit = $value['qty_Hematit'] * 50;
-                        $counter = $counter + 1;
                         ?>
                         <tr>
-                            <td><?= $counter ?></td>
                             <td><?= $value['nama'] ?></td>
                             <td><?= $value['poin'] ?></td>
                             <td><?= $value['poin'] + $konv_Ferumi + $konv_Lateks + $konv_Timbal + $konv_Cuprite + 
