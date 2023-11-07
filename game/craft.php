@@ -1270,7 +1270,7 @@ if(!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == ""){
             var poinPoliisoprena = kelompok.qty_Poliisoprena * 60;
             var poinFluorit = kelompok.qty_Fluorit * 50;
             var poinHematit = kelompok.qty_Hematit * 50;
-            var total = kelompok.poin + poinFerumi + poinLateks + poinTimbal + poinCuprite + poinKarbon + poinUvarovite + poinTitanium + poinSylvite + poinSilikon + poinCopper + poinNitrogen + poinPoliisoprena + poinFluorit + poinHematit;
+            var total = parseInt(kelompok.poin) + parseInt(poinFerumi) + parseInt(poinLateks) + parseInt(poinTimbal) + parseInt(poinCuprite) + parseInt(poinKarbon) + parseInt(poinUvarovite) + parseInt(poinTitanium) + parseInt(poinSylvite) + parseInt(poinSilikon) + parseInt(poinCopper) + parseInt(poinNitrogen) + parseInt(poinPoliisoprena) + parseInt(poinFluorit) + parseInt(poinHematit);
             $("#i-poin").text(total);
 
         }
