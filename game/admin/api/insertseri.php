@@ -1,6 +1,6 @@
 <?php
 include '../../../connect.php';
-
+$_SESSION['delay'] = true;
 //POS MENANG
 if (isset($_POST["submitseri"])) {
     if ($_SESSION['pickpos'] == true) {
@@ -515,7 +515,7 @@ if (isset($_POST["submitseri"])) {
             $quan_Sylvite = $insertdatakelompok['qty_Sylvite'];
 
             $rewardKarbon = $Karbon + $quan_Karbon;
-            $rewardkarbon = $Sylvite + $quan_Sylvite;
+            $rewardSylvite = $Sylvite + $quan_Sylvite;
 
             //INSERT POIN
             $quan_poin = $insertdatakelompok['poin'];

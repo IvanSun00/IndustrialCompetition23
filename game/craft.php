@@ -245,7 +245,7 @@ if(!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == ""){
         h1 {
             background: rgb(32,6,57);
             background: linear-gradient(90deg, rgba(66, 27, 102, 0.3) 0%, rgb(22, 8, 62) 35%, rgba(193,0,0,0.3) 100%);
-            font-size: 70px;
+            font-size: 60px;
             padding: 15px;
             border-radius: 20px;
             /* margin-top: 5px;
@@ -268,46 +268,9 @@ if(!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == ""){
             background: linear-gradient(90deg, rgba(66, 27, 102, 0.3) 0%, rgb(22, 8, 62) 35%, rgba(193,0,0,0.3) 100%);
 
         }
+        
 
-        @media screen and (max-width:375px) {
-            h1 {
-                font-size: 50px;
-            }
-            .announce {
-                font-size: 11px;
-                padding: 5px;
-            }
-            .bom {
-                width: 100%
-            }
-
-            .h2, div.bom-img, table.recipe {
-                width: 100%;
-            }
-
-            span.h2 {
-                display: block;
-                font-size: 25px;
-                font-weight: bold;
-                height: 40px;
-            }
-
-            table {
-                width: 100%;
-            }
-            table tr {
-                font-size: 18px;
-                height: 30px;
-            }
-
-            .bom1, .bom2, .bom3, .bom4, .bom5 {
-                flex-direction: column;
-            }
-
-
-
-            
-        }
+    
 
         @media screen and (max-width:640px) {
             h2, div.bom-img, table.recipe {
@@ -340,6 +303,42 @@ if(!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == ""){
 
 
         }
+        @media screen and (max-width:376px) {
+            h1 {
+                font-size: 40px;
+            }
+            .announce {
+                font-size: 11px;
+                padding: 5px;
+            }
+            .bom {
+                width: 100%
+            }
+
+            .h2, div.bom-img, table.recipe {
+                width: 100%;
+            }
+
+            span.h2 {
+                display: block;
+                font-size: 25px;
+                font-weight: bold;
+                height: 40px;
+            }
+
+            table {
+                width: 100%;
+            }
+            table tr {
+                font-size: 18px;
+                height: 30px;
+            }
+
+            .bom1, .bom2, .bom3, .bom4, .bom5 {
+                flex-direction: column;
+            }
+            
+        }
 
         @media screen and (min-width:641px){
             .bom {
@@ -358,6 +357,18 @@ if(!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == ""){
             }
             .bom-img .h2{
                 font-size: 30px;
+            }
+        }
+
+        @media screen and (min-width:850px) and (max-width: 1204px) {
+            .bom-img .h2{
+                font-size: 20px;
+            }
+        }
+
+        @media screen and (min-width:1205px) and (max-width: 1400px) {
+            .bom-img .h2{
+                font-size: 25px;
             }
         }
 
@@ -440,11 +451,12 @@ if(!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == ""){
             height: 1cm;
             z-index: 6;
             float: both;
+            overflow: auto;
             /* justify-content: start;
             align-items: center; */
         }
 
-        .nav a {
+        .nav a, .nav span {
             padding: 10px 10px;
             text-decoration: none;
             color: rgb(249, 174, 117);
@@ -462,7 +474,7 @@ if(!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == ""){
 
         .h2 {
             font-family: 'Press Start 2P', cursive;
-            font-size: 35px;
+            font-size: 25px;
             font-weight: bold;
             background-color: #fff20299;
             /* width: 100%; */
@@ -665,6 +677,21 @@ if(!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == ""){
         .jumlah{
             font-size: 15pt;
         }
+
+        @media screen and (max-width:300px){
+            .announce {
+                width: 100%;
+            }
+            span.h2{
+                font-size: 20px;
+            }
+        }
+        @media screen and(max-width:320px){
+            .nav span{
+                padding-right: 0px;
+            }
+           
+        }
     </style>
 </head>
 <body>
@@ -689,11 +716,21 @@ if(!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == ""){
 
             </div>
             <div class="section clearfix">
-                <div class="nav">
-                    <a href="craft.php">Home</a>
-                    <a href="myhistory.php">History</a>
-                    <a href="./logout.php">Logout</a>
+                <div class="nav" style="display:flex; justify-content:space-between ">
+                    <div class="sec1" style="display:flex; align-items:center">
+                        <a href="craft.php">Home</a>
+                        <a href="myhistory.php">History</a>
+                        <a href="./logout.php">Logout</a>
+                    </div>
+                    
+                <div class="sec2" style="display:flex; align-items:center; margin-left:10px;">
+                        <span>Poin: </span>
+                        <span id="i-poin"></span>
+                    </div>
                 </div>
+
+                   
+                
                 
                 <div class="bom clearfix">
                     
@@ -1203,6 +1240,40 @@ if(!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == ""){
                 }
             })
         }
+        // $konv_Ferumi = $value['qty_Ferumi'] * 100;
+        //                 $konv_Lateks = $value['qty_Lateks'] * 60;
+        //                 $konv_Timbal = $value['qty_Timbal'] * 60;
+        //                 $konv_Cuprite = $value['qty_Cuprite'] * 50;
+        //                 $konv_Karbon = $value['qty_Karbon'] * 150;
+        //                 $konv_Uvarovite = $value['qty_Uvarovite'] * 50;
+        //                 $konv_Titanium = $value['qty_Titanium'] * 150;
+        //                 $konv_Sylvite = $value['qty_Sylvite'] * 70;
+        //                 $konv_Silikon = $value['qty_Silikon'] * 70;
+        //                 $konv_Copper = $value['qty_Copper'] * 100;
+        //                 $konv_Nitrogen = $value['qty_Nitrogen'] * 60;
+        //                 $konv_Poliisoprena = $value['qty_Poliisoprena'] * 60;
+        //                 $konv_Fluorit = $value['qty_Fluorit'] * 50;
+        //                 $konv_Hematit = $value['qty_Hematit'] * 50;
+
+        function hitungPoin(kelompok){
+            var poinFerumi = kelompok.qty_Ferumi * 100;
+            var poinLateks = kelompok.qty_Lateks * 60;
+            var poinTimbal = kelompok.qty_Timbal * 60;
+            var poinCuprite = kelompok.qty_Cuprite * 50;
+            var poinKarbon = kelompok.qty_Karbon * 150;
+            var poinUvarovite = kelompok.qty_Uvarovite * 50;
+            var poinTitanium = kelompok.qty_Titanium * 150;
+            var poinSylvite = kelompok.qty_Sylvite * 70;
+            var poinSilikon = kelompok.qty_Silikon * 70;
+            var poinCopper = kelompok.qty_Copper * 100;
+            var poinNitrogen = kelompok.qty_Nitrogen * 60;
+            var poinPoliisoprena = kelompok.qty_Poliisoprena * 60;
+            var poinFluorit = kelompok.qty_Fluorit * 50;
+            var poinHematit = kelompok.qty_Hematit * 50;
+            var total = parseInt(kelompok.poin) + parseInt(poinFerumi) + parseInt(poinLateks) + parseInt(poinTimbal) + parseInt(poinCuprite) + parseInt(poinKarbon) + parseInt(poinUvarovite) + parseInt(poinTitanium) + parseInt(poinSylvite) + parseInt(poinSilikon) + parseInt(poinCopper) + parseInt(poinNitrogen) + parseInt(poinPoliisoprena) + parseInt(poinFluorit) + parseInt(poinHematit);
+            $("#i-poin").text(total);
+
+        }
         
         function getData(){
                 $.ajax({
@@ -1221,6 +1292,7 @@ if(!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == ""){
                     ubahDataBom(Kelompok,Crafting);
                     ubahDataMaterial(Kelompok);
                     jumlahCrafting(Jumlah);
+                    hitungPoin(Kelompok);
 
                 },
                 error: function(){

@@ -37,32 +37,11 @@ $day = $result['day'];
 
     <style>
         body{
-
-          /* background: rgb(166,136,203); */
-          /* background: linear-gradient(180deg, rgba(166,136,203,1) 0%, rgba(92,70,156,1) 35%, rgba(29,38,125,1) 67%, rgba(12,19,79,1) 98%); */
-          /* background-position:center ; */
-          /* background: linear-gradient(
-            50deg,
-            hsl(234deg 74% 18%) 0%,
-            hsl(234deg 70% 21%) 20%,
-            hsl(234deg 67% 25%) 29%,
-            hsl(234deg 63% 29%) 36%,
-            hsl(238deg 57% 33%) 43%,
-            hsl(244deg 49% 37%) 50%,
-            hsl(250deg 42% 41%) 57%,
-            hsl(256deg 36% 46%) 64%,
-            hsl(260deg 34% 53%) 71%,
-            hsl(263deg 36% 59%) 80%,
-            hsl(267deg 39% 66%) 100%
-            ); */
-            /* background: rgb(99, 3, 148); */
             background: linear-gradient(13deg, rgba(99, 3, 148, 1) 17%, rgba(9, 23, 55, 1) 100%);
-
-            /* background-color: #202731; */
-        background-size: cover;
-        background-repeat: no-repeat;   
-        background-attachment: fixed;
-        height: auto;
+            background-size: cover;
+            background-repeat: no-repeat;   
+            background-attachment: fixed;
+            height: auto;
         
 
 
@@ -179,7 +158,7 @@ function data(labels,data1, data2, data3){
             label: 'Cyclone',
             data: data1, 
             fill: false,
-            borderColor: 'rgb(75, 192, 192)',
+            borderColor: ' #750080',
             pointHoverBackgroundColor: 'red',
             pointHoverBorderColor: 'red',
             // tension: 0.1
@@ -189,14 +168,14 @@ function data(labels,data1, data2, data3){
             label: 'Stellar',
             data: data2, 
             fill: false,
-            borderColor: 'red',
+            borderColor: '	#E0115F',
             // tension: 0.1
         },
             {
             label: 'Cruiser',
             data: data3, 
             fill: false,
-            borderColor: 'blue',
+            borderColor: '#FF5F1F',
             // tension: 0.1
         }
     ]
@@ -211,7 +190,7 @@ function config(label, data){
         type: 'line',
         data: data,
         options: {
-            hoverRadius: 6,
+            hoverRadius: 8,
             responsive: true,
             maintainAspectRatio: false,
             plugins: {
@@ -251,20 +230,20 @@ function config(label, data){
         if($day < 14):
 ?>
 <script>
-const labels = ["day3","day4","day5","day6","day7","day8","day9","day10","day11","day12","day13","day14"];
+const labels = ["day3","day4","day5","day6","day7","day8","day9","day10","day11","day12","day13"];
 
 //separuh pertama
-const Starlight_Cyclone1 = [5,4,3,3,5,4,5,4,3,1,1,1];
-const Starlight_Stellar1 = [2,2,2,2,2,3,2,1,2,1,2,1];
-const Starlight_Cruiser1 = [1,1,1,2,2,3,1,2,1,3,2,2];
+const Starlight_Cruiser1 = [2,1,1,3,3,1,2,1,2,3,1];
+const Starlight_Stellar1 = [1,5,3,1,1,3,1,2,1,1,1];
+const Starlight_Cyclone1 = [3,1,3,3,4,5,4,4,3,1,3];
 
-const Celestial_Cyclone1 = [7,4,4,5,5,5,4,3,2,3,2,1];
-const Celestial_Stellar1 = [1,2,3,2,3,3,3,1,1,2,2,2];
-const Celestial_Cruiser1 = [1,2,1,1,2,2,2,3,4,1,2,2];
+const Celestial_Cruiser1 = [1,1,1,2,2,3,1,2,1,3,2];
+const Celestial_Stellar1 = [2,2,2,2,2,3,2,1,2,1,2];
+const Celestial_Cyclone1 = [5,4,3,3,5,4,5,4,3,1,1];
 
-const Starry_Cyclone1 = [3,1,3,3,4,5,4,4,3,1,3,1];
-const Starry_Stellar1 = [1,5,3,1,1,3,1,2,1,1,1,2];
-const Starry_Cruiser1 = [2,1,1,3,3,1,2,1,2,3,1,1];
+const Starry_Cruiser1 = [1,2,1,1,2,2,2,3,4,1,2];
+const Starry_Stellar1 = [1,2,3,2,3,3,3,1,1,2,2];
+const Starry_Cyclone1 = [7,4,4,5,5,5,4,3,2,3,2];
 
 // isi data
 const dataStarlight1 = data(labels, Starlight_Cyclone1, Starlight_Stellar1, Starlight_Cruiser1);
@@ -296,20 +275,20 @@ var myChart = new Chart(
         elseif($day >= 14):
 ?>
 <script>
-const labels2 = ["day15","day16","day17","day18","day19","day20","day21","day22","day23","day24","day25","day26","day27","day28","day29","day30","day31","day32","day33","day34"];
+const labels2 = ["day14","day15","day16","day17","day18","day19","day20","day21","day22","day23","day24","day25","day26"];
     
 //separuh kedua
-const Starlight_Cyclone2 = [1,1,3,4,3,2,3,1,3,4,4,3,4,3,3,5,5,1,2,1];
-const Starlight_Stellar2 = [5,3,3,2,2,1,1,1,4,3,2,2,4,5,3,2,2,3,2,1];
-const Starlight_Cruiser2 = [1,3,2,1,1,2,1,2,1,1,1,1,1,2,2,1,0,1,1,3];
+const Starlight_Cruiser2 = [1,1,2,1,2,2,2,1,1,3,2,1,1];
+const Starlight_Stellar2 = [2,4,3,1,1,1,1,1,2,1,1,1,2];
+const Starlight_Cyclone2 = [1,2,2,4,3,4,2,3,2,3,4,5,3];
 
-const Celestial_Cyclone2 = [4,3,1,3,3,2,1,1,4,1,4,3,2,5,6,5,1,3,1,3];
-const Celestial_Stellar2 = [3,4,2,1,2,1,3,2,2,2,1,3,5,2,1,2,5,2,3,2];
-const Celestial_Cruiser2 = [1,1,5,3,2,3,1,2,2,4,3,2,3,2,1,1,1,1,1,1];
+const Celestial_Cruiser2 = [2,1,3,2,1,1,2,1,2,1,1,1,1];
+const Celestial_Stellar2 = [1,5,3,3,2,2,1,1,1,4,3,2,2];
+const Celestial_Cyclone2 = [1,1,1,3,4,3,2,3,1,3,4,4,3];
 
-const Starry_Cyclone2 = [2,2,4,3,4,2,3,2,3,4,5,3,5,5,3,3,2,2,1,2];
-const Starry_Stellar2 = [4,3,1,1,1,1,1,2,1,1,1,2,1,1,2,3,3,2,3,1];
-const Starry_Cruiser2 = [1,2,1,2,2,2,1,1,3,2,1,1,2,3,2,1,2,1,1,2];
+const Starry_Cruiser2 = [2,1,1,5,3,2,3,1,2,2,4,3,2];
+const Starry_Stellar2 = [2,3,4,2,1,2,1,3,2,2,2,1,3];
+const Starry_Cyclone2 = [1,4,3,1,3,3,2,1,1,4,1,4,3];
 
 // isi data
 const dataStarlight2 = data(labels2, Starlight_Cyclone2, Starlight_Stellar2, Starlight_Cruiser2);

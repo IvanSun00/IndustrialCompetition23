@@ -11,7 +11,7 @@ if(!isset($_SESSION['nrp_admin']) || $_SESSION['nrp_admin'] == ""){
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
+    <title>Delivery</title>
 
     <!-- font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -63,7 +63,7 @@ if(!isset($_SESSION['nrp_admin']) || $_SESSION['nrp_admin'] == ""){
     </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
         <div class="container-fluid">
             <a class="navbar-brand d-flex align-items-center" href="#">
                 <img src="../../assets/Logo Putih.png" alt="" width="30" height="30" class="d-inline-block align-text-top">
@@ -86,6 +86,12 @@ if(!isset($_SESSION['nrp_admin']) || $_SESSION['nrp_admin'] == ""){
                 <li class="nav-item">
                         <a class="nav-link" href="news.php">News</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="DealAdmin/">Deal</a>
+                </li>
+                <li class="nav-item">
+                        <a class="nav-link " href="rank.php">Rank</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link text-danger " href="api/logout.php">Logout</a>
                 </li>

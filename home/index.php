@@ -285,6 +285,31 @@
         <div class="swiper mySwiper">
 
             <div class="swiper-wrapper">
+                <div class="card swiper-slide">
+                    <div class="card__image">
+                        <img src="assets/information3.png" alt="card image">
+                    </div>
+
+                    <div class="card__content">
+                        <span class="card__title">Modul Babak 1</span>
+                        <span class="card__name">Modul Babak 1</span>
+                        <p class="card__text">Klik link di bawah ini untuk melihat modul babak 1 IC 2023</p>
+                        <a href="https://drive.google.com/file/d/1tWFAFH9kWrTX41fEHEs-w3IpB9xEA-Hk/view?usp=drivesdk" target="_blank"><button class="card__btn">Lihat Modul Babak 1</button></a>
+                    </div>
+                </div>
+
+                <div class="card swiper-slide">
+                    <div class="card__image">
+                        <img src="assets/information3.png" alt="card image">
+                    </div>
+
+                    <div class="card__content">
+                        <span class="card__title">Modul Babak 2</span>
+                        <span class="card__name">Modul Babak 2</span>
+                        <p class="card__text">Klik link di bawah ini untuk melihat modul babak 2 IC 2023</p>
+                        <a href="https://drive.google.com/file/d/1AMRxrmB1-ZiXZURVw_M4WtIYFK5_t810/view?usp=drive_link" target="_blank"><button class="card__btn">Lihat Modul Babak 1</button></a>
+                    </div>
+                </div>
 
                 <div class="card swiper-slide">
                     <div class="card__image">
@@ -296,20 +321,6 @@
                         <span class="card__name">Peraturan IC 2023</span>
                         <p class="card__text">Klik link di bawah ini untuk melihat peraturan IC 2023</p>
                         <a href="https://drive.google.com/file/d/1ROOnda9ey09Dh-uTSKhDxW8raNWstb2s/view?usp=drivesdk" target="_blank"><button class="card__btn">Lihat Peraturan</button></a>
-                    </div>
-                </div>
-
-
-                <div class="card swiper-slide">
-                    <div class="card__image">
-                        <img src="assets/information3.png" alt="card image">
-                    </div>
-
-                    <div class="card__content">
-                        <span class="card__title">Modul Babak 1</span>
-                        <span class="card__name">Modul Babak 1</span>
-                        <p class="card__text">Klik link di bawah ini untuk melihat modul babak 1 IC 2023</p>
-                        <a href="https://drive.google.com/file/d/1tWFAFH9kWrTX41fEHEs-w3IpB9xEA-Hk/view?usp=drivesdk" target="_blank"><button class="card__btn">Lihat Modul Babak 1</button></a>
                     </div>
                 </div>
             </div>
@@ -500,27 +511,27 @@
         }
 
         window.addEventListener('scroll', handleScroll);
-        
+
 
         // Swiper
-        // var swiper = new Swiper(".mySwiper", {
-        //     loop: false,
-        //     initialSlide: 0,
-        //     effect: "coverflow",
-        //     grabCursor: true,
-        //     centeredSlides: true,
-        //     slidesPerView: "auto",
-        //     coverflowEffect: {
-        //         rotate: 0,
-        //         stretch: 0,
-        //         depth: 300,
-        //         modifier: 1,
-        //         slideShadows: false,
-        //     },
-        //     pagination: {
-        //         el: ".swiper-pagination",
-        //     },
-        // });
+        var swiper = new Swiper(".mySwiper", {
+            loop: false,
+            initialSlide: 1,
+            effect: "coverflow",
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: "auto",
+            coverflowEffect: {
+                rotate: 20,
+                stretch: -30,
+                depth: 300,
+                modifier: 1,
+                slideShadows: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+            },
+        });
 
 
         // GALLERY

@@ -1,6 +1,6 @@
 <?php
 include '../../../connect.php';
-
+$_SESSION['delay'] = true;
 //POS MENANG
 if (isset($_POST["submitmenang"])) {
     if ($_SESSION['pickpos'] == true) {
@@ -522,7 +522,7 @@ if (isset($_POST["submitmenang"])) {
             $quan_Sylvite = $insertdatakelompok['qty_Sylvite'];
 
             $rewardKarbon = $Karbon + $quan_Karbon;
-            $rewardkarbon = $Sylvite + $quan_Sylvite;
+            $rewardSylvite = $Sylvite + $quan_Sylvite;
             $quan_poin = $insertdatakelompok['poin'];
             //INSERT POIN
             $stmtpoin = $conn->prepare("SELECT poin FROM game_hadiahmenang WHERE id_post=10");
