@@ -1,6 +1,6 @@
 <?php
 include '../../../connect.php';
-
+$_SESSION['delay'] = true;
 //POS MENANG
 if (isset($_POST["submitkalah"])) {
     if ($_SESSION['pickpos'] == true) {
