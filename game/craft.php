@@ -245,7 +245,7 @@ if(!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == ""){
         h1 {
             background: rgb(32,6,57);
             background: linear-gradient(90deg, rgba(66, 27, 102, 0.3) 0%, rgb(22, 8, 62) 35%, rgba(193,0,0,0.3) 100%);
-            font-size: 70px;
+            font-size: 60px;
             padding: 15px;
             border-radius: 20px;
             /* margin-top: 5px;
@@ -268,46 +268,9 @@ if(!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == ""){
             background: linear-gradient(90deg, rgba(66, 27, 102, 0.3) 0%, rgb(22, 8, 62) 35%, rgba(193,0,0,0.3) 100%);
 
         }
+        
 
-        @media screen and (max-width:375px) {
-            h1 {
-                font-size: 50px;
-            }
-            .announce {
-                font-size: 11px;
-                padding: 5px;
-            }
-            .bom {
-                width: 100%
-            }
-
-            .h2, div.bom-img, table.recipe {
-                width: 100%;
-            }
-
-            span.h2 {
-                display: block;
-                font-size: 25px;
-                font-weight: bold;
-                height: 40px;
-            }
-
-            table {
-                width: 100%;
-            }
-            table tr {
-                font-size: 18px;
-                height: 30px;
-            }
-
-            .bom1, .bom2, .bom3, .bom4, .bom5 {
-                flex-direction: column;
-            }
-
-
-
-            
-        }
+    
 
         @media screen and (max-width:640px) {
             h2, div.bom-img, table.recipe {
@@ -340,6 +303,42 @@ if(!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == ""){
 
 
         }
+        @media screen and (max-width:376px) {
+            h1 {
+                font-size: 40px;
+            }
+            .announce {
+                font-size: 11px;
+                padding: 5px;
+            }
+            .bom {
+                width: 100%
+            }
+
+            .h2, div.bom-img, table.recipe {
+                width: 100%;
+            }
+
+            span.h2 {
+                display: block;
+                font-size: 25px;
+                font-weight: bold;
+                height: 40px;
+            }
+
+            table {
+                width: 100%;
+            }
+            table tr {
+                font-size: 18px;
+                height: 30px;
+            }
+
+            .bom1, .bom2, .bom3, .bom4, .bom5 {
+                flex-direction: column;
+            }
+            
+        }
 
         @media screen and (min-width:641px){
             .bom {
@@ -358,6 +357,18 @@ if(!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == ""){
             }
             .bom-img .h2{
                 font-size: 30px;
+            }
+        }
+
+        @media screen and (min-width:850px) and (max-width: 1204px) {
+            .bom-img .h2{
+                font-size: 20px;
+            }
+        }
+
+        @media screen and (min-width:1205px) and (max-width: 1400px) {
+            .bom-img .h2{
+                font-size: 25px;
             }
         }
 
@@ -462,7 +473,7 @@ if(!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == ""){
 
         .h2 {
             font-family: 'Press Start 2P', cursive;
-            font-size: 35px;
+            font-size: 25px;
             font-weight: bold;
             background-color: #fff20299;
             /* width: 100%; */
@@ -664,6 +675,15 @@ if(!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == ""){
         
         .jumlah{
             font-size: 15pt;
+        }
+
+        @media screen and (max-width:300px){
+            .announce {
+                width: 100%;
+            }
+            span.h2{
+                font-size: 20px;
+            }
         }
     </style>
 </head>

@@ -129,7 +129,7 @@ $dataHistory = $stmt->fetchAll();
     <div class="luaran">
         <div class="container">
             <h1 style="text-align: center;">My History</h1>
-            <table id="history"  class="">
+            <table id="history"  class="display" style="width: 100%;" >
                 <thead>
                     <tr>
                         <th>Nama Post</th>
@@ -239,7 +239,7 @@ $(document).ready(function() {
         // "pagingType": "full_numbers",
         "searching":false,
         "order": [],
-        // "scrollX": true, // Enable horizontal scrolling
+        "scrollX": true, // Enable horizontal scrolling
         responsive: true,
     });
 } );
