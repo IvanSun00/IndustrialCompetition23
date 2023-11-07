@@ -1282,7 +1282,7 @@ if(!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == ""){
                 dataType: "json",
                 data: {for: "getData"}, //untuk ambil data session langsung di backend
                 success: function(res) {
-                    console.log(res);
+                    // console.log(res);
                     // console.log(res.dataKelompok.qty_Ferumi)
                 
                     //ubah data
