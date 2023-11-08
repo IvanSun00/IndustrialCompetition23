@@ -14,6 +14,7 @@ if (isset($_POST['submit-balance']) && isset($_SESSION['balance_now']) && isset(
     
     if($quang4->rowCount() == 1){
         $_SESSION['alert'] = "berhasil";
+        $_SESSION['input_uang_success'] = "success";
     }else{
         $_SESSION['alert'] = "gagal";
     }
