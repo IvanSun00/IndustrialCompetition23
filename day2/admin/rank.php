@@ -81,7 +81,7 @@ $rank = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <table id="rank"  class="display" style="width:100%;" >
     <thead>
         <tr>
-            <th>#</th>
+
             <th>Nama Kelompok</th>
             <th>Uang</th>
             <th>Sertifikasi</th>
@@ -94,7 +94,6 @@ $rank = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     continue;
                 }
                 echo "<tr>";
-                echo "<td>" . ($key+1) . "</td>";
                 echo "<td>" . $value['nama'] . "</td>";
                 echo "<td>" . $value['uang'] . "</td>";
                 echo "<td>" . $value['sertifikasi'] . "</td>";
@@ -112,6 +111,7 @@ $rank = $stmt->fetchAll(PDO::FETCH_ASSOC);
     $(document).ready(function() {
         $('#rank').DataTable({
             ordering: false,
+            paging:false,
             responsive: true,
             "scrollX": true, // Enable horizontal scrolling
             
