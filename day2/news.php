@@ -5,6 +5,12 @@ if(!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == ""){
     header("Location: index.php");
     exit;
 }
+// fetch day
+$sql = "SELECT * from day2_day where id =1";
+$stmt = $conn->prepare($sql);
+$stmt->execute();
+$data = $stmt->fetch();
+$day = $data['day'];
 ?>
 
 <!DOCTYPE html>
@@ -224,7 +230,7 @@ if(!isset($_SESSION['nama_kelompok']) || $_SESSION['nama_kelompok'] == ""){
                 <div>
                     <?php
                         $sql = "SELECT * 
-                        FROM day2_news N
+                        FROM day2_news N where day<= $day
                         ORDER BY N.day DESC";
                     $result = $con->query($sql);
                     $previousDay = 0; // Membuat variabel untuk melacak hari sebelumnya
