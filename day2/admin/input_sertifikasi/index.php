@@ -195,9 +195,9 @@ if(isset($_SESSION['namekel_day2'])){
                 if (isset($_SESSION['alert'])) {
                     if ($_SESSION['alert'] = "berhasil") {
                         unset($_SESSION['alert']);
-                        echo '<div class="alert alert-success" role="alert">
-                            Input uang berhasil
-                        </div>';
+                        echo "<div class='alert alert-success' role='alert'>
+                            Input uang sebesar" . $_POST['input-balance'] . "berhasil" .
+                        "</div>";
                     } else if ($_SESSION['alert'] = "gagal") {
                         unset($_SESSION['alert']);
                         echo '<div class="alert alert-danger" role="alert">
