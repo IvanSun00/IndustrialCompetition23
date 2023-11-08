@@ -213,6 +213,12 @@ if(isset($_SESSION['namekel_day2'])){
                     <button type="submit" value="submit" class="btn btn-primary mt-3" name="submit-balance" id="submit-balance">Submit</button>
                 </div>
             </form>
+            <?php if (isset($_SESSION['input_uang_success']) && $_SESSION['input_uang_success'] = "success") { ?> 
+                <script>
+                Swal.fire("Input uang berhasil");
+                </script>
+                <?php unset($_SESSION['input_uang_success']) ?>
+            <?php } ?>
         </div>
     </section>
 
