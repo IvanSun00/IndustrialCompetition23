@@ -1,6 +1,6 @@
 <?php
 require_once ("../../connect.php");
-$sql = "SELECT * FROM `day2_kelompok` ORDER BY uang,sertifikasi DESC";
+$sql = "SELECT * FROM `day2_kelompok` ORDER BY uang DESC,sertifikasi DESC";
 $stmt = $conn->prepare($sql);
 $stmt->execute();
 $rank = $stmt->fetchAll(PDO::FETCH_ASSOC);
