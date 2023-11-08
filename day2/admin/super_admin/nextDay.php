@@ -194,7 +194,7 @@ if (isset($_GET['change'])) {
                         if ($jumlahBidders == 1) {
                             $cariWinner = "SELECT kf.id_kelompok 
                             FROM day2_kelompok_fixed AS kf
-                            WHERE kf.id_fixed = $idBid";
+                            WHERE kf.id_fixed = $idFixed";
 
                             $winnerResult = mysqli_query($con, $cariWinner);
                             if ($winnerResult) {
