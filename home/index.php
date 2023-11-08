@@ -307,7 +307,7 @@
                         <span class="card__title">Modul Babak 2</span>
                         <span class="card__name">Modul Babak 2</span>
                         <p class="card__text">Klik link di bawah ini untuk melihat modul babak 2 IC 2023</p>
-                        <a href="https://drive.google.com/file/d/1AMRxrmB1-ZiXZURVw_M4WtIYFK5_t810/view?usp=drive_link" target="_blank"><button class="card__btn">Lihat Modul Babak 1</button></a>
+                        <a href="https://drive.google.com/file/d/1AMRxrmB1-ZiXZURVw_M4WtIYFK5_t810/view?usp=drive_link" target="_blank"><button class="card__btn">Lihat Modul Babak 2</button></a>
                     </div>
                 </div>
 

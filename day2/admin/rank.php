@@ -61,6 +61,9 @@ $rank = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <a class="nav-link" href="DealAdmin/">Deal</a>
                 </li>
                 <li class="nav-item">
+                        <a class="nav-link " href="demand.php">DemandTable</a>
+                    </li>
+                <li class="nav-item">
                         <a class="nav-link active" href="rank.php">Rank</a>
                 </li>
                 <li class="nav-item">
@@ -87,6 +90,9 @@ $rank = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <tbody>
         <?php
             foreach($rank as $key => $value){
+                if($value['nama'] == "dummy"){
+                    continue;
+                }
                 echo "<tr>";
                 echo "<td>" . ($key+1) . "</td>";
                 echo "<td>" . $value['nama'] . "</td>";

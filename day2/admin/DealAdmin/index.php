@@ -182,6 +182,9 @@
                         <a class="nav-link active" href="./">Deal</a>
                 </li>
                 <li class="nav-item">
+                        <a class="nav-link " href="../demand.php">DemandTable</a>
+                    </li>
+                <li class="nav-item">
                         <a class="nav-link " href="../rank.php">Rank</a>
                 </li>
                 <li class="nav-item">

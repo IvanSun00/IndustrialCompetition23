@@ -105,13 +105,13 @@ $day = $result['day'];
     <div style=" padding: 2%;" class="containers mt-sm-3 mt-4">
 
         <?php
-        if($day < 14):
+        if($day < 13):
         ?>
         <canvas width="600px" height="250px" id="Starlight"></canvas>
         <canvas width="600px" height="250px" id="Celestial"></canvas>   
         <canvas width="600px" height="250px" id="Starry"  ></canvas>
         <?php
-        elseif($day >= 14):
+        elseif($day >= 13):
         ?>
         
         <canvas width="600px" height="250px" id="Starlight2"></canvas>
@@ -158,7 +158,7 @@ function data(labels,data1, data2, data3){
             label: 'Cyclone',
             data: data1, 
             fill: false,
-            borderColor: ' #750080',
+            borderColor: '#f5895b', //orange
             pointHoverBackgroundColor: 'red',
             pointHoverBorderColor: 'red',
             // tension: 0.1
@@ -168,14 +168,14 @@ function data(labels,data1, data2, data3){
             label: 'Stellar',
             data: data2, 
             fill: false,
-            borderColor: '	#E0115F',
+            borderColor: '#ed72af', //pink
             // tension: 0.1
         },
             {
             label: 'Cruiser',
             data: data3, 
             fill: false,
-            borderColor: '#FF5F1F',
+            borderColor: '#9d5bd9', //ungu
             // tension: 0.1
         }
     ]
@@ -227,7 +227,7 @@ function config(label, data){
 
 <!-- bagian 1 -->
 <?php
-        if($day < 14):
+        if($day < 13):
 ?>
 <script>
 const labels = ["day3","day4","day5","day6","day7","day8","day9","day10","day11","day12","day13"];
@@ -272,7 +272,7 @@ var myChart = new Chart(
 
 <!--bagian 2 -->
 <?php
-        elseif($day >= 14):
+        elseif($day >= 13):
 ?>
 <script>
 const labels2 = ["day14","day15","day16","day17","day18","day19","day20","day21","day22","day23","day24","day25","day26"];
