@@ -57,6 +57,15 @@ if($_SERVER['REQUEST_METHOD']== "POST"){
                         $response['bidData'] = $databid;
                     }
 
+                    // ambil harga bid dari day2_kelompok_bid column harga
+                    $sql = "Select * from day2_kelompok_bid where id_kelompok = ? and id_bid = ?";
+                    $stmt = $conn->prepare($sql);
+                    $stmt->execute([$data['id_kelompok'],$databid['id']]);
+                    $hargabid = $stmt->fetch();
+                    if($hargabid){
+                        $response['hargaBid'] = $hargabid;
+                    }
+
                 }elseif($data['type']== 1){
                     // ambil data fixed
                     $sql = "SELECT * from day2_fixed where no= ?";

@@ -215,7 +215,7 @@ if(!isset($_SESSION['nrp_admin']) || $_SESSION['nrp_admin'] == ""){
                             
                             <div class="input-late row gy-2 mt-3">
                             <div class="alert alert-primary" role="alert">
-                                    ${res.msg}
+                                    ${res.msg} dengan harga: ${res.hargaBid.harga}
                                 </div>
                                 <input type="hidden" name="BidId" id="BidId" value="${res.data.id}">
                                 <label for="late" class="col-sm-2">Late: </label>
