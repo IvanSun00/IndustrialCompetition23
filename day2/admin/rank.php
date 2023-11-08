@@ -112,6 +112,7 @@ $rank = $stmt->fetchAll(PDO::FETCH_ASSOC);
     $(document).ready(function() {
         $('#rank').DataTable({
             ordering: false,
+            paging:false,
             responsive: true,
             "scrollX": true, // Enable horizontal scrolling
             
