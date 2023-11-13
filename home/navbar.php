@@ -206,7 +206,7 @@
     </ul>
 
     <div class="main">
-        <a href="../pendaftaran/login.php" class="user"><i class="ri-user-fill"></i>Sign In</a>
+        <a href="../credits" class="user"><i class="ri-user-fill"></i>Credit</a>
         <a href="../pendaftaran/index2.php">Register</a>
         <div class="bx bx-menu" id="menu-icon"></div>
     </div>
