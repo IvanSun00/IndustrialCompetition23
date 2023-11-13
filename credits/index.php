@@ -173,7 +173,7 @@
             effect: "cards",
             grabCursor: true,
         });
-    </script>m ,   
+    </script>
 </body>
 
 </html>
